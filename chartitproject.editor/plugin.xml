@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated chartitproject -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="chartitproject.presentation.ChartitprojectModelWizardID"
+            name="%_UI_ChartitprojectModelWizard_label"
+            class="chartitproject.presentation.ChartitprojectModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ChartitprojectModelFile.gif">
+         <description>%_UI_ChartitprojectModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated chartitproject -->
+      <editor
+            id="chartitproject.presentation.ChartitprojectEditorID"
+            name="%_UI_ChartitprojectEditor_label"
+            icon="icons/full/obj16/ChartitprojectModelFile.gif"
+            extensions="chartitproject"
+            class="chartitproject.presentation.ChartitprojectEditor"
+            contributorClass="chartitproject.presentation.ChartitprojectActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

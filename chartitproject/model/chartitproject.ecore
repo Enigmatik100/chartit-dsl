@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="chartitproject" nsURI="http://www.example.org/chartitproject"
+    nsPrefix="chartitproject">
+  <eClassifiers xsi:type="ecore:EClass" name="Program">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="chart" lowerBound="1" upperBound="-1"
+        eType="#//Chart" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="CsvFile" lowerBound="1"
+        eType="#//DataFile" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataFile">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filePath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasHeader" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="UsedColumn" lowerBound="1"
+        upperBound="-1" eType="#//Column" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="hasType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="separator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Column">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//CompOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightElement" lowerBound="1"
+        eType="#//Constant" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftElement" lowerBound="1"
+        eType="#//ColumnRef" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chart">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ChartType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xVariable" upperBound="-1"
+        eType="#//ColumnRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="yVariable" upperBound="-1"
+        eType="#//ColumnRef" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Filter" upperBound="-1"
+        eType="#//Condition" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ChartType">
+    <eLiterals name="BAR"/>
+    <eLiterals name="PIE" value="1"/>
+    <eLiterals name="SCATTER" value="2"/>
+    <eLiterals name="LINE" value="3"/>
+    <eLiterals name="MIXED" value="4"/>
+    <eLiterals name="BUBBLE" value="5"/>
+    <eLiterals name="RADAR" value="6"/>
+    <eLiterals name="AREA" value="7"/>
+    <eLiterals name="DONUT" value="8"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CompOperator">
+    <eLiterals name="EQUAL"/>
+    <eLiterals name="GREATER" value="1"/>
+    <eLiterals name="LESS" value="2"/>
+    <eLiterals name="NOT_EQUAL" value="3"/>
+    <eLiterals name="GREATER_OR_EQUAL" value="4"/>
+    <eLiterals name="LESS_OR_EQUAL" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constant" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="ColDataType">
+    <eLiterals name="STRING"/>
+    <eLiterals name="INTEGER" value="1"/>
+    <eLiterals name="DOUBLE" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntVariable" eSuperTypes="#//Constant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringVariable" eSuperTypes="#//Constant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DoubleVariable" eSuperTypes="#//Constant">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColumnRef">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="makeRefTo" lowerBound="1"
+        eType="#//Column"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/chartitproject/src-gen" creationIcons="false"
+    editDirectory="/chartitproject.edit/src-gen" editorDirectory="/chartitproject.editor/src-gen"
+    modelPluginID="chartitproject" modelName="Chartitproject" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>chartitproject.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Chartitproject" disposableProviderFactory="true" ecorePackage="chartitproject.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="chartitproject.ecore#//ChartType">
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ChartType/BAR"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ChartType/PIE"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ChartType/SCATTER"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ChartType/LINE"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ChartType/MIXED"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ChartType/BUBBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ChartType/RADAR"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ChartType/AREA"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ChartType/DONUT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="chartitproject.ecore#//CompOperator">
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//CompOperator/EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//CompOperator/GREATER"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//CompOperator/LESS"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//CompOperator/NOT_EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//CompOperator/GREATER_OR_EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//CompOperator/LESS_OR_EQUAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="chartitproject.ecore#//ColDataType">
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ColDataType/STRING"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ColDataType/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="chartitproject.ecore#//ColDataType/DOUBLE"/>
+    </genEnums>
+    <genClasses ecoreClass="chartitproject.ecore#//Program">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//Program/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chartitproject.ecore#//Program/chart"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chartitproject.ecore#//Program/CsvFile"/>
+    </genClasses>
+    <genClasses ecoreClass="chartitproject.ecore#//DataFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//DataFile/filePath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//DataFile/hasHeader"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chartitproject.ecore#//DataFile/UsedColumn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//DataFile/hasType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//DataFile/separator"/>
+    </genClasses>
+    <genClasses ecoreClass="chartitproject.ecore#//Column">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//Column/index"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//Column/name"/>
+    </genClasses>
+    <genClasses ecoreClass="chartitproject.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//Condition/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chartitproject.ecore#//Condition/rightElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chartitproject.ecore#//Condition/leftElement"/>
+    </genClasses>
+    <genClasses ecoreClass="chartitproject.ecore#//Chart">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//Chart/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//Chart/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chartitproject.ecore#//Chart/xVariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chartitproject.ecore#//Chart/yVariable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference chartitproject.ecore#//Chart/Filter"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="chartitproject.ecore#//Constant"/>
+    <genClasses ecoreClass="chartitproject.ecore#//IntVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//IntVariable/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="chartitproject.ecore#//StringVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//StringVariable/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="chartitproject.ecore#//DoubleVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute chartitproject.ecore#//DoubleVariable/initialValue"/>
+    </genClasses>
+    <genClasses ecoreClass="chartitproject.ecore#//ColumnRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference chartitproject.ecore#//ColumnRef/makeRefTo"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
