@@ -26,8 +26,11 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
@@ -50,27 +53,9 @@ public class ChartDslGenerator extends AbstractGenerator {
     final String filePath = root.getCsvFile().getFilePath();
     final EList<Column> columns = root.getCsvFile().getUsedColumn();
     final EList<Chart> charts = root.getChart();
-    ArrayList<ArrayList<String>> list = this.readCSV(filePath, csvDelimiter, commonDefaultMissingValue);
-    StringBuilder content = new StringBuilder("");
-    for (int i = 0; (i < list.size()); i++) {
-      {
-        StringBuilder sb = new StringBuilder();
-        for (int j = 0; (j < list.get(i).size()); j++) {
-          {
-            boolean _isEmpty = sb.toString().isEmpty();
-            boolean _not = (!_isEmpty);
-            if (_not) {
-              sb.append(", ");
-            }
-            sb.append(list.get(i).get(j));
-          }
-        }
-        sb.append("\n");
-        content.append(sb);
-      }
-    }
-    final String jsonData = this.createJsonData(list, columns, csvDelimiter, commonDefaultMissingValue);
-    final String jsScript = this.generateGraphJsScript(charts.get(0));
+    ArrayList<ArrayList<String>> fileData = this.readCSV(filePath, csvDelimiter, commonDefaultMissingValue);
+    ArrayList<String> headers = fileData.get(0);
+    final String jsonData = this.createJsonData(fileData, columns, csvDelimiter, commonDefaultMissingValue);
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<!DOCTYPE html>");
     _builder.newLine();
@@ -118,73 +103,64 @@ public class ChartDslGenerator extends AbstractGenerator {
     _builder.append("    ");
     _builder.append("}");
     _builder.newLine();
-    _builder.append("section {");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("height: 100%;");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("padding: 0;");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("margin: 0;");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("display: flex;");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("align-items: center;");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("justify-content: center;");
-    _builder.newLine();
-    _builder.append("} ");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("#chartCard {");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("width:auto;");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("background: rgba(255, 255, 255, 1);");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("display: flex;");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("align-items: center; ");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("justify-content: center;");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("flex-wrap: wrap;");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append(".myChartBox{");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("width: 700px;");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("padding:20px;");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("border: solid 3px rgba(232, 244, 248, 1);");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("background: white;");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("}");
-    _builder.newLine();
+    {
+      int _size = charts.size();
+      boolean _greaterThan = (_size > 1);
+      if (_greaterThan) {
+        _builder.append("#chartCard {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("width:auto;");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("background: rgba(255, 255, 255, 1);");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("display: flex;");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("align-items: center; ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("justify-content: center;");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("flex-wrap: wrap;");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
+        _builder.newLine();
+        _builder.append(".myChartBox{");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("width: 800px;");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("padding:5px 15px;");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("border: solid 3px rgba(232, 244, 248, 1);");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("background: white;");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
+      } else {
+        _builder.append("#chartCard {");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("margin: 0px 100px;");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("background: rgba(255, 255, 255, 1);");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("}");
+        _builder.newLine();
+      }
+    }
     _builder.append("   ");
     _builder.append("</style> ");
     _builder.newLine();
@@ -241,13 +217,16 @@ public class ChartDslGenerator extends AbstractGenerator {
     _builder.append("// filter data\t\t\t");
     _builder.newLine();
     {
-      for(final Chart chart : charts) {
+      int _size_1 = charts.size();
+      int _minus = (_size_1 - 1);
+      IntegerRange _upTo = new IntegerRange(0, _minus);
+      for(final Integer i : _upTo) {
         {
-          int _size = chart.getFilter().size();
-          boolean _greaterThan = (_size > 0);
-          if (_greaterThan) {
+          int _size_2 = charts.get((i).intValue()).getFilter().size();
+          boolean _greaterThan_1 = (_size_2 > 0);
+          if (_greaterThan_1) {
             _builder.append("\t");
-            String _filteredData = this.filteredData(chart);
+            String _filteredData = this.filteredData(charts.get((i).intValue()), (i).intValue());
             _builder.append(_filteredData, "\t");
             _builder.newLineIfNotEmpty();
           }
@@ -261,9 +240,11 @@ public class ChartDslGenerator extends AbstractGenerator {
     _builder.append("\t");
     _builder.newLine();
     {
-      for(final Chart chart_1 : charts) {
+      int _size_3 = charts.size();
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _size_3, true);
+      for(final Integer i_1 : _doubleDotLessThan) {
         _builder.append("\t");
-        String _generateGraphJsScript = this.generateGraphJsScript(chart_1);
+        String _generateGraphJsScript = this.generateGraphJsScript(charts.get((i_1).intValue()), headers, (i_1).intValue());
         _builder.append(_generateGraphJsScript, "\t");
         _builder.newLineIfNotEmpty();
       }
@@ -276,25 +257,29 @@ public class ChartDslGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("</html>");
     _builder.newLine();
-    String html = _builder.toString();
-    fsa.generateFile((program + ".html"), html);
+    String pageContent = _builder.toString();
+    fsa.generateFile("chart.html", pageContent);
   }
   
   public List<String> generateChartIdName(final EList<Chart> charts) {
     List<String> idsName = new ArrayList<String>();
-    for (final Chart chart : charts) {
+    int _size = charts.size();
+    int _minus = (_size - 1);
+    IntegerRange _upTo = new IntegerRange(0, _minus);
+    for (final Integer i : _upTo) {
       {
-        String type = chart.getType().getName().toLowerCase();
+        String type = charts.get((i).intValue()).getType().getName().toLowerCase();
         String _upperCase = type.substring(0, 1).toUpperCase();
         String _substring = type.substring(1);
-        String id = (_upperCase + _substring);
+        String _plus = (_upperCase + _substring);
+        String id = (_plus + i);
         idsName.add(id);
       }
     }
     return idsName;
   }
   
-  public String filteredData(final Chart chart) {
+  public String filteredData(final Chart chart, final int index) {
     final Map<String, String> compOperators = new HashMap<String, String>();
     compOperators.put("GREATER", ">");
     compOperators.put("LESS", "<");
@@ -334,6 +319,7 @@ public class ChartDslGenerator extends AbstractGenerator {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("const filteredData");
     _builder.append(camelType);
+    _builder.append(index);
     _builder.append(" = data.filter(row => {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -354,8 +340,8 @@ public class ChartDslGenerator extends AbstractGenerator {
     return filteredDataScript;
   }
   
-  public String generateGraphJsScript(final Chart chart) {
-    String xAxis = chart.getXVariable().get(0).getMakeRefTo().getName();
+  public String generateGraphJsScript(final Chart chart, final ArrayList<String> headers, final int index) {
+    ColumnRef xAxis = chart.getXVariable().get(0);
     EList<ColumnRef> yAxises = chart.getYVariable();
     String type = chart.getType().getName().toLowerCase();
     int _size = chart.getFilter().size();
@@ -368,6 +354,7 @@ public class ChartDslGenerator extends AbstractGenerator {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("filteredData");
       _builder.append(camelType);
+      _builder.append(index);
       _xifexpression = _builder.toString();
     } else {
       _xifexpression = "data";
@@ -379,6 +366,7 @@ public class ChartDslGenerator extends AbstractGenerator {
     _builder_1.append("    ");
     _builder_1.append("document.getElementById(\'myChart");
     _builder_1.append(camelType, "    ");
+    _builder_1.append(index, "    ");
     _builder_1.append("\'),");
     _builder_1.newLineIfNotEmpty();
     _builder_1.append("    ");
@@ -396,7 +384,8 @@ public class ChartDslGenerator extends AbstractGenerator {
     _builder_1.append("labels: ");
     _builder_1.append(dataVariableName, "        ");
     _builder_1.append(".map(row => row.");
-    _builder_1.append(xAxis, "        ");
+    String _name = xAxis.getMakeRefTo().getName();
+    _builder_1.append(_name, "        ");
     _builder_1.append("),");
     _builder_1.newLineIfNotEmpty();
     _builder_1.append("        ");
@@ -410,8 +399,8 @@ public class ChartDslGenerator extends AbstractGenerator {
         _builder_1.append("        ");
         _builder_1.append("   ");
         _builder_1.append("label: \"");
-        String _name = yColRef.getMakeRefTo().getName();
-        _builder_1.append(_name, "           ");
+        String _name_1 = yColRef.getMakeRefTo().getName();
+        _builder_1.append(_name_1, "           ");
         _builder_1.append("\",");
         _builder_1.newLineIfNotEmpty();
         _builder_1.append("        ");
@@ -419,8 +408,8 @@ public class ChartDslGenerator extends AbstractGenerator {
         _builder_1.append("data: ");
         _builder_1.append(dataVariableName, "           ");
         _builder_1.append(".map(row => row.");
-        String _name_1 = yColRef.getMakeRefTo().getName();
-        _builder_1.append(_name_1, "           ");
+        String _name_2 = yColRef.getMakeRefTo().getName();
+        _builder_1.append(_name_2, "           ");
         _builder_1.append("),");
         _builder_1.newLineIfNotEmpty();
         _builder_1.append("        ");
@@ -430,6 +419,93 @@ public class ChartDslGenerator extends AbstractGenerator {
     }
     _builder_1.append("        ");
     _builder_1.append("]");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("},");
+    _builder_1.newLine();
+    _builder_1.append("      ");
+    _builder_1.append("options: {");
+    _builder_1.newLine();
+    _builder_1.append("          ");
+    _builder_1.append("scales: {");
+    _builder_1.newLine();
+    _builder_1.append("          \t\t");
+    _builder_1.append("x: {");
+    _builder_1.newLine();
+    _builder_1.append("          \t\t\t");
+    _builder_1.append("beginAtZero: true,");
+    _builder_1.newLine();
+    _builder_1.append("          \t\t\t");
+    _builder_1.append("title: {");
+    _builder_1.newLine();
+    _builder_1.append("          \t\t\t\t ");
+    _builder_1.append("display: true,");
+    _builder_1.newLine();
+    _builder_1.append("          \t\t\t\t ");
+    _builder_1.append("text: \"");
+    String _get = headers.get(xAxis.getMakeRefTo().getIndex());
+    _builder_1.append(_get, "          \t\t\t\t ");
+    _builder_1.append("\"");
+    _builder_1.newLineIfNotEmpty();
+    _builder_1.append("          \t\t\t\t ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("          \t\t\t");
+    _builder_1.append("},");
+    _builder_1.newLine();
+    {
+      int _size_1 = yAxises.size();
+      boolean _equals = (_size_1 == 1);
+      if (_equals) {
+        _builder_1.append("          ");
+        _builder_1.append("y: {");
+        _builder_1.newLine();
+        _builder_1.append("\t\t\t              \t");
+        _builder_1.append("beginAtZero: true,");
+        _builder_1.newLine();
+        _builder_1.append("\t\t\t                 ");
+        _builder_1.append("title: {");
+        _builder_1.newLine();
+        _builder_1.append("\t\t\t                  ");
+        _builder_1.append("display: true,");
+        _builder_1.newLine();
+        _builder_1.append("\t\t\t                  ");
+        _builder_1.append("text: \"");
+        String _get_1 = headers.get(yAxises.get(0).getMakeRefTo().getIndex());
+        _builder_1.append(_get_1, "\t\t\t                  ");
+        _builder_1.append("\"");
+        _builder_1.newLineIfNotEmpty();
+        _builder_1.append("\t\t\t                ");
+        _builder_1.append("}");
+        _builder_1.newLine();
+        _builder_1.append("\t\t             \t");
+        _builder_1.append("}");
+        _builder_1.newLine();
+      }
+    }
+    _builder_1.append("          ");
+    _builder_1.append("},");
+    _builder_1.newLine();
+    _builder_1.append("          ");
+    _builder_1.append("plugins: {");
+    _builder_1.newLine();
+    _builder_1.append("                  ");
+    _builder_1.append("title: {");
+    _builder_1.newLine();
+    _builder_1.append("                  ");
+    _builder_1.append("display: true,");
+    _builder_1.newLine();
+    _builder_1.append("                  ");
+    _builder_1.append("text: \"");
+    String _title = chart.getTitle();
+    _builder_1.append(_title, "                  ");
+    _builder_1.append("\"");
+    _builder_1.newLineIfNotEmpty();
+    _builder_1.append("               ");
+    _builder_1.append("}");
+    _builder_1.newLine();
+    _builder_1.append("           ");
+    _builder_1.append("}");
     _builder_1.newLine();
     _builder_1.append("      ");
     _builder_1.append("}");
@@ -446,14 +522,14 @@ public class ChartDslGenerator extends AbstractGenerator {
   
   public String createJsonData(final ArrayList<ArrayList<String>> data, final EList<Column> columns, final String delimiter, final String commonDefaultMissingValue) {
     StringBuilder jsonData = new StringBuilder("const data = [\n");
-    final ArrayList<String> columnTypes = data.get(0);
+    final ArrayList<String> columnTypes = data.get(1);
     final List<String> stringColumnTypesNames = new ArrayList<String>();
     stringColumnTypesNames.add("STRING");
     stringColumnTypesNames.add("String");
     stringColumnTypesNames.add("string");
     stringColumnTypesNames.add("CAT");
     stringColumnTypesNames.add("Category");
-    for (int i = 1; (i < data.size()); i++) {
+    for (int i = 2; (i < data.size()); i++) {
       {
         StringBuilder row = new StringBuilder("{");
         int countUnkownValues = 0;
@@ -515,14 +591,16 @@ public class ChartDslGenerator extends AbstractGenerator {
         }
       }
     }.apply()) {
-      String[] columnData = reader.nextLine().split((("\\s*\\" + csvDelimiter) + "\\s*"));
-      final int csvValuesPerLineCount = columnData.length;
+      String firstLine = reader.nextLine();
+      String[] columnData = firstLine.split((("\\s*\\" + csvDelimiter) + "\\s*"));
+      final String[] _converted_columnData = (String[])columnData;
+      final int csvValuesPerLineCount = ((List<String>)Conversions.doWrapArray(_converted_columnData)).size();
       ArrayList<String> rowData = null;
+      String aLine = firstLine.trim();
       while (reader.hasNextLine()) {
         {
           ArrayList<String> _arrayList = new ArrayList<String>();
           rowData = _arrayList;
-          String aLine = reader.nextLine().trim();
           boolean _isEmpty = aLine.isEmpty();
           boolean _not = (!_isEmpty);
           if (_not) {
@@ -538,6 +616,7 @@ public class ChartDslGenerator extends AbstractGenerator {
             }
           }
           fileData.add(rowData);
+          aLine = reader.nextLine().trim();
         }
       }
     } catch (final Throwable _t) {

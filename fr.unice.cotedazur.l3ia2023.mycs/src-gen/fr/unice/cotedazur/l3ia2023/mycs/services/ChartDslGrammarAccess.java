@@ -29,68 +29,40 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	public class ProgramElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Program");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cProgramKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cBeginKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cCsvFileAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cCsvFileDataFileParserRuleCall_3_0 = (RuleCall)cCsvFileAssignment_3.eContents().get(0);
-		private final Assignment cChartAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cChartChartParserRuleCall_4_0 = (RuleCall)cChartAssignment_4.eContents().get(0);
-		private final Assignment cChartAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cChartChartParserRuleCall_5_0 = (RuleCall)cChartAssignment_5.eContents().get(0);
-		private final Keyword cEndKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cCsvFileAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cCsvFileDataFileParserRuleCall_0_0 = (RuleCall)cCsvFileAssignment_0.eContents().get(0);
+		private final Assignment cChartAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cChartChartParserRuleCall_1_0 = (RuleCall)cChartAssignment_1.eContents().get(0);
+		private final Assignment cChartAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cChartChartParserRuleCall_2_0 = (RuleCall)cChartAssignment_2.eContents().get(0);
 		
 		//Program returns Program:
-		//    'Program'
-		//    name=EString
-		//    'Begin'
 		//        CsvFile=DataFile
 		//        chart+=Chart ( chart+=Chart)*
-		//    'End'
 		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'Program'
-		//name=EString
-		//'Begin'
-		//    CsvFile=DataFile
-		//    chart+=Chart ( chart+=Chart)*
-		//'End'
+		//CsvFile=DataFile
+		//chart+=Chart ( chart+=Chart)*
 		public Group getGroup() { return cGroup; }
 		
-		//'Program'
-		public Keyword getProgramKeyword_0() { return cProgramKeyword_0; }
-		
-		//name=EString
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
-		
-		//'Begin'
-		public Keyword getBeginKeyword_2() { return cBeginKeyword_2; }
-		
 		//CsvFile=DataFile
-		public Assignment getCsvFileAssignment_3() { return cCsvFileAssignment_3; }
+		public Assignment getCsvFileAssignment_0() { return cCsvFileAssignment_0; }
 		
 		//DataFile
-		public RuleCall getCsvFileDataFileParserRuleCall_3_0() { return cCsvFileDataFileParserRuleCall_3_0; }
+		public RuleCall getCsvFileDataFileParserRuleCall_0_0() { return cCsvFileDataFileParserRuleCall_0_0; }
 		
 		//chart+=Chart
-		public Assignment getChartAssignment_4() { return cChartAssignment_4; }
+		public Assignment getChartAssignment_1() { return cChartAssignment_1; }
 		
 		//Chart
-		public RuleCall getChartChartParserRuleCall_4_0() { return cChartChartParserRuleCall_4_0; }
+		public RuleCall getChartChartParserRuleCall_1_0() { return cChartChartParserRuleCall_1_0; }
 		
 		//( chart+=Chart)*
-		public Assignment getChartAssignment_5() { return cChartAssignment_5; }
+		public Assignment getChartAssignment_2() { return cChartAssignment_2; }
 		
 		//Chart
-		public RuleCall getChartChartParserRuleCall_5_0() { return cChartChartParserRuleCall_5_0; }
-		
-		//'End'
-		public Keyword getEndKeyword_6() { return cEndKeyword_6; }
+		public RuleCall getChartChartParserRuleCall_2_0() { return cChartChartParserRuleCall_2_0; }
 	}
 	public class ConstantElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Constant");
@@ -150,56 +122,44 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		private final RuleCall cTypeChartTypeEnumRuleCall_4_1_0 = (RuleCall)cTypeAssignment_4_1.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cXAxisKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_5_1 = (Keyword)cGroup_5.eContents().get(1);
+		private final Assignment cXVariableAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cXVariableColumnRefParserRuleCall_5_1_0 = (RuleCall)cXVariableAssignment_5_1.eContents().get(0);
 		private final Assignment cXVariableAssignment_5_2 = (Assignment)cGroup_5.eContents().get(2);
 		private final RuleCall cXVariableColumnRefParserRuleCall_5_2_0 = (RuleCall)cXVariableAssignment_5_2.eContents().get(0);
-		private final Group cGroup_5_3 = (Group)cGroup_5.eContents().get(3);
-		private final Keyword cCommaKeyword_5_3_0 = (Keyword)cGroup_5_3.eContents().get(0);
-		private final Assignment cXVariableAssignment_5_3_1 = (Assignment)cGroup_5_3.eContents().get(1);
-		private final RuleCall cXVariableColumnRefParserRuleCall_5_3_1_0 = (RuleCall)cXVariableAssignment_5_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_5_4 = (Keyword)cGroup_5.eContents().get(4);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cYAxisKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_6_1 = (Keyword)cGroup_6.eContents().get(1);
+		private final Assignment cYVariableAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cYVariableColumnRefParserRuleCall_6_1_0 = (RuleCall)cYVariableAssignment_6_1.eContents().get(0);
 		private final Assignment cYVariableAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
 		private final RuleCall cYVariableColumnRefParserRuleCall_6_2_0 = (RuleCall)cYVariableAssignment_6_2.eContents().get(0);
-		private final Group cGroup_6_3 = (Group)cGroup_6.eContents().get(3);
-		private final Keyword cCommaKeyword_6_3_0 = (Keyword)cGroup_6_3.eContents().get(0);
-		private final Assignment cYVariableAssignment_6_3_1 = (Assignment)cGroup_6_3.eContents().get(1);
-		private final RuleCall cYVariableColumnRefParserRuleCall_6_3_1_0 = (RuleCall)cYVariableAssignment_6_3_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6_4 = (Keyword)cGroup_6.eContents().get(4);
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cFilterKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Keyword cLeftSquareBracketKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cFilterAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cFilterConditionParserRuleCall_7_1_0 = (RuleCall)cFilterAssignment_7_1.eContents().get(0);
 		private final Assignment cFilterAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
 		private final RuleCall cFilterConditionParserRuleCall_7_2_0 = (RuleCall)cFilterAssignment_7_2.eContents().get(0);
-		private final Group cGroup_7_3 = (Group)cGroup_7.eContents().get(3);
-		private final Keyword cAndKeyword_7_3_0 = (Keyword)cGroup_7_3.eContents().get(0);
-		private final Assignment cFilterAssignment_7_3_1 = (Assignment)cGroup_7_3.eContents().get(1);
-		private final RuleCall cFilterConditionParserRuleCall_7_3_1_0 = (RuleCall)cFilterAssignment_7_3_1.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_7_4 = (Keyword)cGroup_7.eContents().get(4);
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Chart returns Chart:
 		//    {Chart}
 		//    'Chart'
 		//    '{'
-		//        ('title' title=EString)?
-		//        ('type' type=ChartType)?
-		//        ('xAxis' '(' xVariable+=ColumnRef ( "," xVariable+=ColumnRef)* ')' )?
-		//        ('yAxis' '(' yVariable+=ColumnRef ( "," yVariable+=ColumnRef)* ')' )?
-		//        ('Filter' '[' Filter+=Condition ( "and" Filter+=Condition)* ']' )?
+		//        ('title:' title=EString)?
+		//        ('type:' type=ChartType)?
+		//        ('xAxis:'  xVariable+=ColumnRef (  xVariable+=ColumnRef)*  )?
+		//        ('yAxis:'  yVariable+=ColumnRef (  yVariable+=ColumnRef)*)?
+		//        ('Filter:' Filter+=Condition (  Filter+=Condition)*  )?
 		//    '}';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Chart}
 		//'Chart'
 		//'{'
-		//    ('title' title=EString)?
-		//    ('type' type=ChartType)?
-		//    ('xAxis' '(' xVariable+=ColumnRef ( "," xVariable+=ColumnRef)* ')' )?
-		//    ('yAxis' '(' yVariable+=ColumnRef ( "," yVariable+=ColumnRef)* ')' )?
-		//    ('Filter' '[' Filter+=Condition ( "and" Filter+=Condition)* ']' )?
+		//    ('title:' title=EString)?
+		//    ('type:' type=ChartType)?
+		//    ('xAxis:'  xVariable+=ColumnRef (  xVariable+=ColumnRef)*  )?
+		//    ('yAxis:'  yVariable+=ColumnRef (  yVariable+=ColumnRef)*)?
+		//    ('Filter:' Filter+=Condition (  Filter+=Condition)*  )?
 		//'}'
 		public Group getGroup() { return cGroup; }
 		
@@ -212,10 +172,10 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//('title' title=EString)?
+		//('title:' title=EString)?
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'title'
+		//'title:'
 		public Keyword getTitleKeyword_3_0() { return cTitleKeyword_3_0; }
 		
 		//title=EString
@@ -224,10 +184,10 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//EString
 		public RuleCall getTitleEStringParserRuleCall_3_1_0() { return cTitleEStringParserRuleCall_3_1_0; }
 		
-		//('type' type=ChartType)?
+		//('type:' type=ChartType)?
 		public Group getGroup_4() { return cGroup_4; }
 		
-		//'type'
+		//'type:'
 		public Keyword getTypeKeyword_4_0() { return cTypeKeyword_4_0; }
 		
 		//type=ChartType
@@ -236,95 +196,59 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//ChartType
 		public RuleCall getTypeChartTypeEnumRuleCall_4_1_0() { return cTypeChartTypeEnumRuleCall_4_1_0; }
 		
-		//('xAxis' '(' xVariable+=ColumnRef ( "," xVariable+=ColumnRef)* ')' )?
+		//('xAxis:'  xVariable+=ColumnRef (  xVariable+=ColumnRef)*  )?
 		public Group getGroup_5() { return cGroup_5; }
 		
-		//'xAxis'
+		//'xAxis:'
 		public Keyword getXAxisKeyword_5_0() { return cXAxisKeyword_5_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_5_1() { return cLeftParenthesisKeyword_5_1; }
-		
 		//xVariable+=ColumnRef
+		public Assignment getXVariableAssignment_5_1() { return cXVariableAssignment_5_1; }
+		
+		//ColumnRef
+		public RuleCall getXVariableColumnRefParserRuleCall_5_1_0() { return cXVariableColumnRefParserRuleCall_5_1_0; }
+		
+		//(  xVariable+=ColumnRef)*
 		public Assignment getXVariableAssignment_5_2() { return cXVariableAssignment_5_2; }
 		
 		//ColumnRef
 		public RuleCall getXVariableColumnRefParserRuleCall_5_2_0() { return cXVariableColumnRefParserRuleCall_5_2_0; }
 		
-		//( "," xVariable+=ColumnRef)*
-		public Group getGroup_5_3() { return cGroup_5_3; }
-		
-		//","
-		public Keyword getCommaKeyword_5_3_0() { return cCommaKeyword_5_3_0; }
-		
-		//xVariable+=ColumnRef
-		public Assignment getXVariableAssignment_5_3_1() { return cXVariableAssignment_5_3_1; }
-		
-		//ColumnRef
-		public RuleCall getXVariableColumnRefParserRuleCall_5_3_1_0() { return cXVariableColumnRefParserRuleCall_5_3_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_5_4() { return cRightParenthesisKeyword_5_4; }
-		
-		//('yAxis' '(' yVariable+=ColumnRef ( "," yVariable+=ColumnRef)* ')' )?
+		//('yAxis:'  yVariable+=ColumnRef (  yVariable+=ColumnRef)*)?
 		public Group getGroup_6() { return cGroup_6; }
 		
-		//'yAxis'
+		//'yAxis:'
 		public Keyword getYAxisKeyword_6_0() { return cYAxisKeyword_6_0; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_6_1() { return cLeftParenthesisKeyword_6_1; }
-		
 		//yVariable+=ColumnRef
+		public Assignment getYVariableAssignment_6_1() { return cYVariableAssignment_6_1; }
+		
+		//ColumnRef
+		public RuleCall getYVariableColumnRefParserRuleCall_6_1_0() { return cYVariableColumnRefParserRuleCall_6_1_0; }
+		
+		//(  yVariable+=ColumnRef)*
 		public Assignment getYVariableAssignment_6_2() { return cYVariableAssignment_6_2; }
 		
 		//ColumnRef
 		public RuleCall getYVariableColumnRefParserRuleCall_6_2_0() { return cYVariableColumnRefParserRuleCall_6_2_0; }
 		
-		//( "," yVariable+=ColumnRef)*
-		public Group getGroup_6_3() { return cGroup_6_3; }
-		
-		//","
-		public Keyword getCommaKeyword_6_3_0() { return cCommaKeyword_6_3_0; }
-		
-		//yVariable+=ColumnRef
-		public Assignment getYVariableAssignment_6_3_1() { return cYVariableAssignment_6_3_1; }
-		
-		//ColumnRef
-		public RuleCall getYVariableColumnRefParserRuleCall_6_3_1_0() { return cYVariableColumnRefParserRuleCall_6_3_1_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_6_4() { return cRightParenthesisKeyword_6_4; }
-		
-		//('Filter' '[' Filter+=Condition ( "and" Filter+=Condition)* ']' )?
+		//('Filter:' Filter+=Condition (  Filter+=Condition)*  )?
 		public Group getGroup_7() { return cGroup_7; }
 		
-		//'Filter'
+		//'Filter:'
 		public Keyword getFilterKeyword_7_0() { return cFilterKeyword_7_0; }
 		
-		//'['
-		public Keyword getLeftSquareBracketKeyword_7_1() { return cLeftSquareBracketKeyword_7_1; }
-		
 		//Filter+=Condition
+		public Assignment getFilterAssignment_7_1() { return cFilterAssignment_7_1; }
+		
+		//Condition
+		public RuleCall getFilterConditionParserRuleCall_7_1_0() { return cFilterConditionParserRuleCall_7_1_0; }
+		
+		//(  Filter+=Condition)*
 		public Assignment getFilterAssignment_7_2() { return cFilterAssignment_7_2; }
 		
 		//Condition
 		public RuleCall getFilterConditionParserRuleCall_7_2_0() { return cFilterConditionParserRuleCall_7_2_0; }
-		
-		//( "and" Filter+=Condition)*
-		public Group getGroup_7_3() { return cGroup_7_3; }
-		
-		//"and"
-		public Keyword getAndKeyword_7_3_0() { return cAndKeyword_7_3_0; }
-		
-		//Filter+=Condition
-		public Assignment getFilterAssignment_7_3_1() { return cFilterAssignment_7_3_1; }
-		
-		//Condition
-		public RuleCall getFilterConditionParserRuleCall_7_3_1_0() { return cFilterConditionParserRuleCall_7_3_1_0; }
-		
-		//']'
-		public Keyword getRightSquareBracketKeyword_7_4() { return cRightSquareBracketKeyword_7_4; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
@@ -484,53 +408,42 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Condition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cLeftElementAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cLeftElementColumnRefParserRuleCall_1_0 = (RuleCall)cLeftElementAssignment_1.eContents().get(0);
-		private final Assignment cOperatorAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cOperatorCompOperatorEnumRuleCall_2_0 = (RuleCall)cOperatorAssignment_2.eContents().get(0);
-		private final Assignment cRightElementAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRightElementConstantParserRuleCall_3_0 = (RuleCall)cRightElementAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cLeftElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLeftElementColumnRefParserRuleCall_0_0 = (RuleCall)cLeftElementAssignment_0.eContents().get(0);
+		private final Assignment cOperatorAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cOperatorCompOperatorEnumRuleCall_1_0 = (RuleCall)cOperatorAssignment_1.eContents().get(0);
+		private final Assignment cRightElementAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cRightElementConstantParserRuleCall_2_0 = (RuleCall)cRightElementAssignment_2.eContents().get(0);
 		
 		//Condition returns Condition:
-		//    '('
 		//        leftElement=ColumnRef
 		//        (operator=CompOperator)?
 		//        rightElement=Constant
-		//    ')';
+		//    ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'('
-		//    leftElement=ColumnRef
-		//    (operator=CompOperator)?
-		//    rightElement=Constant
-		//')'
+		//leftElement=ColumnRef
+		//(operator=CompOperator)?
+		//rightElement=Constant
 		public Group getGroup() { return cGroup; }
 		
-		//'('
-		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
-		
 		//leftElement=ColumnRef
-		public Assignment getLeftElementAssignment_1() { return cLeftElementAssignment_1; }
+		public Assignment getLeftElementAssignment_0() { return cLeftElementAssignment_0; }
 		
 		//ColumnRef
-		public RuleCall getLeftElementColumnRefParserRuleCall_1_0() { return cLeftElementColumnRefParserRuleCall_1_0; }
+		public RuleCall getLeftElementColumnRefParserRuleCall_0_0() { return cLeftElementColumnRefParserRuleCall_0_0; }
 		
 		//(operator=CompOperator)?
-		public Assignment getOperatorAssignment_2() { return cOperatorAssignment_2; }
+		public Assignment getOperatorAssignment_1() { return cOperatorAssignment_1; }
 		
 		//CompOperator
-		public RuleCall getOperatorCompOperatorEnumRuleCall_2_0() { return cOperatorCompOperatorEnumRuleCall_2_0; }
+		public RuleCall getOperatorCompOperatorEnumRuleCall_1_0() { return cOperatorCompOperatorEnumRuleCall_1_0; }
 		
 		//rightElement=Constant
-		public Assignment getRightElementAssignment_3() { return cRightElementAssignment_3; }
+		public Assignment getRightElementAssignment_2() { return cRightElementAssignment_2; }
 		
 		//Constant
-		public RuleCall getRightElementConstantParserRuleCall_3_0() { return cRightElementConstantParserRuleCall_3_0; }
-		
-		//')'
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public RuleCall getRightElementConstantParserRuleCall_2_0() { return cRightElementConstantParserRuleCall_2_0; }
 	}
 	public class ColumnElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Column");
@@ -549,13 +462,13 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//Column returns Column:
 		//    {Column}
 		//    '('
-		//        ('index:' index=EInt)? 'as' name=EString
+		//        ('index' index=EInt)? 'as' name=EString
 		//    ')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{Column}
 		//'('
-		//    ('index:' index=EInt)? 'as' name=EString
+		//    ('index' index=EInt)? 'as' name=EString
 		//')'
 		public Group getGroup() { return cGroup; }
 		
@@ -565,10 +478,10 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 		//'('
 		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
 		
-		//('index:' index=EInt)?
+		//('index' index=EInt)?
 		public Group getGroup_2() { return cGroup_2; }
 		
-		//'index:'
+		//'index'
 		public Keyword getIndexKeyword_2_0() { return cIndexKeyword_2_0; }
 		
 		//index=EInt
@@ -1023,12 +936,8 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 
 	
 	//Program returns Program:
-	//    'Program'
-	//    name=EString
-	//    'Begin'
 	//        CsvFile=DataFile
 	//        chart+=Chart ( chart+=Chart)*
-	//    'End'
 	//    ;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
@@ -1062,11 +971,11 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//    {Chart}
 	//    'Chart'
 	//    '{'
-	//        ('title' title=EString)?
-	//        ('type' type=ChartType)?
-	//        ('xAxis' '(' xVariable+=ColumnRef ( "," xVariable+=ColumnRef)* ')' )?
-	//        ('yAxis' '(' yVariable+=ColumnRef ( "," yVariable+=ColumnRef)* ')' )?
-	//        ('Filter' '[' Filter+=Condition ( "and" Filter+=Condition)* ']' )?
+	//        ('title:' title=EString)?
+	//        ('type:' type=ChartType)?
+	//        ('xAxis:'  xVariable+=ColumnRef (  xVariable+=ColumnRef)*  )?
+	//        ('yAxis:'  yVariable+=ColumnRef (  yVariable+=ColumnRef)*)?
+	//        ('Filter:' Filter+=Condition (  Filter+=Condition)*  )?
 	//    '}';
 	public ChartElements getChartAccess() {
 		return pChart;
@@ -1113,11 +1022,10 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	}
 	
 	//Condition returns Condition:
-	//    '('
 	//        leftElement=ColumnRef
 	//        (operator=CompOperator)?
 	//        rightElement=Constant
-	//    ')';
+	//    ;
 	public ConditionElements getConditionAccess() {
 		return pCondition;
 	}
@@ -1129,7 +1037,7 @@ public class ChartDslGrammarAccess extends AbstractElementFinder.AbstractGrammar
 	//Column returns Column:
 	//    {Column}
 	//    '('
-	//        ('index:' index=EInt)? 'as' name=EString
+	//        ('index' index=EInt)? 'as' name=EString
 	//    ')';
 	public ColumnElements getColumnAccess() {
 		return pColumn;

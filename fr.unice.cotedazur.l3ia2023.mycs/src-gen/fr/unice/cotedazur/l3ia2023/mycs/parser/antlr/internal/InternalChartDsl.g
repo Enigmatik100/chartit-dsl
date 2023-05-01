@@ -77,39 +77,12 @@ ruleProgram returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='Program'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getProgramAccess().getProgramKeyword_0());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getProgramAccess().getNameEStringParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getProgramAccess().getCsvFileDataFileParserRuleCall_0_0());
 				}
-				lv_name_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getProgramRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2='Begin'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getProgramAccess().getBeginKeyword_2());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getProgramAccess().getCsvFileDataFileParserRuleCall_3_0());
-				}
-				lv_CsvFile_3_0=ruleDataFile
+				lv_CsvFile_0_0=ruleDataFile
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProgramRule());
@@ -117,7 +90,7 @@ ruleProgram returns [EObject current=null]
 					set(
 						$current,
 						"CsvFile",
-						lv_CsvFile_3_0,
+						lv_CsvFile_0_0,
 						"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.DataFile");
 					afterParserOrEnumRuleCall();
 				}
@@ -126,9 +99,9 @@ ruleProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getProgramAccess().getChartChartParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getProgramAccess().getChartChartParserRuleCall_1_0());
 				}
-				lv_chart_4_0=ruleChart
+				lv_chart_1_0=ruleChart
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProgramRule());
@@ -136,7 +109,7 @@ ruleProgram returns [EObject current=null]
 					add(
 						$current,
 						"chart",
-						lv_chart_4_0,
+						lv_chart_1_0,
 						"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Chart");
 					afterParserOrEnumRuleCall();
 				}
@@ -145,9 +118,9 @@ ruleProgram returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getProgramAccess().getChartChartParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getProgramAccess().getChartChartParserRuleCall_2_0());
 				}
-				lv_chart_5_0=ruleChart
+				lv_chart_2_0=ruleChart
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getProgramRule());
@@ -155,16 +128,12 @@ ruleProgram returns [EObject current=null]
 					add(
 						$current,
 						"chart",
-						lv_chart_5_0,
+						lv_chart_2_0,
 						"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Chart");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_6='End'
-		{
-			newLeafNode(otherlv_6, grammarAccess.getProgramAccess().getEndKeyword_6());
-		}
 	)
 ;
 
@@ -279,7 +248,7 @@ ruleChart returns [EObject current=null]
 			newLeafNode(otherlv_2, grammarAccess.getChartAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
-			otherlv_3='title'
+			otherlv_3='title:'
 			{
 				newLeafNode(otherlv_3, grammarAccess.getChartAccess().getTitleKeyword_3_0());
 			}
@@ -304,7 +273,7 @@ ruleChart returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_5='type'
+			otherlv_5='type:'
 			{
 				newLeafNode(otherlv_5, grammarAccess.getChartAccess().getTypeKeyword_4_0());
 			}
@@ -329,14 +298,29 @@ ruleChart returns [EObject current=null]
 			)
 		)?
 		(
-			otherlv_7='xAxis'
+			otherlv_7='xAxis:'
 			{
 				newLeafNode(otherlv_7, grammarAccess.getChartAccess().getXAxisKeyword_5_0());
 			}
-			otherlv_8='('
-			{
-				newLeafNode(otherlv_8, grammarAccess.getChartAccess().getLeftParenthesisKeyword_5_1());
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getChartAccess().getXVariableColumnRefParserRuleCall_5_1_0());
+					}
+					lv_xVariable_8_0=ruleColumnRef
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getChartRule());
+						}
+						add(
+							$current,
+							"xVariable",
+							lv_xVariable_8_0,
+							"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.ColumnRef");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 			(
 				(
 					{
@@ -355,52 +339,19 @@ ruleChart returns [EObject current=null]
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)
-			(
-				otherlv_10=','
-				{
-					newLeafNode(otherlv_10, grammarAccess.getChartAccess().getCommaKeyword_5_3_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getChartAccess().getXVariableColumnRefParserRuleCall_5_3_1_0());
-						}
-						lv_xVariable_11_0=ruleColumnRef
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getChartRule());
-							}
-							add(
-								$current,
-								"xVariable",
-								lv_xVariable_11_0,
-								"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.ColumnRef");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
 			)*
-			otherlv_12=')'
-			{
-				newLeafNode(otherlv_12, grammarAccess.getChartAccess().getRightParenthesisKeyword_5_4());
-			}
 		)?
 		(
-			otherlv_13='yAxis'
+			otherlv_10='yAxis:'
 			{
-				newLeafNode(otherlv_13, grammarAccess.getChartAccess().getYAxisKeyword_6_0());
-			}
-			otherlv_14='('
-			{
-				newLeafNode(otherlv_14, grammarAccess.getChartAccess().getLeftParenthesisKeyword_6_1());
+				newLeafNode(otherlv_10, grammarAccess.getChartAccess().getYAxisKeyword_6_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getChartAccess().getYVariableColumnRefParserRuleCall_6_2_0());
+						newCompositeNode(grammarAccess.getChartAccess().getYVariableColumnRefParserRuleCall_6_1_0());
 					}
-					lv_yVariable_15_0=ruleColumnRef
+					lv_yVariable_11_0=ruleColumnRef
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getChartRule());
@@ -408,57 +359,43 @@ ruleChart returns [EObject current=null]
 						add(
 							$current,
 							"yVariable",
-							lv_yVariable_15_0,
+							lv_yVariable_11_0,
 							"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.ColumnRef");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_16=','
-				{
-					newLeafNode(otherlv_16, grammarAccess.getChartAccess().getCommaKeyword_6_3_0());
-				}
 				(
-					(
-						{
-							newCompositeNode(grammarAccess.getChartAccess().getYVariableColumnRefParserRuleCall_6_3_1_0());
+					{
+						newCompositeNode(grammarAccess.getChartAccess().getYVariableColumnRefParserRuleCall_6_2_0());
+					}
+					lv_yVariable_12_0=ruleColumnRef
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getChartRule());
 						}
-						lv_yVariable_17_0=ruleColumnRef
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getChartRule());
-							}
-							add(
-								$current,
-								"yVariable",
-								lv_yVariable_17_0,
-								"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.ColumnRef");
-							afterParserOrEnumRuleCall();
-						}
-					)
+						add(
+							$current,
+							"yVariable",
+							lv_yVariable_12_0,
+							"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.ColumnRef");
+						afterParserOrEnumRuleCall();
+					}
 				)
 			)*
-			otherlv_18=')'
-			{
-				newLeafNode(otherlv_18, grammarAccess.getChartAccess().getRightParenthesisKeyword_6_4());
-			}
 		)?
 		(
-			otherlv_19='Filter'
+			otherlv_13='Filter:'
 			{
-				newLeafNode(otherlv_19, grammarAccess.getChartAccess().getFilterKeyword_7_0());
-			}
-			otherlv_20='['
-			{
-				newLeafNode(otherlv_20, grammarAccess.getChartAccess().getLeftSquareBracketKeyword_7_1());
+				newLeafNode(otherlv_13, grammarAccess.getChartAccess().getFilterKeyword_7_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getChartAccess().getFilterConditionParserRuleCall_7_2_0());
+						newCompositeNode(grammarAccess.getChartAccess().getFilterConditionParserRuleCall_7_1_0());
 					}
-					lv_Filter_21_0=ruleCondition
+					lv_Filter_14_0=ruleCondition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getChartRule());
@@ -466,45 +403,35 @@ ruleChart returns [EObject current=null]
 						add(
 							$current,
 							"Filter",
-							lv_Filter_21_0,
+							lv_Filter_14_0,
 							"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Condition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_22='and'
-				{
-					newLeafNode(otherlv_22, grammarAccess.getChartAccess().getAndKeyword_7_3_0());
-				}
 				(
-					(
-						{
-							newCompositeNode(grammarAccess.getChartAccess().getFilterConditionParserRuleCall_7_3_1_0());
+					{
+						newCompositeNode(grammarAccess.getChartAccess().getFilterConditionParserRuleCall_7_2_0());
+					}
+					lv_Filter_15_0=ruleCondition
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getChartRule());
 						}
-						lv_Filter_23_0=ruleCondition
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getChartRule());
-							}
-							add(
-								$current,
-								"Filter",
-								lv_Filter_23_0,
-								"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Condition");
-							afterParserOrEnumRuleCall();
-						}
-					)
+						add(
+							$current,
+							"Filter",
+							lv_Filter_15_0,
+							"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Condition");
+						afterParserOrEnumRuleCall();
+					}
 				)
 			)*
-			otherlv_24=']'
-			{
-				newLeafNode(otherlv_24, grammarAccess.getChartAccess().getRightSquareBracketKeyword_7_4());
-			}
 		)?
-		otherlv_25='}'
+		otherlv_16='}'
 		{
-			newLeafNode(otherlv_25, grammarAccess.getChartAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_16, grammarAccess.getChartAccess().getRightCurlyBracketKeyword_8());
 		}
 	)
 ;
@@ -745,16 +672,12 @@ ruleCondition returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='('
-		{
-			newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getLeftParenthesisKeyword_0());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getConditionAccess().getLeftElementColumnRefParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getConditionAccess().getLeftElementColumnRefParserRuleCall_0_0());
 				}
-				lv_leftElement_1_0=ruleColumnRef
+				lv_leftElement_0_0=ruleColumnRef
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getConditionRule());
@@ -762,7 +685,7 @@ ruleCondition returns [EObject current=null]
 					set(
 						$current,
 						"leftElement",
-						lv_leftElement_1_0,
+						lv_leftElement_0_0,
 						"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.ColumnRef");
 					afterParserOrEnumRuleCall();
 				}
@@ -771,9 +694,9 @@ ruleCondition returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getConditionAccess().getOperatorCompOperatorEnumRuleCall_2_0());
+					newCompositeNode(grammarAccess.getConditionAccess().getOperatorCompOperatorEnumRuleCall_1_0());
 				}
-				lv_operator_2_0=ruleCompOperator
+				lv_operator_1_0=ruleCompOperator
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getConditionRule());
@@ -781,7 +704,7 @@ ruleCondition returns [EObject current=null]
 					set(
 						$current,
 						"operator",
-						lv_operator_2_0,
+						lv_operator_1_0,
 						"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.CompOperator");
 					afterParserOrEnumRuleCall();
 				}
@@ -790,9 +713,9 @@ ruleCondition returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getConditionAccess().getRightElementConstantParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getConditionAccess().getRightElementConstantParserRuleCall_2_0());
 				}
-				lv_rightElement_3_0=ruleConstant
+				lv_rightElement_2_0=ruleConstant
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getConditionRule());
@@ -800,16 +723,12 @@ ruleCondition returns [EObject current=null]
 					set(
 						$current,
 						"rightElement",
-						lv_rightElement_3_0,
+						lv_rightElement_2_0,
 						"fr.unice.cotedazur.l3ia2023.mycs.ChartDsl.Constant");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_4=')'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getRightParenthesisKeyword_4());
-		}
 	)
 ;
 
@@ -841,7 +760,7 @@ ruleColumn returns [EObject current=null]
 			newLeafNode(otherlv_1, grammarAccess.getColumnAccess().getLeftParenthesisKeyword_1());
 		}
 		(
-			otherlv_2='index:'
+			otherlv_2='index'
 			{
 				newLeafNode(otherlv_2, grammarAccess.getColumnAccess().getIndexKeyword_2_0());
 			}

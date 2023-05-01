@@ -22,12 +22,11 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalChartDslParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'E'", "'e'", "'true'", "'false'", "'BAR'", "'PIE'", "'SCATTER'", "'LINE'", "'MIXED'", "'BUBBLE'", "'RADAR'", "'AREA'", "'DONUT'", "'=='", "'>'", "'<'", "'!='", "'>='", "'<='", "'Program'", "'Begin'", "'End'", "'Chart'", "'{'", "'}'", "'title'", "'type'", "'xAxis'", "'('", "')'", "','", "'yAxis'", "'Filter'", "'['", "']'", "'and'", "'Select'", "'Columns'", "'Load'", "'data'", "'from'", "'header'", "'types'", "'delimiter'", "'as'", "'index:'", "'-'", "'int'", "'str'", "'double'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'E'", "'e'", "'true'", "'false'", "'BAR'", "'PIE'", "'SCATTER'", "'LINE'", "'MIXED'", "'BUBBLE'", "'RADAR'", "'AREA'", "'DONUT'", "'=='", "'>'", "'<'", "'!='", "'>='", "'<='", "'Chart'", "'{'", "'}'", "'title:'", "'type:'", "'xAxis:'", "'yAxis:'", "'Filter:'", "'Select'", "'Columns'", "'['", "']'", "'Load'", "'data'", "'from'", "'header'", "'types'", "'delimiter'", "','", "'('", "'as'", "')'", "'index'", "'-'", "'int'", "'str'", "'double'", "'.'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
     public static final int T__15=15;
-    public static final int T__59=59;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
@@ -38,13 +37,10 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     public static final int T__13=13;
     public static final int T__57=57;
     public static final int T__14=14;
-    public static final int T__58=58;
     public static final int T__51=51;
     public static final int T__52=52;
     public static final int T__53=53;
     public static final int T__54=54;
-    public static final int T__60=60;
-    public static final int T__61=61;
     public static final int RULE_ID=5;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -1301,17 +1297,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
             // InternalChartDsl.g:438:1: ( ( ruleIntVariable ) | ( ruleStringVariable ) | ( ruleDoubleVariable ) )
             int alt1=3;
             switch ( input.LA(1) ) {
-            case 58:
+            case 54:
                 {
                 alt1=1;
                 }
                 break;
-            case 59:
+            case 55:
                 {
                 alt1=2;
                 }
                 break;
-            case 60:
+            case 56:
                 {
                 alt1=3;
                 }
@@ -2110,21 +2106,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Program__Group__0__Impl"
-    // InternalChartDsl.g:644:1: rule__Program__Group__0__Impl : ( 'Program' ) ;
+    // InternalChartDsl.g:644:1: rule__Program__Group__0__Impl : ( ( rule__Program__CsvFileAssignment_0 ) ) ;
     public final void rule__Program__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:648:1: ( ( 'Program' ) )
-            // InternalChartDsl.g:649:1: ( 'Program' )
+            // InternalChartDsl.g:648:1: ( ( ( rule__Program__CsvFileAssignment_0 ) ) )
+            // InternalChartDsl.g:649:1: ( ( rule__Program__CsvFileAssignment_0 ) )
             {
-            // InternalChartDsl.g:649:1: ( 'Program' )
-            // InternalChartDsl.g:650:2: 'Program'
+            // InternalChartDsl.g:649:1: ( ( rule__Program__CsvFileAssignment_0 ) )
+            // InternalChartDsl.g:650:2: ( rule__Program__CsvFileAssignment_0 )
             {
-             before(grammarAccess.getProgramAccess().getProgramKeyword_0()); 
-            match(input,30,FOLLOW_2); 
-             after(grammarAccess.getProgramAccess().getProgramKeyword_0()); 
+             before(grammarAccess.getProgramAccess().getCsvFileAssignment_0()); 
+            // InternalChartDsl.g:651:2: ( rule__Program__CsvFileAssignment_0 )
+            // InternalChartDsl.g:651:3: rule__Program__CsvFileAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Program__CsvFileAssignment_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getProgramAccess().getCsvFileAssignment_0()); 
 
             }
 
@@ -2156,7 +2162,7 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
             // InternalChartDsl.g:663:1: ( rule__Program__Group__1__Impl rule__Program__Group__2 )
             // InternalChartDsl.g:664:2: rule__Program__Group__1__Impl rule__Program__Group__2
             {
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_3);
             rule__Program__Group__1__Impl();
 
             state._fsp--;
@@ -2185,31 +2191,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Program__Group__1__Impl"
-    // InternalChartDsl.g:671:1: rule__Program__Group__1__Impl : ( ( rule__Program__NameAssignment_1 ) ) ;
+    // InternalChartDsl.g:671:1: rule__Program__Group__1__Impl : ( ( rule__Program__ChartAssignment_1 ) ) ;
     public final void rule__Program__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:675:1: ( ( ( rule__Program__NameAssignment_1 ) ) )
-            // InternalChartDsl.g:676:1: ( ( rule__Program__NameAssignment_1 ) )
+            // InternalChartDsl.g:675:1: ( ( ( rule__Program__ChartAssignment_1 ) ) )
+            // InternalChartDsl.g:676:1: ( ( rule__Program__ChartAssignment_1 ) )
             {
-            // InternalChartDsl.g:676:1: ( ( rule__Program__NameAssignment_1 ) )
-            // InternalChartDsl.g:677:2: ( rule__Program__NameAssignment_1 )
+            // InternalChartDsl.g:676:1: ( ( rule__Program__ChartAssignment_1 ) )
+            // InternalChartDsl.g:677:2: ( rule__Program__ChartAssignment_1 )
             {
-             before(grammarAccess.getProgramAccess().getNameAssignment_1()); 
-            // InternalChartDsl.g:678:2: ( rule__Program__NameAssignment_1 )
-            // InternalChartDsl.g:678:3: rule__Program__NameAssignment_1
+             before(grammarAccess.getProgramAccess().getChartAssignment_1()); 
+            // InternalChartDsl.g:678:2: ( rule__Program__ChartAssignment_1 )
+            // InternalChartDsl.g:678:3: rule__Program__ChartAssignment_1
             {
             pushFollow(FOLLOW_2);
-            rule__Program__NameAssignment_1();
+            rule__Program__ChartAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getProgramAccess().getNameAssignment_1()); 
+             after(grammarAccess.getProgramAccess().getChartAssignment_1()); 
 
             }
 
@@ -2232,22 +2238,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Program__Group__2"
-    // InternalChartDsl.g:686:1: rule__Program__Group__2 : rule__Program__Group__2__Impl rule__Program__Group__3 ;
+    // InternalChartDsl.g:686:1: rule__Program__Group__2 : rule__Program__Group__2__Impl ;
     public final void rule__Program__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:690:1: ( rule__Program__Group__2__Impl rule__Program__Group__3 )
-            // InternalChartDsl.g:691:2: rule__Program__Group__2__Impl rule__Program__Group__3
+            // InternalChartDsl.g:690:1: ( rule__Program__Group__2__Impl )
+            // InternalChartDsl.g:691:2: rule__Program__Group__2__Impl
             {
-            pushFollow(FOLLOW_5);
-            rule__Program__Group__2__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Program__Group__3();
+            rule__Program__Group__2__Impl();
 
             state._fsp--;
 
@@ -2270,21 +2271,49 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Program__Group__2__Impl"
-    // InternalChartDsl.g:698:1: rule__Program__Group__2__Impl : ( 'Begin' ) ;
+    // InternalChartDsl.g:697:1: rule__Program__Group__2__Impl : ( ( rule__Program__ChartAssignment_2 )* ) ;
     public final void rule__Program__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:702:1: ( ( 'Begin' ) )
-            // InternalChartDsl.g:703:1: ( 'Begin' )
+            // InternalChartDsl.g:701:1: ( ( ( rule__Program__ChartAssignment_2 )* ) )
+            // InternalChartDsl.g:702:1: ( ( rule__Program__ChartAssignment_2 )* )
             {
-            // InternalChartDsl.g:703:1: ( 'Begin' )
-            // InternalChartDsl.g:704:2: 'Begin'
+            // InternalChartDsl.g:702:1: ( ( rule__Program__ChartAssignment_2 )* )
+            // InternalChartDsl.g:703:2: ( rule__Program__ChartAssignment_2 )*
             {
-             before(grammarAccess.getProgramAccess().getBeginKeyword_2()); 
-            match(input,31,FOLLOW_2); 
-             after(grammarAccess.getProgramAccess().getBeginKeyword_2()); 
+             before(grammarAccess.getProgramAccess().getChartAssignment_2()); 
+            // InternalChartDsl.g:704:2: ( rule__Program__ChartAssignment_2 )*
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( (LA7_0==30) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // InternalChartDsl.g:704:3: rule__Program__ChartAssignment_2
+            	    {
+            	    pushFollow(FOLLOW_4);
+            	    rule__Program__ChartAssignment_2();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop7;
+                }
+            } while (true);
+
+             after(grammarAccess.getProgramAccess().getChartAssignment_2()); 
 
             }
 
@@ -2306,360 +2335,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Program__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Program__Group__3"
-    // InternalChartDsl.g:713:1: rule__Program__Group__3 : rule__Program__Group__3__Impl rule__Program__Group__4 ;
-    public final void rule__Program__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:717:1: ( rule__Program__Group__3__Impl rule__Program__Group__4 )
-            // InternalChartDsl.g:718:2: rule__Program__Group__3__Impl rule__Program__Group__4
-            {
-            pushFollow(FOLLOW_6);
-            rule__Program__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Program__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Program__Group__3"
-
-
-    // $ANTLR start "rule__Program__Group__3__Impl"
-    // InternalChartDsl.g:725:1: rule__Program__Group__3__Impl : ( ( rule__Program__CsvFileAssignment_3 ) ) ;
-    public final void rule__Program__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:729:1: ( ( ( rule__Program__CsvFileAssignment_3 ) ) )
-            // InternalChartDsl.g:730:1: ( ( rule__Program__CsvFileAssignment_3 ) )
-            {
-            // InternalChartDsl.g:730:1: ( ( rule__Program__CsvFileAssignment_3 ) )
-            // InternalChartDsl.g:731:2: ( rule__Program__CsvFileAssignment_3 )
-            {
-             before(grammarAccess.getProgramAccess().getCsvFileAssignment_3()); 
-            // InternalChartDsl.g:732:2: ( rule__Program__CsvFileAssignment_3 )
-            // InternalChartDsl.g:732:3: rule__Program__CsvFileAssignment_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__Program__CsvFileAssignment_3();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getProgramAccess().getCsvFileAssignment_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Program__Group__3__Impl"
-
-
-    // $ANTLR start "rule__Program__Group__4"
-    // InternalChartDsl.g:740:1: rule__Program__Group__4 : rule__Program__Group__4__Impl rule__Program__Group__5 ;
-    public final void rule__Program__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:744:1: ( rule__Program__Group__4__Impl rule__Program__Group__5 )
-            // InternalChartDsl.g:745:2: rule__Program__Group__4__Impl rule__Program__Group__5
-            {
-            pushFollow(FOLLOW_7);
-            rule__Program__Group__4__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Program__Group__5();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Program__Group__4"
-
-
-    // $ANTLR start "rule__Program__Group__4__Impl"
-    // InternalChartDsl.g:752:1: rule__Program__Group__4__Impl : ( ( rule__Program__ChartAssignment_4 ) ) ;
-    public final void rule__Program__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:756:1: ( ( ( rule__Program__ChartAssignment_4 ) ) )
-            // InternalChartDsl.g:757:1: ( ( rule__Program__ChartAssignment_4 ) )
-            {
-            // InternalChartDsl.g:757:1: ( ( rule__Program__ChartAssignment_4 ) )
-            // InternalChartDsl.g:758:2: ( rule__Program__ChartAssignment_4 )
-            {
-             before(grammarAccess.getProgramAccess().getChartAssignment_4()); 
-            // InternalChartDsl.g:759:2: ( rule__Program__ChartAssignment_4 )
-            // InternalChartDsl.g:759:3: rule__Program__ChartAssignment_4
-            {
-            pushFollow(FOLLOW_2);
-            rule__Program__ChartAssignment_4();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getProgramAccess().getChartAssignment_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Program__Group__4__Impl"
-
-
-    // $ANTLR start "rule__Program__Group__5"
-    // InternalChartDsl.g:767:1: rule__Program__Group__5 : rule__Program__Group__5__Impl rule__Program__Group__6 ;
-    public final void rule__Program__Group__5() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:771:1: ( rule__Program__Group__5__Impl rule__Program__Group__6 )
-            // InternalChartDsl.g:772:2: rule__Program__Group__5__Impl rule__Program__Group__6
-            {
-            pushFollow(FOLLOW_7);
-            rule__Program__Group__5__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Program__Group__6();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Program__Group__5"
-
-
-    // $ANTLR start "rule__Program__Group__5__Impl"
-    // InternalChartDsl.g:779:1: rule__Program__Group__5__Impl : ( ( rule__Program__ChartAssignment_5 )* ) ;
-    public final void rule__Program__Group__5__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:783:1: ( ( ( rule__Program__ChartAssignment_5 )* ) )
-            // InternalChartDsl.g:784:1: ( ( rule__Program__ChartAssignment_5 )* )
-            {
-            // InternalChartDsl.g:784:1: ( ( rule__Program__ChartAssignment_5 )* )
-            // InternalChartDsl.g:785:2: ( rule__Program__ChartAssignment_5 )*
-            {
-             before(grammarAccess.getProgramAccess().getChartAssignment_5()); 
-            // InternalChartDsl.g:786:2: ( rule__Program__ChartAssignment_5 )*
-            loop7:
-            do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
-
-                if ( (LA7_0==33) ) {
-                    alt7=1;
-                }
-
-
-                switch (alt7) {
-            	case 1 :
-            	    // InternalChartDsl.g:786:3: rule__Program__ChartAssignment_5
-            	    {
-            	    pushFollow(FOLLOW_8);
-            	    rule__Program__ChartAssignment_5();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop7;
-                }
-            } while (true);
-
-             after(grammarAccess.getProgramAccess().getChartAssignment_5()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Program__Group__5__Impl"
-
-
-    // $ANTLR start "rule__Program__Group__6"
-    // InternalChartDsl.g:794:1: rule__Program__Group__6 : rule__Program__Group__6__Impl ;
-    public final void rule__Program__Group__6() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:798:1: ( rule__Program__Group__6__Impl )
-            // InternalChartDsl.g:799:2: rule__Program__Group__6__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Program__Group__6__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Program__Group__6"
-
-
-    // $ANTLR start "rule__Program__Group__6__Impl"
-    // InternalChartDsl.g:805:1: rule__Program__Group__6__Impl : ( 'End' ) ;
-    public final void rule__Program__Group__6__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:809:1: ( ( 'End' ) )
-            // InternalChartDsl.g:810:1: ( 'End' )
-            {
-            // InternalChartDsl.g:810:1: ( 'End' )
-            // InternalChartDsl.g:811:2: 'End'
-            {
-             before(grammarAccess.getProgramAccess().getEndKeyword_6()); 
-            match(input,32,FOLLOW_2); 
-             after(grammarAccess.getProgramAccess().getEndKeyword_6()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Program__Group__6__Impl"
-
-
     // $ANTLR start "rule__Chart__Group__0"
-    // InternalChartDsl.g:821:1: rule__Chart__Group__0 : rule__Chart__Group__0__Impl rule__Chart__Group__1 ;
+    // InternalChartDsl.g:713:1: rule__Chart__Group__0 : rule__Chart__Group__0__Impl rule__Chart__Group__1 ;
     public final void rule__Chart__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:825:1: ( rule__Chart__Group__0__Impl rule__Chart__Group__1 )
-            // InternalChartDsl.g:826:2: rule__Chart__Group__0__Impl rule__Chart__Group__1
+            // InternalChartDsl.g:717:1: ( rule__Chart__Group__0__Impl rule__Chart__Group__1 )
+            // InternalChartDsl.g:718:2: rule__Chart__Group__0__Impl rule__Chart__Group__1
             {
-            pushFollow(FOLLOW_6);
+            pushFollow(FOLLOW_3);
             rule__Chart__Group__0__Impl();
 
             state._fsp--;
@@ -2688,21 +2374,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__0__Impl"
-    // InternalChartDsl.g:833:1: rule__Chart__Group__0__Impl : ( () ) ;
+    // InternalChartDsl.g:725:1: rule__Chart__Group__0__Impl : ( () ) ;
     public final void rule__Chart__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:837:1: ( ( () ) )
-            // InternalChartDsl.g:838:1: ( () )
+            // InternalChartDsl.g:729:1: ( ( () ) )
+            // InternalChartDsl.g:730:1: ( () )
             {
-            // InternalChartDsl.g:838:1: ( () )
-            // InternalChartDsl.g:839:2: ()
+            // InternalChartDsl.g:730:1: ( () )
+            // InternalChartDsl.g:731:2: ()
             {
              before(grammarAccess.getChartAccess().getChartAction_0()); 
-            // InternalChartDsl.g:840:2: ()
-            // InternalChartDsl.g:840:3: 
+            // InternalChartDsl.g:732:2: ()
+            // InternalChartDsl.g:732:3: 
             {
             }
 
@@ -2725,16 +2411,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__1"
-    // InternalChartDsl.g:848:1: rule__Chart__Group__1 : rule__Chart__Group__1__Impl rule__Chart__Group__2 ;
+    // InternalChartDsl.g:740:1: rule__Chart__Group__1 : rule__Chart__Group__1__Impl rule__Chart__Group__2 ;
     public final void rule__Chart__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:852:1: ( rule__Chart__Group__1__Impl rule__Chart__Group__2 )
-            // InternalChartDsl.g:853:2: rule__Chart__Group__1__Impl rule__Chart__Group__2
+            // InternalChartDsl.g:744:1: ( rule__Chart__Group__1__Impl rule__Chart__Group__2 )
+            // InternalChartDsl.g:745:2: rule__Chart__Group__1__Impl rule__Chart__Group__2
             {
-            pushFollow(FOLLOW_9);
+            pushFollow(FOLLOW_5);
             rule__Chart__Group__1__Impl();
 
             state._fsp--;
@@ -2763,20 +2449,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__1__Impl"
-    // InternalChartDsl.g:860:1: rule__Chart__Group__1__Impl : ( 'Chart' ) ;
+    // InternalChartDsl.g:752:1: rule__Chart__Group__1__Impl : ( 'Chart' ) ;
     public final void rule__Chart__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:864:1: ( ( 'Chart' ) )
-            // InternalChartDsl.g:865:1: ( 'Chart' )
+            // InternalChartDsl.g:756:1: ( ( 'Chart' ) )
+            // InternalChartDsl.g:757:1: ( 'Chart' )
             {
-            // InternalChartDsl.g:865:1: ( 'Chart' )
-            // InternalChartDsl.g:866:2: 'Chart'
+            // InternalChartDsl.g:757:1: ( 'Chart' )
+            // InternalChartDsl.g:758:2: 'Chart'
             {
              before(grammarAccess.getChartAccess().getChartKeyword_1()); 
-            match(input,33,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getChartAccess().getChartKeyword_1()); 
 
             }
@@ -2800,16 +2486,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__2"
-    // InternalChartDsl.g:875:1: rule__Chart__Group__2 : rule__Chart__Group__2__Impl rule__Chart__Group__3 ;
+    // InternalChartDsl.g:767:1: rule__Chart__Group__2 : rule__Chart__Group__2__Impl rule__Chart__Group__3 ;
     public final void rule__Chart__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:879:1: ( rule__Chart__Group__2__Impl rule__Chart__Group__3 )
-            // InternalChartDsl.g:880:2: rule__Chart__Group__2__Impl rule__Chart__Group__3
+            // InternalChartDsl.g:771:1: ( rule__Chart__Group__2__Impl rule__Chart__Group__3 )
+            // InternalChartDsl.g:772:2: rule__Chart__Group__2__Impl rule__Chart__Group__3
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_6);
             rule__Chart__Group__2__Impl();
 
             state._fsp--;
@@ -2838,20 +2524,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__2__Impl"
-    // InternalChartDsl.g:887:1: rule__Chart__Group__2__Impl : ( '{' ) ;
+    // InternalChartDsl.g:779:1: rule__Chart__Group__2__Impl : ( '{' ) ;
     public final void rule__Chart__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:891:1: ( ( '{' ) )
-            // InternalChartDsl.g:892:1: ( '{' )
+            // InternalChartDsl.g:783:1: ( ( '{' ) )
+            // InternalChartDsl.g:784:1: ( '{' )
             {
-            // InternalChartDsl.g:892:1: ( '{' )
-            // InternalChartDsl.g:893:2: '{'
+            // InternalChartDsl.g:784:1: ( '{' )
+            // InternalChartDsl.g:785:2: '{'
             {
              before(grammarAccess.getChartAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,34,FOLLOW_2); 
+            match(input,31,FOLLOW_2); 
              after(grammarAccess.getChartAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -2875,16 +2561,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__3"
-    // InternalChartDsl.g:902:1: rule__Chart__Group__3 : rule__Chart__Group__3__Impl rule__Chart__Group__4 ;
+    // InternalChartDsl.g:794:1: rule__Chart__Group__3 : rule__Chart__Group__3__Impl rule__Chart__Group__4 ;
     public final void rule__Chart__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:906:1: ( rule__Chart__Group__3__Impl rule__Chart__Group__4 )
-            // InternalChartDsl.g:907:2: rule__Chart__Group__3__Impl rule__Chart__Group__4
+            // InternalChartDsl.g:798:1: ( rule__Chart__Group__3__Impl rule__Chart__Group__4 )
+            // InternalChartDsl.g:799:2: rule__Chart__Group__3__Impl rule__Chart__Group__4
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_6);
             rule__Chart__Group__3__Impl();
 
             state._fsp--;
@@ -2913,29 +2599,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__3__Impl"
-    // InternalChartDsl.g:914:1: rule__Chart__Group__3__Impl : ( ( rule__Chart__Group_3__0 )? ) ;
+    // InternalChartDsl.g:806:1: rule__Chart__Group__3__Impl : ( ( rule__Chart__Group_3__0 )? ) ;
     public final void rule__Chart__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:918:1: ( ( ( rule__Chart__Group_3__0 )? ) )
-            // InternalChartDsl.g:919:1: ( ( rule__Chart__Group_3__0 )? )
+            // InternalChartDsl.g:810:1: ( ( ( rule__Chart__Group_3__0 )? ) )
+            // InternalChartDsl.g:811:1: ( ( rule__Chart__Group_3__0 )? )
             {
-            // InternalChartDsl.g:919:1: ( ( rule__Chart__Group_3__0 )? )
-            // InternalChartDsl.g:920:2: ( rule__Chart__Group_3__0 )?
+            // InternalChartDsl.g:811:1: ( ( rule__Chart__Group_3__0 )? )
+            // InternalChartDsl.g:812:2: ( rule__Chart__Group_3__0 )?
             {
              before(grammarAccess.getChartAccess().getGroup_3()); 
-            // InternalChartDsl.g:921:2: ( rule__Chart__Group_3__0 )?
+            // InternalChartDsl.g:813:2: ( rule__Chart__Group_3__0 )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==36) ) {
+            if ( (LA8_0==33) ) {
                 alt8=1;
             }
             switch (alt8) {
                 case 1 :
-                    // InternalChartDsl.g:921:3: rule__Chart__Group_3__0
+                    // InternalChartDsl.g:813:3: rule__Chart__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Chart__Group_3__0();
@@ -2971,16 +2657,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__4"
-    // InternalChartDsl.g:929:1: rule__Chart__Group__4 : rule__Chart__Group__4__Impl rule__Chart__Group__5 ;
+    // InternalChartDsl.g:821:1: rule__Chart__Group__4 : rule__Chart__Group__4__Impl rule__Chart__Group__5 ;
     public final void rule__Chart__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:933:1: ( rule__Chart__Group__4__Impl rule__Chart__Group__5 )
-            // InternalChartDsl.g:934:2: rule__Chart__Group__4__Impl rule__Chart__Group__5
+            // InternalChartDsl.g:825:1: ( rule__Chart__Group__4__Impl rule__Chart__Group__5 )
+            // InternalChartDsl.g:826:2: rule__Chart__Group__4__Impl rule__Chart__Group__5
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_6);
             rule__Chart__Group__4__Impl();
 
             state._fsp--;
@@ -3009,29 +2695,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__4__Impl"
-    // InternalChartDsl.g:941:1: rule__Chart__Group__4__Impl : ( ( rule__Chart__Group_4__0 )? ) ;
+    // InternalChartDsl.g:833:1: rule__Chart__Group__4__Impl : ( ( rule__Chart__Group_4__0 )? ) ;
     public final void rule__Chart__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:945:1: ( ( ( rule__Chart__Group_4__0 )? ) )
-            // InternalChartDsl.g:946:1: ( ( rule__Chart__Group_4__0 )? )
+            // InternalChartDsl.g:837:1: ( ( ( rule__Chart__Group_4__0 )? ) )
+            // InternalChartDsl.g:838:1: ( ( rule__Chart__Group_4__0 )? )
             {
-            // InternalChartDsl.g:946:1: ( ( rule__Chart__Group_4__0 )? )
-            // InternalChartDsl.g:947:2: ( rule__Chart__Group_4__0 )?
+            // InternalChartDsl.g:838:1: ( ( rule__Chart__Group_4__0 )? )
+            // InternalChartDsl.g:839:2: ( rule__Chart__Group_4__0 )?
             {
              before(grammarAccess.getChartAccess().getGroup_4()); 
-            // InternalChartDsl.g:948:2: ( rule__Chart__Group_4__0 )?
+            // InternalChartDsl.g:840:2: ( rule__Chart__Group_4__0 )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==37) ) {
+            if ( (LA9_0==34) ) {
                 alt9=1;
             }
             switch (alt9) {
                 case 1 :
-                    // InternalChartDsl.g:948:3: rule__Chart__Group_4__0
+                    // InternalChartDsl.g:840:3: rule__Chart__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Chart__Group_4__0();
@@ -3067,16 +2753,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__5"
-    // InternalChartDsl.g:956:1: rule__Chart__Group__5 : rule__Chart__Group__5__Impl rule__Chart__Group__6 ;
+    // InternalChartDsl.g:848:1: rule__Chart__Group__5 : rule__Chart__Group__5__Impl rule__Chart__Group__6 ;
     public final void rule__Chart__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:960:1: ( rule__Chart__Group__5__Impl rule__Chart__Group__6 )
-            // InternalChartDsl.g:961:2: rule__Chart__Group__5__Impl rule__Chart__Group__6
+            // InternalChartDsl.g:852:1: ( rule__Chart__Group__5__Impl rule__Chart__Group__6 )
+            // InternalChartDsl.g:853:2: rule__Chart__Group__5__Impl rule__Chart__Group__6
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_6);
             rule__Chart__Group__5__Impl();
 
             state._fsp--;
@@ -3105,29 +2791,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__5__Impl"
-    // InternalChartDsl.g:968:1: rule__Chart__Group__5__Impl : ( ( rule__Chart__Group_5__0 )? ) ;
+    // InternalChartDsl.g:860:1: rule__Chart__Group__5__Impl : ( ( rule__Chart__Group_5__0 )? ) ;
     public final void rule__Chart__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:972:1: ( ( ( rule__Chart__Group_5__0 )? ) )
-            // InternalChartDsl.g:973:1: ( ( rule__Chart__Group_5__0 )? )
+            // InternalChartDsl.g:864:1: ( ( ( rule__Chart__Group_5__0 )? ) )
+            // InternalChartDsl.g:865:1: ( ( rule__Chart__Group_5__0 )? )
             {
-            // InternalChartDsl.g:973:1: ( ( rule__Chart__Group_5__0 )? )
-            // InternalChartDsl.g:974:2: ( rule__Chart__Group_5__0 )?
+            // InternalChartDsl.g:865:1: ( ( rule__Chart__Group_5__0 )? )
+            // InternalChartDsl.g:866:2: ( rule__Chart__Group_5__0 )?
             {
              before(grammarAccess.getChartAccess().getGroup_5()); 
-            // InternalChartDsl.g:975:2: ( rule__Chart__Group_5__0 )?
+            // InternalChartDsl.g:867:2: ( rule__Chart__Group_5__0 )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==38) ) {
+            if ( (LA10_0==35) ) {
                 alt10=1;
             }
             switch (alt10) {
                 case 1 :
-                    // InternalChartDsl.g:975:3: rule__Chart__Group_5__0
+                    // InternalChartDsl.g:867:3: rule__Chart__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Chart__Group_5__0();
@@ -3163,16 +2849,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__6"
-    // InternalChartDsl.g:983:1: rule__Chart__Group__6 : rule__Chart__Group__6__Impl rule__Chart__Group__7 ;
+    // InternalChartDsl.g:875:1: rule__Chart__Group__6 : rule__Chart__Group__6__Impl rule__Chart__Group__7 ;
     public final void rule__Chart__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:987:1: ( rule__Chart__Group__6__Impl rule__Chart__Group__7 )
-            // InternalChartDsl.g:988:2: rule__Chart__Group__6__Impl rule__Chart__Group__7
+            // InternalChartDsl.g:879:1: ( rule__Chart__Group__6__Impl rule__Chart__Group__7 )
+            // InternalChartDsl.g:880:2: rule__Chart__Group__6__Impl rule__Chart__Group__7
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_6);
             rule__Chart__Group__6__Impl();
 
             state._fsp--;
@@ -3201,29 +2887,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__6__Impl"
-    // InternalChartDsl.g:995:1: rule__Chart__Group__6__Impl : ( ( rule__Chart__Group_6__0 )? ) ;
+    // InternalChartDsl.g:887:1: rule__Chart__Group__6__Impl : ( ( rule__Chart__Group_6__0 )? ) ;
     public final void rule__Chart__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:999:1: ( ( ( rule__Chart__Group_6__0 )? ) )
-            // InternalChartDsl.g:1000:1: ( ( rule__Chart__Group_6__0 )? )
+            // InternalChartDsl.g:891:1: ( ( ( rule__Chart__Group_6__0 )? ) )
+            // InternalChartDsl.g:892:1: ( ( rule__Chart__Group_6__0 )? )
             {
-            // InternalChartDsl.g:1000:1: ( ( rule__Chart__Group_6__0 )? )
-            // InternalChartDsl.g:1001:2: ( rule__Chart__Group_6__0 )?
+            // InternalChartDsl.g:892:1: ( ( rule__Chart__Group_6__0 )? )
+            // InternalChartDsl.g:893:2: ( rule__Chart__Group_6__0 )?
             {
              before(grammarAccess.getChartAccess().getGroup_6()); 
-            // InternalChartDsl.g:1002:2: ( rule__Chart__Group_6__0 )?
+            // InternalChartDsl.g:894:2: ( rule__Chart__Group_6__0 )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
-            if ( (LA11_0==42) ) {
+            if ( (LA11_0==36) ) {
                 alt11=1;
             }
             switch (alt11) {
                 case 1 :
-                    // InternalChartDsl.g:1002:3: rule__Chart__Group_6__0
+                    // InternalChartDsl.g:894:3: rule__Chart__Group_6__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Chart__Group_6__0();
@@ -3259,16 +2945,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__7"
-    // InternalChartDsl.g:1010:1: rule__Chart__Group__7 : rule__Chart__Group__7__Impl rule__Chart__Group__8 ;
+    // InternalChartDsl.g:902:1: rule__Chart__Group__7 : rule__Chart__Group__7__Impl rule__Chart__Group__8 ;
     public final void rule__Chart__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1014:1: ( rule__Chart__Group__7__Impl rule__Chart__Group__8 )
-            // InternalChartDsl.g:1015:2: rule__Chart__Group__7__Impl rule__Chart__Group__8
+            // InternalChartDsl.g:906:1: ( rule__Chart__Group__7__Impl rule__Chart__Group__8 )
+            // InternalChartDsl.g:907:2: rule__Chart__Group__7__Impl rule__Chart__Group__8
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_6);
             rule__Chart__Group__7__Impl();
 
             state._fsp--;
@@ -3297,29 +2983,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__7__Impl"
-    // InternalChartDsl.g:1022:1: rule__Chart__Group__7__Impl : ( ( rule__Chart__Group_7__0 )? ) ;
+    // InternalChartDsl.g:914:1: rule__Chart__Group__7__Impl : ( ( rule__Chart__Group_7__0 )? ) ;
     public final void rule__Chart__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1026:1: ( ( ( rule__Chart__Group_7__0 )? ) )
-            // InternalChartDsl.g:1027:1: ( ( rule__Chart__Group_7__0 )? )
+            // InternalChartDsl.g:918:1: ( ( ( rule__Chart__Group_7__0 )? ) )
+            // InternalChartDsl.g:919:1: ( ( rule__Chart__Group_7__0 )? )
             {
-            // InternalChartDsl.g:1027:1: ( ( rule__Chart__Group_7__0 )? )
-            // InternalChartDsl.g:1028:2: ( rule__Chart__Group_7__0 )?
+            // InternalChartDsl.g:919:1: ( ( rule__Chart__Group_7__0 )? )
+            // InternalChartDsl.g:920:2: ( rule__Chart__Group_7__0 )?
             {
              before(grammarAccess.getChartAccess().getGroup_7()); 
-            // InternalChartDsl.g:1029:2: ( rule__Chart__Group_7__0 )?
+            // InternalChartDsl.g:921:2: ( rule__Chart__Group_7__0 )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
-            if ( (LA12_0==43) ) {
+            if ( (LA12_0==37) ) {
                 alt12=1;
             }
             switch (alt12) {
                 case 1 :
-                    // InternalChartDsl.g:1029:3: rule__Chart__Group_7__0
+                    // InternalChartDsl.g:921:3: rule__Chart__Group_7__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Chart__Group_7__0();
@@ -3355,14 +3041,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__8"
-    // InternalChartDsl.g:1037:1: rule__Chart__Group__8 : rule__Chart__Group__8__Impl ;
+    // InternalChartDsl.g:929:1: rule__Chart__Group__8 : rule__Chart__Group__8__Impl ;
     public final void rule__Chart__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1041:1: ( rule__Chart__Group__8__Impl )
-            // InternalChartDsl.g:1042:2: rule__Chart__Group__8__Impl
+            // InternalChartDsl.g:933:1: ( rule__Chart__Group__8__Impl )
+            // InternalChartDsl.g:934:2: rule__Chart__Group__8__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Chart__Group__8__Impl();
@@ -3388,20 +3074,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group__8__Impl"
-    // InternalChartDsl.g:1048:1: rule__Chart__Group__8__Impl : ( '}' ) ;
+    // InternalChartDsl.g:940:1: rule__Chart__Group__8__Impl : ( '}' ) ;
     public final void rule__Chart__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1052:1: ( ( '}' ) )
-            // InternalChartDsl.g:1053:1: ( '}' )
+            // InternalChartDsl.g:944:1: ( ( '}' ) )
+            // InternalChartDsl.g:945:1: ( '}' )
             {
-            // InternalChartDsl.g:1053:1: ( '}' )
-            // InternalChartDsl.g:1054:2: '}'
+            // InternalChartDsl.g:945:1: ( '}' )
+            // InternalChartDsl.g:946:2: '}'
             {
              before(grammarAccess.getChartAccess().getRightCurlyBracketKeyword_8()); 
-            match(input,35,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getChartAccess().getRightCurlyBracketKeyword_8()); 
 
             }
@@ -3425,16 +3111,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_3__0"
-    // InternalChartDsl.g:1064:1: rule__Chart__Group_3__0 : rule__Chart__Group_3__0__Impl rule__Chart__Group_3__1 ;
+    // InternalChartDsl.g:956:1: rule__Chart__Group_3__0 : rule__Chart__Group_3__0__Impl rule__Chart__Group_3__1 ;
     public final void rule__Chart__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1068:1: ( rule__Chart__Group_3__0__Impl rule__Chart__Group_3__1 )
-            // InternalChartDsl.g:1069:2: rule__Chart__Group_3__0__Impl rule__Chart__Group_3__1
+            // InternalChartDsl.g:960:1: ( rule__Chart__Group_3__0__Impl rule__Chart__Group_3__1 )
+            // InternalChartDsl.g:961:2: rule__Chart__Group_3__0__Impl rule__Chart__Group_3__1
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_7);
             rule__Chart__Group_3__0__Impl();
 
             state._fsp--;
@@ -3463,20 +3149,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_3__0__Impl"
-    // InternalChartDsl.g:1076:1: rule__Chart__Group_3__0__Impl : ( 'title' ) ;
+    // InternalChartDsl.g:968:1: rule__Chart__Group_3__0__Impl : ( 'title:' ) ;
     public final void rule__Chart__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1080:1: ( ( 'title' ) )
-            // InternalChartDsl.g:1081:1: ( 'title' )
+            // InternalChartDsl.g:972:1: ( ( 'title:' ) )
+            // InternalChartDsl.g:973:1: ( 'title:' )
             {
-            // InternalChartDsl.g:1081:1: ( 'title' )
-            // InternalChartDsl.g:1082:2: 'title'
+            // InternalChartDsl.g:973:1: ( 'title:' )
+            // InternalChartDsl.g:974:2: 'title:'
             {
              before(grammarAccess.getChartAccess().getTitleKeyword_3_0()); 
-            match(input,36,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getChartAccess().getTitleKeyword_3_0()); 
 
             }
@@ -3500,14 +3186,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_3__1"
-    // InternalChartDsl.g:1091:1: rule__Chart__Group_3__1 : rule__Chart__Group_3__1__Impl ;
+    // InternalChartDsl.g:983:1: rule__Chart__Group_3__1 : rule__Chart__Group_3__1__Impl ;
     public final void rule__Chart__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1095:1: ( rule__Chart__Group_3__1__Impl )
-            // InternalChartDsl.g:1096:2: rule__Chart__Group_3__1__Impl
+            // InternalChartDsl.g:987:1: ( rule__Chart__Group_3__1__Impl )
+            // InternalChartDsl.g:988:2: rule__Chart__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Chart__Group_3__1__Impl();
@@ -3533,21 +3219,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_3__1__Impl"
-    // InternalChartDsl.g:1102:1: rule__Chart__Group_3__1__Impl : ( ( rule__Chart__TitleAssignment_3_1 ) ) ;
+    // InternalChartDsl.g:994:1: rule__Chart__Group_3__1__Impl : ( ( rule__Chart__TitleAssignment_3_1 ) ) ;
     public final void rule__Chart__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1106:1: ( ( ( rule__Chart__TitleAssignment_3_1 ) ) )
-            // InternalChartDsl.g:1107:1: ( ( rule__Chart__TitleAssignment_3_1 ) )
+            // InternalChartDsl.g:998:1: ( ( ( rule__Chart__TitleAssignment_3_1 ) ) )
+            // InternalChartDsl.g:999:1: ( ( rule__Chart__TitleAssignment_3_1 ) )
             {
-            // InternalChartDsl.g:1107:1: ( ( rule__Chart__TitleAssignment_3_1 ) )
-            // InternalChartDsl.g:1108:2: ( rule__Chart__TitleAssignment_3_1 )
+            // InternalChartDsl.g:999:1: ( ( rule__Chart__TitleAssignment_3_1 ) )
+            // InternalChartDsl.g:1000:2: ( rule__Chart__TitleAssignment_3_1 )
             {
              before(grammarAccess.getChartAccess().getTitleAssignment_3_1()); 
-            // InternalChartDsl.g:1109:2: ( rule__Chart__TitleAssignment_3_1 )
-            // InternalChartDsl.g:1109:3: rule__Chart__TitleAssignment_3_1
+            // InternalChartDsl.g:1001:2: ( rule__Chart__TitleAssignment_3_1 )
+            // InternalChartDsl.g:1001:3: rule__Chart__TitleAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__Chart__TitleAssignment_3_1();
@@ -3580,16 +3266,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_4__0"
-    // InternalChartDsl.g:1118:1: rule__Chart__Group_4__0 : rule__Chart__Group_4__0__Impl rule__Chart__Group_4__1 ;
+    // InternalChartDsl.g:1010:1: rule__Chart__Group_4__0 : rule__Chart__Group_4__0__Impl rule__Chart__Group_4__1 ;
     public final void rule__Chart__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1122:1: ( rule__Chart__Group_4__0__Impl rule__Chart__Group_4__1 )
-            // InternalChartDsl.g:1123:2: rule__Chart__Group_4__0__Impl rule__Chart__Group_4__1
+            // InternalChartDsl.g:1014:1: ( rule__Chart__Group_4__0__Impl rule__Chart__Group_4__1 )
+            // InternalChartDsl.g:1015:2: rule__Chart__Group_4__0__Impl rule__Chart__Group_4__1
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_8);
             rule__Chart__Group_4__0__Impl();
 
             state._fsp--;
@@ -3618,20 +3304,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_4__0__Impl"
-    // InternalChartDsl.g:1130:1: rule__Chart__Group_4__0__Impl : ( 'type' ) ;
+    // InternalChartDsl.g:1022:1: rule__Chart__Group_4__0__Impl : ( 'type:' ) ;
     public final void rule__Chart__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1134:1: ( ( 'type' ) )
-            // InternalChartDsl.g:1135:1: ( 'type' )
+            // InternalChartDsl.g:1026:1: ( ( 'type:' ) )
+            // InternalChartDsl.g:1027:1: ( 'type:' )
             {
-            // InternalChartDsl.g:1135:1: ( 'type' )
-            // InternalChartDsl.g:1136:2: 'type'
+            // InternalChartDsl.g:1027:1: ( 'type:' )
+            // InternalChartDsl.g:1028:2: 'type:'
             {
              before(grammarAccess.getChartAccess().getTypeKeyword_4_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getChartAccess().getTypeKeyword_4_0()); 
 
             }
@@ -3655,14 +3341,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_4__1"
-    // InternalChartDsl.g:1145:1: rule__Chart__Group_4__1 : rule__Chart__Group_4__1__Impl ;
+    // InternalChartDsl.g:1037:1: rule__Chart__Group_4__1 : rule__Chart__Group_4__1__Impl ;
     public final void rule__Chart__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1149:1: ( rule__Chart__Group_4__1__Impl )
-            // InternalChartDsl.g:1150:2: rule__Chart__Group_4__1__Impl
+            // InternalChartDsl.g:1041:1: ( rule__Chart__Group_4__1__Impl )
+            // InternalChartDsl.g:1042:2: rule__Chart__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Chart__Group_4__1__Impl();
@@ -3688,21 +3374,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_4__1__Impl"
-    // InternalChartDsl.g:1156:1: rule__Chart__Group_4__1__Impl : ( ( rule__Chart__TypeAssignment_4_1 ) ) ;
+    // InternalChartDsl.g:1048:1: rule__Chart__Group_4__1__Impl : ( ( rule__Chart__TypeAssignment_4_1 ) ) ;
     public final void rule__Chart__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1160:1: ( ( ( rule__Chart__TypeAssignment_4_1 ) ) )
-            // InternalChartDsl.g:1161:1: ( ( rule__Chart__TypeAssignment_4_1 ) )
+            // InternalChartDsl.g:1052:1: ( ( ( rule__Chart__TypeAssignment_4_1 ) ) )
+            // InternalChartDsl.g:1053:1: ( ( rule__Chart__TypeAssignment_4_1 ) )
             {
-            // InternalChartDsl.g:1161:1: ( ( rule__Chart__TypeAssignment_4_1 ) )
-            // InternalChartDsl.g:1162:2: ( rule__Chart__TypeAssignment_4_1 )
+            // InternalChartDsl.g:1053:1: ( ( rule__Chart__TypeAssignment_4_1 ) )
+            // InternalChartDsl.g:1054:2: ( rule__Chart__TypeAssignment_4_1 )
             {
              before(grammarAccess.getChartAccess().getTypeAssignment_4_1()); 
-            // InternalChartDsl.g:1163:2: ( rule__Chart__TypeAssignment_4_1 )
-            // InternalChartDsl.g:1163:3: rule__Chart__TypeAssignment_4_1
+            // InternalChartDsl.g:1055:2: ( rule__Chart__TypeAssignment_4_1 )
+            // InternalChartDsl.g:1055:3: rule__Chart__TypeAssignment_4_1
             {
             pushFollow(FOLLOW_2);
             rule__Chart__TypeAssignment_4_1();
@@ -3735,16 +3421,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_5__0"
-    // InternalChartDsl.g:1172:1: rule__Chart__Group_5__0 : rule__Chart__Group_5__0__Impl rule__Chart__Group_5__1 ;
+    // InternalChartDsl.g:1064:1: rule__Chart__Group_5__0 : rule__Chart__Group_5__0__Impl rule__Chart__Group_5__1 ;
     public final void rule__Chart__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1176:1: ( rule__Chart__Group_5__0__Impl rule__Chart__Group_5__1 )
-            // InternalChartDsl.g:1177:2: rule__Chart__Group_5__0__Impl rule__Chart__Group_5__1
+            // InternalChartDsl.g:1068:1: ( rule__Chart__Group_5__0__Impl rule__Chart__Group_5__1 )
+            // InternalChartDsl.g:1069:2: rule__Chart__Group_5__0__Impl rule__Chart__Group_5__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_7);
             rule__Chart__Group_5__0__Impl();
 
             state._fsp--;
@@ -3773,20 +3459,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_5__0__Impl"
-    // InternalChartDsl.g:1184:1: rule__Chart__Group_5__0__Impl : ( 'xAxis' ) ;
+    // InternalChartDsl.g:1076:1: rule__Chart__Group_5__0__Impl : ( 'xAxis:' ) ;
     public final void rule__Chart__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1188:1: ( ( 'xAxis' ) )
-            // InternalChartDsl.g:1189:1: ( 'xAxis' )
+            // InternalChartDsl.g:1080:1: ( ( 'xAxis:' ) )
+            // InternalChartDsl.g:1081:1: ( 'xAxis:' )
             {
-            // InternalChartDsl.g:1189:1: ( 'xAxis' )
-            // InternalChartDsl.g:1190:2: 'xAxis'
+            // InternalChartDsl.g:1081:1: ( 'xAxis:' )
+            // InternalChartDsl.g:1082:2: 'xAxis:'
             {
              before(grammarAccess.getChartAccess().getXAxisKeyword_5_0()); 
-            match(input,38,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getChartAccess().getXAxisKeyword_5_0()); 
 
             }
@@ -3810,16 +3496,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_5__1"
-    // InternalChartDsl.g:1199:1: rule__Chart__Group_5__1 : rule__Chart__Group_5__1__Impl rule__Chart__Group_5__2 ;
+    // InternalChartDsl.g:1091:1: rule__Chart__Group_5__1 : rule__Chart__Group_5__1__Impl rule__Chart__Group_5__2 ;
     public final void rule__Chart__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1203:1: ( rule__Chart__Group_5__1__Impl rule__Chart__Group_5__2 )
-            // InternalChartDsl.g:1204:2: rule__Chart__Group_5__1__Impl rule__Chart__Group_5__2
+            // InternalChartDsl.g:1095:1: ( rule__Chart__Group_5__1__Impl rule__Chart__Group_5__2 )
+            // InternalChartDsl.g:1096:2: rule__Chart__Group_5__1__Impl rule__Chart__Group_5__2
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_7);
             rule__Chart__Group_5__1__Impl();
 
             state._fsp--;
@@ -3848,21 +3534,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_5__1__Impl"
-    // InternalChartDsl.g:1211:1: rule__Chart__Group_5__1__Impl : ( '(' ) ;
+    // InternalChartDsl.g:1103:1: rule__Chart__Group_5__1__Impl : ( ( rule__Chart__XVariableAssignment_5_1 ) ) ;
     public final void rule__Chart__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1215:1: ( ( '(' ) )
-            // InternalChartDsl.g:1216:1: ( '(' )
+            // InternalChartDsl.g:1107:1: ( ( ( rule__Chart__XVariableAssignment_5_1 ) ) )
+            // InternalChartDsl.g:1108:1: ( ( rule__Chart__XVariableAssignment_5_1 ) )
             {
-            // InternalChartDsl.g:1216:1: ( '(' )
-            // InternalChartDsl.g:1217:2: '('
+            // InternalChartDsl.g:1108:1: ( ( rule__Chart__XVariableAssignment_5_1 ) )
+            // InternalChartDsl.g:1109:2: ( rule__Chart__XVariableAssignment_5_1 )
             {
-             before(grammarAccess.getChartAccess().getLeftParenthesisKeyword_5_1()); 
-            match(input,39,FOLLOW_2); 
-             after(grammarAccess.getChartAccess().getLeftParenthesisKeyword_5_1()); 
+             before(grammarAccess.getChartAccess().getXVariableAssignment_5_1()); 
+            // InternalChartDsl.g:1110:2: ( rule__Chart__XVariableAssignment_5_1 )
+            // InternalChartDsl.g:1110:3: rule__Chart__XVariableAssignment_5_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Chart__XVariableAssignment_5_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getChartAccess().getXVariableAssignment_5_1()); 
 
             }
 
@@ -3885,22 +3581,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_5__2"
-    // InternalChartDsl.g:1226:1: rule__Chart__Group_5__2 : rule__Chart__Group_5__2__Impl rule__Chart__Group_5__3 ;
+    // InternalChartDsl.g:1118:1: rule__Chart__Group_5__2 : rule__Chart__Group_5__2__Impl ;
     public final void rule__Chart__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1230:1: ( rule__Chart__Group_5__2__Impl rule__Chart__Group_5__3 )
-            // InternalChartDsl.g:1231:2: rule__Chart__Group_5__2__Impl rule__Chart__Group_5__3
+            // InternalChartDsl.g:1122:1: ( rule__Chart__Group_5__2__Impl )
+            // InternalChartDsl.g:1123:2: rule__Chart__Group_5__2__Impl
             {
-            pushFollow(FOLLOW_13);
-            rule__Chart__Group_5__2__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Chart__Group_5__3();
+            rule__Chart__Group_5__2__Impl();
 
             state._fsp--;
 
@@ -3923,29 +3614,47 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_5__2__Impl"
-    // InternalChartDsl.g:1238:1: rule__Chart__Group_5__2__Impl : ( ( rule__Chart__XVariableAssignment_5_2 ) ) ;
+    // InternalChartDsl.g:1129:1: rule__Chart__Group_5__2__Impl : ( ( rule__Chart__XVariableAssignment_5_2 )* ) ;
     public final void rule__Chart__Group_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1242:1: ( ( ( rule__Chart__XVariableAssignment_5_2 ) ) )
-            // InternalChartDsl.g:1243:1: ( ( rule__Chart__XVariableAssignment_5_2 ) )
+            // InternalChartDsl.g:1133:1: ( ( ( rule__Chart__XVariableAssignment_5_2 )* ) )
+            // InternalChartDsl.g:1134:1: ( ( rule__Chart__XVariableAssignment_5_2 )* )
             {
-            // InternalChartDsl.g:1243:1: ( ( rule__Chart__XVariableAssignment_5_2 ) )
-            // InternalChartDsl.g:1244:2: ( rule__Chart__XVariableAssignment_5_2 )
+            // InternalChartDsl.g:1134:1: ( ( rule__Chart__XVariableAssignment_5_2 )* )
+            // InternalChartDsl.g:1135:2: ( rule__Chart__XVariableAssignment_5_2 )*
             {
              before(grammarAccess.getChartAccess().getXVariableAssignment_5_2()); 
-            // InternalChartDsl.g:1245:2: ( rule__Chart__XVariableAssignment_5_2 )
-            // InternalChartDsl.g:1245:3: rule__Chart__XVariableAssignment_5_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__XVariableAssignment_5_2();
+            // InternalChartDsl.g:1136:2: ( rule__Chart__XVariableAssignment_5_2 )*
+            loop13:
+            do {
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-            state._fsp--;
+                if ( ((LA13_0>=RULE_STRING && LA13_0<=RULE_ID)) ) {
+                    alt13=1;
+                }
 
 
-            }
+                switch (alt13) {
+            	case 1 :
+            	    // InternalChartDsl.g:1136:3: rule__Chart__XVariableAssignment_5_2
+            	    {
+            	    pushFollow(FOLLOW_9);
+            	    rule__Chart__XVariableAssignment_5_2();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop13;
+                }
+            } while (true);
 
              after(grammarAccess.getChartAccess().getXVariableAssignment_5_2()); 
 
@@ -3969,345 +3678,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Chart__Group_5__2__Impl"
 
 
-    // $ANTLR start "rule__Chart__Group_5__3"
-    // InternalChartDsl.g:1253:1: rule__Chart__Group_5__3 : rule__Chart__Group_5__3__Impl rule__Chart__Group_5__4 ;
-    public final void rule__Chart__Group_5__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1257:1: ( rule__Chart__Group_5__3__Impl rule__Chart__Group_5__4 )
-            // InternalChartDsl.g:1258:2: rule__Chart__Group_5__3__Impl rule__Chart__Group_5__4
-            {
-            pushFollow(FOLLOW_13);
-            rule__Chart__Group_5__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_5__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_5__3"
-
-
-    // $ANTLR start "rule__Chart__Group_5__3__Impl"
-    // InternalChartDsl.g:1265:1: rule__Chart__Group_5__3__Impl : ( ( rule__Chart__Group_5_3__0 )* ) ;
-    public final void rule__Chart__Group_5__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1269:1: ( ( ( rule__Chart__Group_5_3__0 )* ) )
-            // InternalChartDsl.g:1270:1: ( ( rule__Chart__Group_5_3__0 )* )
-            {
-            // InternalChartDsl.g:1270:1: ( ( rule__Chart__Group_5_3__0 )* )
-            // InternalChartDsl.g:1271:2: ( rule__Chart__Group_5_3__0 )*
-            {
-             before(grammarAccess.getChartAccess().getGroup_5_3()); 
-            // InternalChartDsl.g:1272:2: ( rule__Chart__Group_5_3__0 )*
-            loop13:
-            do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
-
-                if ( (LA13_0==41) ) {
-                    alt13=1;
-                }
-
-
-                switch (alt13) {
-            	case 1 :
-            	    // InternalChartDsl.g:1272:3: rule__Chart__Group_5_3__0
-            	    {
-            	    pushFollow(FOLLOW_14);
-            	    rule__Chart__Group_5_3__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop13;
-                }
-            } while (true);
-
-             after(grammarAccess.getChartAccess().getGroup_5_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_5__3__Impl"
-
-
-    // $ANTLR start "rule__Chart__Group_5__4"
-    // InternalChartDsl.g:1280:1: rule__Chart__Group_5__4 : rule__Chart__Group_5__4__Impl ;
-    public final void rule__Chart__Group_5__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1284:1: ( rule__Chart__Group_5__4__Impl )
-            // InternalChartDsl.g:1285:2: rule__Chart__Group_5__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_5__4__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_5__4"
-
-
-    // $ANTLR start "rule__Chart__Group_5__4__Impl"
-    // InternalChartDsl.g:1291:1: rule__Chart__Group_5__4__Impl : ( ')' ) ;
-    public final void rule__Chart__Group_5__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1295:1: ( ( ')' ) )
-            // InternalChartDsl.g:1296:1: ( ')' )
-            {
-            // InternalChartDsl.g:1296:1: ( ')' )
-            // InternalChartDsl.g:1297:2: ')'
-            {
-             before(grammarAccess.getChartAccess().getRightParenthesisKeyword_5_4()); 
-            match(input,40,FOLLOW_2); 
-             after(grammarAccess.getChartAccess().getRightParenthesisKeyword_5_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_5__4__Impl"
-
-
-    // $ANTLR start "rule__Chart__Group_5_3__0"
-    // InternalChartDsl.g:1307:1: rule__Chart__Group_5_3__0 : rule__Chart__Group_5_3__0__Impl rule__Chart__Group_5_3__1 ;
-    public final void rule__Chart__Group_5_3__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1311:1: ( rule__Chart__Group_5_3__0__Impl rule__Chart__Group_5_3__1 )
-            // InternalChartDsl.g:1312:2: rule__Chart__Group_5_3__0__Impl rule__Chart__Group_5_3__1
-            {
-            pushFollow(FOLLOW_3);
-            rule__Chart__Group_5_3__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_5_3__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_5_3__0"
-
-
-    // $ANTLR start "rule__Chart__Group_5_3__0__Impl"
-    // InternalChartDsl.g:1319:1: rule__Chart__Group_5_3__0__Impl : ( ',' ) ;
-    public final void rule__Chart__Group_5_3__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1323:1: ( ( ',' ) )
-            // InternalChartDsl.g:1324:1: ( ',' )
-            {
-            // InternalChartDsl.g:1324:1: ( ',' )
-            // InternalChartDsl.g:1325:2: ','
-            {
-             before(grammarAccess.getChartAccess().getCommaKeyword_5_3_0()); 
-            match(input,41,FOLLOW_2); 
-             after(grammarAccess.getChartAccess().getCommaKeyword_5_3_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_5_3__0__Impl"
-
-
-    // $ANTLR start "rule__Chart__Group_5_3__1"
-    // InternalChartDsl.g:1334:1: rule__Chart__Group_5_3__1 : rule__Chart__Group_5_3__1__Impl ;
-    public final void rule__Chart__Group_5_3__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1338:1: ( rule__Chart__Group_5_3__1__Impl )
-            // InternalChartDsl.g:1339:2: rule__Chart__Group_5_3__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_5_3__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_5_3__1"
-
-
-    // $ANTLR start "rule__Chart__Group_5_3__1__Impl"
-    // InternalChartDsl.g:1345:1: rule__Chart__Group_5_3__1__Impl : ( ( rule__Chart__XVariableAssignment_5_3_1 ) ) ;
-    public final void rule__Chart__Group_5_3__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1349:1: ( ( ( rule__Chart__XVariableAssignment_5_3_1 ) ) )
-            // InternalChartDsl.g:1350:1: ( ( rule__Chart__XVariableAssignment_5_3_1 ) )
-            {
-            // InternalChartDsl.g:1350:1: ( ( rule__Chart__XVariableAssignment_5_3_1 ) )
-            // InternalChartDsl.g:1351:2: ( rule__Chart__XVariableAssignment_5_3_1 )
-            {
-             before(grammarAccess.getChartAccess().getXVariableAssignment_5_3_1()); 
-            // InternalChartDsl.g:1352:2: ( rule__Chart__XVariableAssignment_5_3_1 )
-            // InternalChartDsl.g:1352:3: rule__Chart__XVariableAssignment_5_3_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__XVariableAssignment_5_3_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getChartAccess().getXVariableAssignment_5_3_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_5_3__1__Impl"
-
-
     // $ANTLR start "rule__Chart__Group_6__0"
-    // InternalChartDsl.g:1361:1: rule__Chart__Group_6__0 : rule__Chart__Group_6__0__Impl rule__Chart__Group_6__1 ;
+    // InternalChartDsl.g:1145:1: rule__Chart__Group_6__0 : rule__Chart__Group_6__0__Impl rule__Chart__Group_6__1 ;
     public final void rule__Chart__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1365:1: ( rule__Chart__Group_6__0__Impl rule__Chart__Group_6__1 )
-            // InternalChartDsl.g:1366:2: rule__Chart__Group_6__0__Impl rule__Chart__Group_6__1
+            // InternalChartDsl.g:1149:1: ( rule__Chart__Group_6__0__Impl rule__Chart__Group_6__1 )
+            // InternalChartDsl.g:1150:2: rule__Chart__Group_6__0__Impl rule__Chart__Group_6__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_7);
             rule__Chart__Group_6__0__Impl();
 
             state._fsp--;
@@ -4336,20 +3717,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_6__0__Impl"
-    // InternalChartDsl.g:1373:1: rule__Chart__Group_6__0__Impl : ( 'yAxis' ) ;
+    // InternalChartDsl.g:1157:1: rule__Chart__Group_6__0__Impl : ( 'yAxis:' ) ;
     public final void rule__Chart__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1377:1: ( ( 'yAxis' ) )
-            // InternalChartDsl.g:1378:1: ( 'yAxis' )
+            // InternalChartDsl.g:1161:1: ( ( 'yAxis:' ) )
+            // InternalChartDsl.g:1162:1: ( 'yAxis:' )
             {
-            // InternalChartDsl.g:1378:1: ( 'yAxis' )
-            // InternalChartDsl.g:1379:2: 'yAxis'
+            // InternalChartDsl.g:1162:1: ( 'yAxis:' )
+            // InternalChartDsl.g:1163:2: 'yAxis:'
             {
              before(grammarAccess.getChartAccess().getYAxisKeyword_6_0()); 
-            match(input,42,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getChartAccess().getYAxisKeyword_6_0()); 
 
             }
@@ -4373,16 +3754,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_6__1"
-    // InternalChartDsl.g:1388:1: rule__Chart__Group_6__1 : rule__Chart__Group_6__1__Impl rule__Chart__Group_6__2 ;
+    // InternalChartDsl.g:1172:1: rule__Chart__Group_6__1 : rule__Chart__Group_6__1__Impl rule__Chart__Group_6__2 ;
     public final void rule__Chart__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1392:1: ( rule__Chart__Group_6__1__Impl rule__Chart__Group_6__2 )
-            // InternalChartDsl.g:1393:2: rule__Chart__Group_6__1__Impl rule__Chart__Group_6__2
+            // InternalChartDsl.g:1176:1: ( rule__Chart__Group_6__1__Impl rule__Chart__Group_6__2 )
+            // InternalChartDsl.g:1177:2: rule__Chart__Group_6__1__Impl rule__Chart__Group_6__2
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_7);
             rule__Chart__Group_6__1__Impl();
 
             state._fsp--;
@@ -4411,21 +3792,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_6__1__Impl"
-    // InternalChartDsl.g:1400:1: rule__Chart__Group_6__1__Impl : ( '(' ) ;
+    // InternalChartDsl.g:1184:1: rule__Chart__Group_6__1__Impl : ( ( rule__Chart__YVariableAssignment_6_1 ) ) ;
     public final void rule__Chart__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1404:1: ( ( '(' ) )
-            // InternalChartDsl.g:1405:1: ( '(' )
+            // InternalChartDsl.g:1188:1: ( ( ( rule__Chart__YVariableAssignment_6_1 ) ) )
+            // InternalChartDsl.g:1189:1: ( ( rule__Chart__YVariableAssignment_6_1 ) )
             {
-            // InternalChartDsl.g:1405:1: ( '(' )
-            // InternalChartDsl.g:1406:2: '('
+            // InternalChartDsl.g:1189:1: ( ( rule__Chart__YVariableAssignment_6_1 ) )
+            // InternalChartDsl.g:1190:2: ( rule__Chart__YVariableAssignment_6_1 )
             {
-             before(grammarAccess.getChartAccess().getLeftParenthesisKeyword_6_1()); 
-            match(input,39,FOLLOW_2); 
-             after(grammarAccess.getChartAccess().getLeftParenthesisKeyword_6_1()); 
+             before(grammarAccess.getChartAccess().getYVariableAssignment_6_1()); 
+            // InternalChartDsl.g:1191:2: ( rule__Chart__YVariableAssignment_6_1 )
+            // InternalChartDsl.g:1191:3: rule__Chart__YVariableAssignment_6_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Chart__YVariableAssignment_6_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getChartAccess().getYVariableAssignment_6_1()); 
 
             }
 
@@ -4448,22 +3839,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_6__2"
-    // InternalChartDsl.g:1415:1: rule__Chart__Group_6__2 : rule__Chart__Group_6__2__Impl rule__Chart__Group_6__3 ;
+    // InternalChartDsl.g:1199:1: rule__Chart__Group_6__2 : rule__Chart__Group_6__2__Impl ;
     public final void rule__Chart__Group_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1419:1: ( rule__Chart__Group_6__2__Impl rule__Chart__Group_6__3 )
-            // InternalChartDsl.g:1420:2: rule__Chart__Group_6__2__Impl rule__Chart__Group_6__3
+            // InternalChartDsl.g:1203:1: ( rule__Chart__Group_6__2__Impl )
+            // InternalChartDsl.g:1204:2: rule__Chart__Group_6__2__Impl
             {
-            pushFollow(FOLLOW_13);
-            rule__Chart__Group_6__2__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Chart__Group_6__3();
+            rule__Chart__Group_6__2__Impl();
 
             state._fsp--;
 
@@ -4486,29 +3872,47 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_6__2__Impl"
-    // InternalChartDsl.g:1427:1: rule__Chart__Group_6__2__Impl : ( ( rule__Chart__YVariableAssignment_6_2 ) ) ;
+    // InternalChartDsl.g:1210:1: rule__Chart__Group_6__2__Impl : ( ( rule__Chart__YVariableAssignment_6_2 )* ) ;
     public final void rule__Chart__Group_6__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1431:1: ( ( ( rule__Chart__YVariableAssignment_6_2 ) ) )
-            // InternalChartDsl.g:1432:1: ( ( rule__Chart__YVariableAssignment_6_2 ) )
+            // InternalChartDsl.g:1214:1: ( ( ( rule__Chart__YVariableAssignment_6_2 )* ) )
+            // InternalChartDsl.g:1215:1: ( ( rule__Chart__YVariableAssignment_6_2 )* )
             {
-            // InternalChartDsl.g:1432:1: ( ( rule__Chart__YVariableAssignment_6_2 ) )
-            // InternalChartDsl.g:1433:2: ( rule__Chart__YVariableAssignment_6_2 )
+            // InternalChartDsl.g:1215:1: ( ( rule__Chart__YVariableAssignment_6_2 )* )
+            // InternalChartDsl.g:1216:2: ( rule__Chart__YVariableAssignment_6_2 )*
             {
              before(grammarAccess.getChartAccess().getYVariableAssignment_6_2()); 
-            // InternalChartDsl.g:1434:2: ( rule__Chart__YVariableAssignment_6_2 )
-            // InternalChartDsl.g:1434:3: rule__Chart__YVariableAssignment_6_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__YVariableAssignment_6_2();
+            // InternalChartDsl.g:1217:2: ( rule__Chart__YVariableAssignment_6_2 )*
+            loop14:
+            do {
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-            state._fsp--;
+                if ( ((LA14_0>=RULE_STRING && LA14_0<=RULE_ID)) ) {
+                    alt14=1;
+                }
 
 
-            }
+                switch (alt14) {
+            	case 1 :
+            	    // InternalChartDsl.g:1217:3: rule__Chart__YVariableAssignment_6_2
+            	    {
+            	    pushFollow(FOLLOW_9);
+            	    rule__Chart__YVariableAssignment_6_2();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop14;
+                }
+            } while (true);
 
              after(grammarAccess.getChartAccess().getYVariableAssignment_6_2()); 
 
@@ -4532,345 +3936,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Chart__Group_6__2__Impl"
 
 
-    // $ANTLR start "rule__Chart__Group_6__3"
-    // InternalChartDsl.g:1442:1: rule__Chart__Group_6__3 : rule__Chart__Group_6__3__Impl rule__Chart__Group_6__4 ;
-    public final void rule__Chart__Group_6__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1446:1: ( rule__Chart__Group_6__3__Impl rule__Chart__Group_6__4 )
-            // InternalChartDsl.g:1447:2: rule__Chart__Group_6__3__Impl rule__Chart__Group_6__4
-            {
-            pushFollow(FOLLOW_13);
-            rule__Chart__Group_6__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_6__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_6__3"
-
-
-    // $ANTLR start "rule__Chart__Group_6__3__Impl"
-    // InternalChartDsl.g:1454:1: rule__Chart__Group_6__3__Impl : ( ( rule__Chart__Group_6_3__0 )* ) ;
-    public final void rule__Chart__Group_6__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1458:1: ( ( ( rule__Chart__Group_6_3__0 )* ) )
-            // InternalChartDsl.g:1459:1: ( ( rule__Chart__Group_6_3__0 )* )
-            {
-            // InternalChartDsl.g:1459:1: ( ( rule__Chart__Group_6_3__0 )* )
-            // InternalChartDsl.g:1460:2: ( rule__Chart__Group_6_3__0 )*
-            {
-             before(grammarAccess.getChartAccess().getGroup_6_3()); 
-            // InternalChartDsl.g:1461:2: ( rule__Chart__Group_6_3__0 )*
-            loop14:
-            do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
-
-                if ( (LA14_0==41) ) {
-                    alt14=1;
-                }
-
-
-                switch (alt14) {
-            	case 1 :
-            	    // InternalChartDsl.g:1461:3: rule__Chart__Group_6_3__0
-            	    {
-            	    pushFollow(FOLLOW_14);
-            	    rule__Chart__Group_6_3__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop14;
-                }
-            } while (true);
-
-             after(grammarAccess.getChartAccess().getGroup_6_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_6__3__Impl"
-
-
-    // $ANTLR start "rule__Chart__Group_6__4"
-    // InternalChartDsl.g:1469:1: rule__Chart__Group_6__4 : rule__Chart__Group_6__4__Impl ;
-    public final void rule__Chart__Group_6__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1473:1: ( rule__Chart__Group_6__4__Impl )
-            // InternalChartDsl.g:1474:2: rule__Chart__Group_6__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_6__4__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_6__4"
-
-
-    // $ANTLR start "rule__Chart__Group_6__4__Impl"
-    // InternalChartDsl.g:1480:1: rule__Chart__Group_6__4__Impl : ( ')' ) ;
-    public final void rule__Chart__Group_6__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1484:1: ( ( ')' ) )
-            // InternalChartDsl.g:1485:1: ( ')' )
-            {
-            // InternalChartDsl.g:1485:1: ( ')' )
-            // InternalChartDsl.g:1486:2: ')'
-            {
-             before(grammarAccess.getChartAccess().getRightParenthesisKeyword_6_4()); 
-            match(input,40,FOLLOW_2); 
-             after(grammarAccess.getChartAccess().getRightParenthesisKeyword_6_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_6__4__Impl"
-
-
-    // $ANTLR start "rule__Chart__Group_6_3__0"
-    // InternalChartDsl.g:1496:1: rule__Chart__Group_6_3__0 : rule__Chart__Group_6_3__0__Impl rule__Chart__Group_6_3__1 ;
-    public final void rule__Chart__Group_6_3__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1500:1: ( rule__Chart__Group_6_3__0__Impl rule__Chart__Group_6_3__1 )
-            // InternalChartDsl.g:1501:2: rule__Chart__Group_6_3__0__Impl rule__Chart__Group_6_3__1
-            {
-            pushFollow(FOLLOW_3);
-            rule__Chart__Group_6_3__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_6_3__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_6_3__0"
-
-
-    // $ANTLR start "rule__Chart__Group_6_3__0__Impl"
-    // InternalChartDsl.g:1508:1: rule__Chart__Group_6_3__0__Impl : ( ',' ) ;
-    public final void rule__Chart__Group_6_3__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1512:1: ( ( ',' ) )
-            // InternalChartDsl.g:1513:1: ( ',' )
-            {
-            // InternalChartDsl.g:1513:1: ( ',' )
-            // InternalChartDsl.g:1514:2: ','
-            {
-             before(grammarAccess.getChartAccess().getCommaKeyword_6_3_0()); 
-            match(input,41,FOLLOW_2); 
-             after(grammarAccess.getChartAccess().getCommaKeyword_6_3_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_6_3__0__Impl"
-
-
-    // $ANTLR start "rule__Chart__Group_6_3__1"
-    // InternalChartDsl.g:1523:1: rule__Chart__Group_6_3__1 : rule__Chart__Group_6_3__1__Impl ;
-    public final void rule__Chart__Group_6_3__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1527:1: ( rule__Chart__Group_6_3__1__Impl )
-            // InternalChartDsl.g:1528:2: rule__Chart__Group_6_3__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_6_3__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_6_3__1"
-
-
-    // $ANTLR start "rule__Chart__Group_6_3__1__Impl"
-    // InternalChartDsl.g:1534:1: rule__Chart__Group_6_3__1__Impl : ( ( rule__Chart__YVariableAssignment_6_3_1 ) ) ;
-    public final void rule__Chart__Group_6_3__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1538:1: ( ( ( rule__Chart__YVariableAssignment_6_3_1 ) ) )
-            // InternalChartDsl.g:1539:1: ( ( rule__Chart__YVariableAssignment_6_3_1 ) )
-            {
-            // InternalChartDsl.g:1539:1: ( ( rule__Chart__YVariableAssignment_6_3_1 ) )
-            // InternalChartDsl.g:1540:2: ( rule__Chart__YVariableAssignment_6_3_1 )
-            {
-             before(grammarAccess.getChartAccess().getYVariableAssignment_6_3_1()); 
-            // InternalChartDsl.g:1541:2: ( rule__Chart__YVariableAssignment_6_3_1 )
-            // InternalChartDsl.g:1541:3: rule__Chart__YVariableAssignment_6_3_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__YVariableAssignment_6_3_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getChartAccess().getYVariableAssignment_6_3_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_6_3__1__Impl"
-
-
     // $ANTLR start "rule__Chart__Group_7__0"
-    // InternalChartDsl.g:1550:1: rule__Chart__Group_7__0 : rule__Chart__Group_7__0__Impl rule__Chart__Group_7__1 ;
+    // InternalChartDsl.g:1226:1: rule__Chart__Group_7__0 : rule__Chart__Group_7__0__Impl rule__Chart__Group_7__1 ;
     public final void rule__Chart__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1554:1: ( rule__Chart__Group_7__0__Impl rule__Chart__Group_7__1 )
-            // InternalChartDsl.g:1555:2: rule__Chart__Group_7__0__Impl rule__Chart__Group_7__1
+            // InternalChartDsl.g:1230:1: ( rule__Chart__Group_7__0__Impl rule__Chart__Group_7__1 )
+            // InternalChartDsl.g:1231:2: rule__Chart__Group_7__0__Impl rule__Chart__Group_7__1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_7);
             rule__Chart__Group_7__0__Impl();
 
             state._fsp--;
@@ -4899,20 +3975,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_7__0__Impl"
-    // InternalChartDsl.g:1562:1: rule__Chart__Group_7__0__Impl : ( 'Filter' ) ;
+    // InternalChartDsl.g:1238:1: rule__Chart__Group_7__0__Impl : ( 'Filter:' ) ;
     public final void rule__Chart__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1566:1: ( ( 'Filter' ) )
-            // InternalChartDsl.g:1567:1: ( 'Filter' )
+            // InternalChartDsl.g:1242:1: ( ( 'Filter:' ) )
+            // InternalChartDsl.g:1243:1: ( 'Filter:' )
             {
-            // InternalChartDsl.g:1567:1: ( 'Filter' )
-            // InternalChartDsl.g:1568:2: 'Filter'
+            // InternalChartDsl.g:1243:1: ( 'Filter:' )
+            // InternalChartDsl.g:1244:2: 'Filter:'
             {
              before(grammarAccess.getChartAccess().getFilterKeyword_7_0()); 
-            match(input,43,FOLLOW_2); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getChartAccess().getFilterKeyword_7_0()); 
 
             }
@@ -4936,16 +4012,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_7__1"
-    // InternalChartDsl.g:1577:1: rule__Chart__Group_7__1 : rule__Chart__Group_7__1__Impl rule__Chart__Group_7__2 ;
+    // InternalChartDsl.g:1253:1: rule__Chart__Group_7__1 : rule__Chart__Group_7__1__Impl rule__Chart__Group_7__2 ;
     public final void rule__Chart__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1581:1: ( rule__Chart__Group_7__1__Impl rule__Chart__Group_7__2 )
-            // InternalChartDsl.g:1582:2: rule__Chart__Group_7__1__Impl rule__Chart__Group_7__2
+            // InternalChartDsl.g:1257:1: ( rule__Chart__Group_7__1__Impl rule__Chart__Group_7__2 )
+            // InternalChartDsl.g:1258:2: rule__Chart__Group_7__1__Impl rule__Chart__Group_7__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_7);
             rule__Chart__Group_7__1__Impl();
 
             state._fsp--;
@@ -4974,21 +4050,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_7__1__Impl"
-    // InternalChartDsl.g:1589:1: rule__Chart__Group_7__1__Impl : ( '[' ) ;
+    // InternalChartDsl.g:1265:1: rule__Chart__Group_7__1__Impl : ( ( rule__Chart__FilterAssignment_7_1 ) ) ;
     public final void rule__Chart__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1593:1: ( ( '[' ) )
-            // InternalChartDsl.g:1594:1: ( '[' )
+            // InternalChartDsl.g:1269:1: ( ( ( rule__Chart__FilterAssignment_7_1 ) ) )
+            // InternalChartDsl.g:1270:1: ( ( rule__Chart__FilterAssignment_7_1 ) )
             {
-            // InternalChartDsl.g:1594:1: ( '[' )
-            // InternalChartDsl.g:1595:2: '['
+            // InternalChartDsl.g:1270:1: ( ( rule__Chart__FilterAssignment_7_1 ) )
+            // InternalChartDsl.g:1271:2: ( rule__Chart__FilterAssignment_7_1 )
             {
-             before(grammarAccess.getChartAccess().getLeftSquareBracketKeyword_7_1()); 
-            match(input,44,FOLLOW_2); 
-             after(grammarAccess.getChartAccess().getLeftSquareBracketKeyword_7_1()); 
+             before(grammarAccess.getChartAccess().getFilterAssignment_7_1()); 
+            // InternalChartDsl.g:1272:2: ( rule__Chart__FilterAssignment_7_1 )
+            // InternalChartDsl.g:1272:3: rule__Chart__FilterAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Chart__FilterAssignment_7_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getChartAccess().getFilterAssignment_7_1()); 
 
             }
 
@@ -5011,22 +4097,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_7__2"
-    // InternalChartDsl.g:1604:1: rule__Chart__Group_7__2 : rule__Chart__Group_7__2__Impl rule__Chart__Group_7__3 ;
+    // InternalChartDsl.g:1280:1: rule__Chart__Group_7__2 : rule__Chart__Group_7__2__Impl ;
     public final void rule__Chart__Group_7__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1608:1: ( rule__Chart__Group_7__2__Impl rule__Chart__Group_7__3 )
-            // InternalChartDsl.g:1609:2: rule__Chart__Group_7__2__Impl rule__Chart__Group_7__3
+            // InternalChartDsl.g:1284:1: ( rule__Chart__Group_7__2__Impl )
+            // InternalChartDsl.g:1285:2: rule__Chart__Group_7__2__Impl
             {
-            pushFollow(FOLLOW_16);
-            rule__Chart__Group_7__2__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Chart__Group_7__3();
+            rule__Chart__Group_7__2__Impl();
 
             state._fsp--;
 
@@ -5049,29 +4130,47 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__Group_7__2__Impl"
-    // InternalChartDsl.g:1616:1: rule__Chart__Group_7__2__Impl : ( ( rule__Chart__FilterAssignment_7_2 ) ) ;
+    // InternalChartDsl.g:1291:1: rule__Chart__Group_7__2__Impl : ( ( rule__Chart__FilterAssignment_7_2 )* ) ;
     public final void rule__Chart__Group_7__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1620:1: ( ( ( rule__Chart__FilterAssignment_7_2 ) ) )
-            // InternalChartDsl.g:1621:1: ( ( rule__Chart__FilterAssignment_7_2 ) )
+            // InternalChartDsl.g:1295:1: ( ( ( rule__Chart__FilterAssignment_7_2 )* ) )
+            // InternalChartDsl.g:1296:1: ( ( rule__Chart__FilterAssignment_7_2 )* )
             {
-            // InternalChartDsl.g:1621:1: ( ( rule__Chart__FilterAssignment_7_2 ) )
-            // InternalChartDsl.g:1622:2: ( rule__Chart__FilterAssignment_7_2 )
+            // InternalChartDsl.g:1296:1: ( ( rule__Chart__FilterAssignment_7_2 )* )
+            // InternalChartDsl.g:1297:2: ( rule__Chart__FilterAssignment_7_2 )*
             {
              before(grammarAccess.getChartAccess().getFilterAssignment_7_2()); 
-            // InternalChartDsl.g:1623:2: ( rule__Chart__FilterAssignment_7_2 )
-            // InternalChartDsl.g:1623:3: rule__Chart__FilterAssignment_7_2
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__FilterAssignment_7_2();
+            // InternalChartDsl.g:1298:2: ( rule__Chart__FilterAssignment_7_2 )*
+            loop15:
+            do {
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-            state._fsp--;
+                if ( ((LA15_0>=RULE_STRING && LA15_0<=RULE_ID)) ) {
+                    alt15=1;
+                }
 
 
-            }
+                switch (alt15) {
+            	case 1 :
+            	    // InternalChartDsl.g:1298:3: rule__Chart__FilterAssignment_7_2
+            	    {
+            	    pushFollow(FOLLOW_9);
+            	    rule__Chart__FilterAssignment_7_2();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop15;
+                }
+            } while (true);
 
              after(grammarAccess.getChartAccess().getFilterAssignment_7_2()); 
 
@@ -5095,345 +4194,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Chart__Group_7__2__Impl"
 
 
-    // $ANTLR start "rule__Chart__Group_7__3"
-    // InternalChartDsl.g:1631:1: rule__Chart__Group_7__3 : rule__Chart__Group_7__3__Impl rule__Chart__Group_7__4 ;
-    public final void rule__Chart__Group_7__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1635:1: ( rule__Chart__Group_7__3__Impl rule__Chart__Group_7__4 )
-            // InternalChartDsl.g:1636:2: rule__Chart__Group_7__3__Impl rule__Chart__Group_7__4
-            {
-            pushFollow(FOLLOW_16);
-            rule__Chart__Group_7__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_7__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_7__3"
-
-
-    // $ANTLR start "rule__Chart__Group_7__3__Impl"
-    // InternalChartDsl.g:1643:1: rule__Chart__Group_7__3__Impl : ( ( rule__Chart__Group_7_3__0 )* ) ;
-    public final void rule__Chart__Group_7__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1647:1: ( ( ( rule__Chart__Group_7_3__0 )* ) )
-            // InternalChartDsl.g:1648:1: ( ( rule__Chart__Group_7_3__0 )* )
-            {
-            // InternalChartDsl.g:1648:1: ( ( rule__Chart__Group_7_3__0 )* )
-            // InternalChartDsl.g:1649:2: ( rule__Chart__Group_7_3__0 )*
-            {
-             before(grammarAccess.getChartAccess().getGroup_7_3()); 
-            // InternalChartDsl.g:1650:2: ( rule__Chart__Group_7_3__0 )*
-            loop15:
-            do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
-
-                if ( (LA15_0==46) ) {
-                    alt15=1;
-                }
-
-
-                switch (alt15) {
-            	case 1 :
-            	    // InternalChartDsl.g:1650:3: rule__Chart__Group_7_3__0
-            	    {
-            	    pushFollow(FOLLOW_17);
-            	    rule__Chart__Group_7_3__0();
-
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop15;
-                }
-            } while (true);
-
-             after(grammarAccess.getChartAccess().getGroup_7_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_7__3__Impl"
-
-
-    // $ANTLR start "rule__Chart__Group_7__4"
-    // InternalChartDsl.g:1658:1: rule__Chart__Group_7__4 : rule__Chart__Group_7__4__Impl ;
-    public final void rule__Chart__Group_7__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1662:1: ( rule__Chart__Group_7__4__Impl )
-            // InternalChartDsl.g:1663:2: rule__Chart__Group_7__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_7__4__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_7__4"
-
-
-    // $ANTLR start "rule__Chart__Group_7__4__Impl"
-    // InternalChartDsl.g:1669:1: rule__Chart__Group_7__4__Impl : ( ']' ) ;
-    public final void rule__Chart__Group_7__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1673:1: ( ( ']' ) )
-            // InternalChartDsl.g:1674:1: ( ']' )
-            {
-            // InternalChartDsl.g:1674:1: ( ']' )
-            // InternalChartDsl.g:1675:2: ']'
-            {
-             before(grammarAccess.getChartAccess().getRightSquareBracketKeyword_7_4()); 
-            match(input,45,FOLLOW_2); 
-             after(grammarAccess.getChartAccess().getRightSquareBracketKeyword_7_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_7__4__Impl"
-
-
-    // $ANTLR start "rule__Chart__Group_7_3__0"
-    // InternalChartDsl.g:1685:1: rule__Chart__Group_7_3__0 : rule__Chart__Group_7_3__0__Impl rule__Chart__Group_7_3__1 ;
-    public final void rule__Chart__Group_7_3__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1689:1: ( rule__Chart__Group_7_3__0__Impl rule__Chart__Group_7_3__1 )
-            // InternalChartDsl.g:1690:2: rule__Chart__Group_7_3__0__Impl rule__Chart__Group_7_3__1
-            {
-            pushFollow(FOLLOW_12);
-            rule__Chart__Group_7_3__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_7_3__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_7_3__0"
-
-
-    // $ANTLR start "rule__Chart__Group_7_3__0__Impl"
-    // InternalChartDsl.g:1697:1: rule__Chart__Group_7_3__0__Impl : ( 'and' ) ;
-    public final void rule__Chart__Group_7_3__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1701:1: ( ( 'and' ) )
-            // InternalChartDsl.g:1702:1: ( 'and' )
-            {
-            // InternalChartDsl.g:1702:1: ( 'and' )
-            // InternalChartDsl.g:1703:2: 'and'
-            {
-             before(grammarAccess.getChartAccess().getAndKeyword_7_3_0()); 
-            match(input,46,FOLLOW_2); 
-             after(grammarAccess.getChartAccess().getAndKeyword_7_3_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_7_3__0__Impl"
-
-
-    // $ANTLR start "rule__Chart__Group_7_3__1"
-    // InternalChartDsl.g:1712:1: rule__Chart__Group_7_3__1 : rule__Chart__Group_7_3__1__Impl ;
-    public final void rule__Chart__Group_7_3__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1716:1: ( rule__Chart__Group_7_3__1__Impl )
-            // InternalChartDsl.g:1717:2: rule__Chart__Group_7_3__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__Group_7_3__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_7_3__1"
-
-
-    // $ANTLR start "rule__Chart__Group_7_3__1__Impl"
-    // InternalChartDsl.g:1723:1: rule__Chart__Group_7_3__1__Impl : ( ( rule__Chart__FilterAssignment_7_3_1 ) ) ;
-    public final void rule__Chart__Group_7_3__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:1727:1: ( ( ( rule__Chart__FilterAssignment_7_3_1 ) ) )
-            // InternalChartDsl.g:1728:1: ( ( rule__Chart__FilterAssignment_7_3_1 ) )
-            {
-            // InternalChartDsl.g:1728:1: ( ( rule__Chart__FilterAssignment_7_3_1 ) )
-            // InternalChartDsl.g:1729:2: ( rule__Chart__FilterAssignment_7_3_1 )
-            {
-             before(grammarAccess.getChartAccess().getFilterAssignment_7_3_1()); 
-            // InternalChartDsl.g:1730:2: ( rule__Chart__FilterAssignment_7_3_1 )
-            // InternalChartDsl.g:1730:3: rule__Chart__FilterAssignment_7_3_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Chart__FilterAssignment_7_3_1();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getChartAccess().getFilterAssignment_7_3_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__Group_7_3__1__Impl"
-
-
     // $ANTLR start "rule__DataFile__Group__0"
-    // InternalChartDsl.g:1739:1: rule__DataFile__Group__0 : rule__DataFile__Group__0__Impl rule__DataFile__Group__1 ;
+    // InternalChartDsl.g:1307:1: rule__DataFile__Group__0 : rule__DataFile__Group__0__Impl rule__DataFile__Group__1 ;
     public final void rule__DataFile__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1743:1: ( rule__DataFile__Group__0__Impl rule__DataFile__Group__1 )
-            // InternalChartDsl.g:1744:2: rule__DataFile__Group__0__Impl rule__DataFile__Group__1
+            // InternalChartDsl.g:1311:1: ( rule__DataFile__Group__0__Impl rule__DataFile__Group__1 )
+            // InternalChartDsl.g:1312:2: rule__DataFile__Group__0__Impl rule__DataFile__Group__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__DataFile__Group__0__Impl();
 
             state._fsp--;
@@ -5462,29 +4233,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__0__Impl"
-    // InternalChartDsl.g:1751:1: rule__DataFile__Group__0__Impl : ( ( rule__DataFile__Group_0__0 )? ) ;
+    // InternalChartDsl.g:1319:1: rule__DataFile__Group__0__Impl : ( ( rule__DataFile__Group_0__0 )? ) ;
     public final void rule__DataFile__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1755:1: ( ( ( rule__DataFile__Group_0__0 )? ) )
-            // InternalChartDsl.g:1756:1: ( ( rule__DataFile__Group_0__0 )? )
+            // InternalChartDsl.g:1323:1: ( ( ( rule__DataFile__Group_0__0 )? ) )
+            // InternalChartDsl.g:1324:1: ( ( rule__DataFile__Group_0__0 )? )
             {
-            // InternalChartDsl.g:1756:1: ( ( rule__DataFile__Group_0__0 )? )
-            // InternalChartDsl.g:1757:2: ( rule__DataFile__Group_0__0 )?
+            // InternalChartDsl.g:1324:1: ( ( rule__DataFile__Group_0__0 )? )
+            // InternalChartDsl.g:1325:2: ( rule__DataFile__Group_0__0 )?
             {
              before(grammarAccess.getDataFileAccess().getGroup_0()); 
-            // InternalChartDsl.g:1758:2: ( rule__DataFile__Group_0__0 )?
+            // InternalChartDsl.g:1326:2: ( rule__DataFile__Group_0__0 )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
-            if ( (LA16_0==49) ) {
+            if ( (LA16_0==42) ) {
                 alt16=1;
             }
             switch (alt16) {
                 case 1 :
-                    // InternalChartDsl.g:1758:3: rule__DataFile__Group_0__0
+                    // InternalChartDsl.g:1326:3: rule__DataFile__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DataFile__Group_0__0();
@@ -5520,16 +4291,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__1"
-    // InternalChartDsl.g:1766:1: rule__DataFile__Group__1 : rule__DataFile__Group__1__Impl rule__DataFile__Group__2 ;
+    // InternalChartDsl.g:1334:1: rule__DataFile__Group__1 : rule__DataFile__Group__1__Impl rule__DataFile__Group__2 ;
     public final void rule__DataFile__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1770:1: ( rule__DataFile__Group__1__Impl rule__DataFile__Group__2 )
-            // InternalChartDsl.g:1771:2: rule__DataFile__Group__1__Impl rule__DataFile__Group__2
+            // InternalChartDsl.g:1338:1: ( rule__DataFile__Group__1__Impl rule__DataFile__Group__2 )
+            // InternalChartDsl.g:1339:2: rule__DataFile__Group__1__Impl rule__DataFile__Group__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__DataFile__Group__1__Impl();
 
             state._fsp--;
@@ -5558,29 +4329,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__1__Impl"
-    // InternalChartDsl.g:1778:1: rule__DataFile__Group__1__Impl : ( ( rule__DataFile__Group_1__0 )? ) ;
+    // InternalChartDsl.g:1346:1: rule__DataFile__Group__1__Impl : ( ( rule__DataFile__Group_1__0 )? ) ;
     public final void rule__DataFile__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1782:1: ( ( ( rule__DataFile__Group_1__0 )? ) )
-            // InternalChartDsl.g:1783:1: ( ( rule__DataFile__Group_1__0 )? )
+            // InternalChartDsl.g:1350:1: ( ( ( rule__DataFile__Group_1__0 )? ) )
+            // InternalChartDsl.g:1351:1: ( ( rule__DataFile__Group_1__0 )? )
             {
-            // InternalChartDsl.g:1783:1: ( ( rule__DataFile__Group_1__0 )? )
-            // InternalChartDsl.g:1784:2: ( rule__DataFile__Group_1__0 )?
+            // InternalChartDsl.g:1351:1: ( ( rule__DataFile__Group_1__0 )? )
+            // InternalChartDsl.g:1352:2: ( rule__DataFile__Group_1__0 )?
             {
              before(grammarAccess.getDataFileAccess().getGroup_1()); 
-            // InternalChartDsl.g:1785:2: ( rule__DataFile__Group_1__0 )?
+            // InternalChartDsl.g:1353:2: ( rule__DataFile__Group_1__0 )?
             int alt17=2;
             int LA17_0 = input.LA(1);
 
-            if ( (LA17_0==52) ) {
+            if ( (LA17_0==45) ) {
                 alt17=1;
             }
             switch (alt17) {
                 case 1 :
-                    // InternalChartDsl.g:1785:3: rule__DataFile__Group_1__0
+                    // InternalChartDsl.g:1353:3: rule__DataFile__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DataFile__Group_1__0();
@@ -5616,16 +4387,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__2"
-    // InternalChartDsl.g:1793:1: rule__DataFile__Group__2 : rule__DataFile__Group__2__Impl rule__DataFile__Group__3 ;
+    // InternalChartDsl.g:1361:1: rule__DataFile__Group__2 : rule__DataFile__Group__2__Impl rule__DataFile__Group__3 ;
     public final void rule__DataFile__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1797:1: ( rule__DataFile__Group__2__Impl rule__DataFile__Group__3 )
-            // InternalChartDsl.g:1798:2: rule__DataFile__Group__2__Impl rule__DataFile__Group__3
+            // InternalChartDsl.g:1365:1: ( rule__DataFile__Group__2__Impl rule__DataFile__Group__3 )
+            // InternalChartDsl.g:1366:2: rule__DataFile__Group__2__Impl rule__DataFile__Group__3
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__DataFile__Group__2__Impl();
 
             state._fsp--;
@@ -5654,29 +4425,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__2__Impl"
-    // InternalChartDsl.g:1805:1: rule__DataFile__Group__2__Impl : ( ( rule__DataFile__Group_2__0 )? ) ;
+    // InternalChartDsl.g:1373:1: rule__DataFile__Group__2__Impl : ( ( rule__DataFile__Group_2__0 )? ) ;
     public final void rule__DataFile__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1809:1: ( ( ( rule__DataFile__Group_2__0 )? ) )
-            // InternalChartDsl.g:1810:1: ( ( rule__DataFile__Group_2__0 )? )
+            // InternalChartDsl.g:1377:1: ( ( ( rule__DataFile__Group_2__0 )? ) )
+            // InternalChartDsl.g:1378:1: ( ( rule__DataFile__Group_2__0 )? )
             {
-            // InternalChartDsl.g:1810:1: ( ( rule__DataFile__Group_2__0 )? )
-            // InternalChartDsl.g:1811:2: ( rule__DataFile__Group_2__0 )?
+            // InternalChartDsl.g:1378:1: ( ( rule__DataFile__Group_2__0 )? )
+            // InternalChartDsl.g:1379:2: ( rule__DataFile__Group_2__0 )?
             {
              before(grammarAccess.getDataFileAccess().getGroup_2()); 
-            // InternalChartDsl.g:1812:2: ( rule__DataFile__Group_2__0 )?
+            // InternalChartDsl.g:1380:2: ( rule__DataFile__Group_2__0 )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
-            if ( (LA18_0==53) ) {
+            if ( (LA18_0==46) ) {
                 alt18=1;
             }
             switch (alt18) {
                 case 1 :
-                    // InternalChartDsl.g:1812:3: rule__DataFile__Group_2__0
+                    // InternalChartDsl.g:1380:3: rule__DataFile__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DataFile__Group_2__0();
@@ -5712,16 +4483,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__3"
-    // InternalChartDsl.g:1820:1: rule__DataFile__Group__3 : rule__DataFile__Group__3__Impl rule__DataFile__Group__4 ;
+    // InternalChartDsl.g:1388:1: rule__DataFile__Group__3 : rule__DataFile__Group__3__Impl rule__DataFile__Group__4 ;
     public final void rule__DataFile__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1824:1: ( rule__DataFile__Group__3__Impl rule__DataFile__Group__4 )
-            // InternalChartDsl.g:1825:2: rule__DataFile__Group__3__Impl rule__DataFile__Group__4
+            // InternalChartDsl.g:1392:1: ( rule__DataFile__Group__3__Impl rule__DataFile__Group__4 )
+            // InternalChartDsl.g:1393:2: rule__DataFile__Group__3__Impl rule__DataFile__Group__4
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__DataFile__Group__3__Impl();
 
             state._fsp--;
@@ -5750,29 +4521,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__3__Impl"
-    // InternalChartDsl.g:1832:1: rule__DataFile__Group__3__Impl : ( ( rule__DataFile__Group_3__0 )? ) ;
+    // InternalChartDsl.g:1400:1: rule__DataFile__Group__3__Impl : ( ( rule__DataFile__Group_3__0 )? ) ;
     public final void rule__DataFile__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1836:1: ( ( ( rule__DataFile__Group_3__0 )? ) )
-            // InternalChartDsl.g:1837:1: ( ( rule__DataFile__Group_3__0 )? )
+            // InternalChartDsl.g:1404:1: ( ( ( rule__DataFile__Group_3__0 )? ) )
+            // InternalChartDsl.g:1405:1: ( ( rule__DataFile__Group_3__0 )? )
             {
-            // InternalChartDsl.g:1837:1: ( ( rule__DataFile__Group_3__0 )? )
-            // InternalChartDsl.g:1838:2: ( rule__DataFile__Group_3__0 )?
+            // InternalChartDsl.g:1405:1: ( ( rule__DataFile__Group_3__0 )? )
+            // InternalChartDsl.g:1406:2: ( rule__DataFile__Group_3__0 )?
             {
              before(grammarAccess.getDataFileAccess().getGroup_3()); 
-            // InternalChartDsl.g:1839:2: ( rule__DataFile__Group_3__0 )?
+            // InternalChartDsl.g:1407:2: ( rule__DataFile__Group_3__0 )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
-            if ( (LA19_0==54) ) {
+            if ( (LA19_0==47) ) {
                 alt19=1;
             }
             switch (alt19) {
                 case 1 :
-                    // InternalChartDsl.g:1839:3: rule__DataFile__Group_3__0
+                    // InternalChartDsl.g:1407:3: rule__DataFile__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DataFile__Group_3__0();
@@ -5808,16 +4579,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__4"
-    // InternalChartDsl.g:1847:1: rule__DataFile__Group__4 : rule__DataFile__Group__4__Impl rule__DataFile__Group__5 ;
+    // InternalChartDsl.g:1415:1: rule__DataFile__Group__4 : rule__DataFile__Group__4__Impl rule__DataFile__Group__5 ;
     public final void rule__DataFile__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1851:1: ( rule__DataFile__Group__4__Impl rule__DataFile__Group__5 )
-            // InternalChartDsl.g:1852:2: rule__DataFile__Group__4__Impl rule__DataFile__Group__5
+            // InternalChartDsl.g:1419:1: ( rule__DataFile__Group__4__Impl rule__DataFile__Group__5 )
+            // InternalChartDsl.g:1420:2: rule__DataFile__Group__4__Impl rule__DataFile__Group__5
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_11);
             rule__DataFile__Group__4__Impl();
 
             state._fsp--;
@@ -5846,20 +4617,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__4__Impl"
-    // InternalChartDsl.g:1859:1: rule__DataFile__Group__4__Impl : ( 'Select' ) ;
+    // InternalChartDsl.g:1427:1: rule__DataFile__Group__4__Impl : ( 'Select' ) ;
     public final void rule__DataFile__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1863:1: ( ( 'Select' ) )
-            // InternalChartDsl.g:1864:1: ( 'Select' )
+            // InternalChartDsl.g:1431:1: ( ( 'Select' ) )
+            // InternalChartDsl.g:1432:1: ( 'Select' )
             {
-            // InternalChartDsl.g:1864:1: ( 'Select' )
-            // InternalChartDsl.g:1865:2: 'Select'
+            // InternalChartDsl.g:1432:1: ( 'Select' )
+            // InternalChartDsl.g:1433:2: 'Select'
             {
              before(grammarAccess.getDataFileAccess().getSelectKeyword_4()); 
-            match(input,47,FOLLOW_2); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getSelectKeyword_4()); 
 
             }
@@ -5883,16 +4654,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__5"
-    // InternalChartDsl.g:1874:1: rule__DataFile__Group__5 : rule__DataFile__Group__5__Impl rule__DataFile__Group__6 ;
+    // InternalChartDsl.g:1442:1: rule__DataFile__Group__5 : rule__DataFile__Group__5__Impl rule__DataFile__Group__6 ;
     public final void rule__DataFile__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1878:1: ( rule__DataFile__Group__5__Impl rule__DataFile__Group__6 )
-            // InternalChartDsl.g:1879:2: rule__DataFile__Group__5__Impl rule__DataFile__Group__6
+            // InternalChartDsl.g:1446:1: ( rule__DataFile__Group__5__Impl rule__DataFile__Group__6 )
+            // InternalChartDsl.g:1447:2: rule__DataFile__Group__5__Impl rule__DataFile__Group__6
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_12);
             rule__DataFile__Group__5__Impl();
 
             state._fsp--;
@@ -5921,20 +4692,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__5__Impl"
-    // InternalChartDsl.g:1886:1: rule__DataFile__Group__5__Impl : ( 'Columns' ) ;
+    // InternalChartDsl.g:1454:1: rule__DataFile__Group__5__Impl : ( 'Columns' ) ;
     public final void rule__DataFile__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1890:1: ( ( 'Columns' ) )
-            // InternalChartDsl.g:1891:1: ( 'Columns' )
+            // InternalChartDsl.g:1458:1: ( ( 'Columns' ) )
+            // InternalChartDsl.g:1459:1: ( 'Columns' )
             {
-            // InternalChartDsl.g:1891:1: ( 'Columns' )
-            // InternalChartDsl.g:1892:2: 'Columns'
+            // InternalChartDsl.g:1459:1: ( 'Columns' )
+            // InternalChartDsl.g:1460:2: 'Columns'
             {
              before(grammarAccess.getDataFileAccess().getColumnsKeyword_5()); 
-            match(input,48,FOLLOW_2); 
+            match(input,39,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getColumnsKeyword_5()); 
 
             }
@@ -5958,16 +4729,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__6"
-    // InternalChartDsl.g:1901:1: rule__DataFile__Group__6 : rule__DataFile__Group__6__Impl rule__DataFile__Group__7 ;
+    // InternalChartDsl.g:1469:1: rule__DataFile__Group__6 : rule__DataFile__Group__6__Impl rule__DataFile__Group__7 ;
     public final void rule__DataFile__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1905:1: ( rule__DataFile__Group__6__Impl rule__DataFile__Group__7 )
-            // InternalChartDsl.g:1906:2: rule__DataFile__Group__6__Impl rule__DataFile__Group__7
+            // InternalChartDsl.g:1473:1: ( rule__DataFile__Group__6__Impl rule__DataFile__Group__7 )
+            // InternalChartDsl.g:1474:2: rule__DataFile__Group__6__Impl rule__DataFile__Group__7
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__DataFile__Group__6__Impl();
 
             state._fsp--;
@@ -5996,20 +4767,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__6__Impl"
-    // InternalChartDsl.g:1913:1: rule__DataFile__Group__6__Impl : ( '[' ) ;
+    // InternalChartDsl.g:1481:1: rule__DataFile__Group__6__Impl : ( '[' ) ;
     public final void rule__DataFile__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1917:1: ( ( '[' ) )
-            // InternalChartDsl.g:1918:1: ( '[' )
+            // InternalChartDsl.g:1485:1: ( ( '[' ) )
+            // InternalChartDsl.g:1486:1: ( '[' )
             {
-            // InternalChartDsl.g:1918:1: ( '[' )
-            // InternalChartDsl.g:1919:2: '['
+            // InternalChartDsl.g:1486:1: ( '[' )
+            // InternalChartDsl.g:1487:2: '['
             {
              before(grammarAccess.getDataFileAccess().getLeftSquareBracketKeyword_6()); 
-            match(input,44,FOLLOW_2); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getLeftSquareBracketKeyword_6()); 
 
             }
@@ -6033,16 +4804,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__7"
-    // InternalChartDsl.g:1928:1: rule__DataFile__Group__7 : rule__DataFile__Group__7__Impl rule__DataFile__Group__8 ;
+    // InternalChartDsl.g:1496:1: rule__DataFile__Group__7 : rule__DataFile__Group__7__Impl rule__DataFile__Group__8 ;
     public final void rule__DataFile__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1932:1: ( rule__DataFile__Group__7__Impl rule__DataFile__Group__8 )
-            // InternalChartDsl.g:1933:2: rule__DataFile__Group__7__Impl rule__DataFile__Group__8
+            // InternalChartDsl.g:1500:1: ( rule__DataFile__Group__7__Impl rule__DataFile__Group__8 )
+            // InternalChartDsl.g:1501:2: rule__DataFile__Group__7__Impl rule__DataFile__Group__8
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_14);
             rule__DataFile__Group__7__Impl();
 
             state._fsp--;
@@ -6071,21 +4842,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__7__Impl"
-    // InternalChartDsl.g:1940:1: rule__DataFile__Group__7__Impl : ( ( rule__DataFile__UsedColumnAssignment_7 ) ) ;
+    // InternalChartDsl.g:1508:1: rule__DataFile__Group__7__Impl : ( ( rule__DataFile__UsedColumnAssignment_7 ) ) ;
     public final void rule__DataFile__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1944:1: ( ( ( rule__DataFile__UsedColumnAssignment_7 ) ) )
-            // InternalChartDsl.g:1945:1: ( ( rule__DataFile__UsedColumnAssignment_7 ) )
+            // InternalChartDsl.g:1512:1: ( ( ( rule__DataFile__UsedColumnAssignment_7 ) ) )
+            // InternalChartDsl.g:1513:1: ( ( rule__DataFile__UsedColumnAssignment_7 ) )
             {
-            // InternalChartDsl.g:1945:1: ( ( rule__DataFile__UsedColumnAssignment_7 ) )
-            // InternalChartDsl.g:1946:2: ( rule__DataFile__UsedColumnAssignment_7 )
+            // InternalChartDsl.g:1513:1: ( ( rule__DataFile__UsedColumnAssignment_7 ) )
+            // InternalChartDsl.g:1514:2: ( rule__DataFile__UsedColumnAssignment_7 )
             {
              before(grammarAccess.getDataFileAccess().getUsedColumnAssignment_7()); 
-            // InternalChartDsl.g:1947:2: ( rule__DataFile__UsedColumnAssignment_7 )
-            // InternalChartDsl.g:1947:3: rule__DataFile__UsedColumnAssignment_7
+            // InternalChartDsl.g:1515:2: ( rule__DataFile__UsedColumnAssignment_7 )
+            // InternalChartDsl.g:1515:3: rule__DataFile__UsedColumnAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__UsedColumnAssignment_7();
@@ -6118,16 +4889,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__8"
-    // InternalChartDsl.g:1955:1: rule__DataFile__Group__8 : rule__DataFile__Group__8__Impl rule__DataFile__Group__9 ;
+    // InternalChartDsl.g:1523:1: rule__DataFile__Group__8 : rule__DataFile__Group__8__Impl rule__DataFile__Group__9 ;
     public final void rule__DataFile__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1959:1: ( rule__DataFile__Group__8__Impl rule__DataFile__Group__9 )
-            // InternalChartDsl.g:1960:2: rule__DataFile__Group__8__Impl rule__DataFile__Group__9
+            // InternalChartDsl.g:1527:1: ( rule__DataFile__Group__8__Impl rule__DataFile__Group__9 )
+            // InternalChartDsl.g:1528:2: rule__DataFile__Group__8__Impl rule__DataFile__Group__9
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_14);
             rule__DataFile__Group__8__Impl();
 
             state._fsp--;
@@ -6156,35 +4927,35 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__8__Impl"
-    // InternalChartDsl.g:1967:1: rule__DataFile__Group__8__Impl : ( ( rule__DataFile__Group_8__0 )* ) ;
+    // InternalChartDsl.g:1535:1: rule__DataFile__Group__8__Impl : ( ( rule__DataFile__Group_8__0 )* ) ;
     public final void rule__DataFile__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1971:1: ( ( ( rule__DataFile__Group_8__0 )* ) )
-            // InternalChartDsl.g:1972:1: ( ( rule__DataFile__Group_8__0 )* )
+            // InternalChartDsl.g:1539:1: ( ( ( rule__DataFile__Group_8__0 )* ) )
+            // InternalChartDsl.g:1540:1: ( ( rule__DataFile__Group_8__0 )* )
             {
-            // InternalChartDsl.g:1972:1: ( ( rule__DataFile__Group_8__0 )* )
-            // InternalChartDsl.g:1973:2: ( rule__DataFile__Group_8__0 )*
+            // InternalChartDsl.g:1540:1: ( ( rule__DataFile__Group_8__0 )* )
+            // InternalChartDsl.g:1541:2: ( rule__DataFile__Group_8__0 )*
             {
              before(grammarAccess.getDataFileAccess().getGroup_8()); 
-            // InternalChartDsl.g:1974:2: ( rule__DataFile__Group_8__0 )*
+            // InternalChartDsl.g:1542:2: ( rule__DataFile__Group_8__0 )*
             loop20:
             do {
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( (LA20_0==41) ) {
+                if ( (LA20_0==48) ) {
                     alt20=1;
                 }
 
 
                 switch (alt20) {
             	case 1 :
-            	    // InternalChartDsl.g:1974:3: rule__DataFile__Group_8__0
+            	    // InternalChartDsl.g:1542:3: rule__DataFile__Group_8__0
             	    {
-            	    pushFollow(FOLLOW_14);
+            	    pushFollow(FOLLOW_15);
             	    rule__DataFile__Group_8__0();
 
             	    state._fsp--;
@@ -6221,14 +4992,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__9"
-    // InternalChartDsl.g:1982:1: rule__DataFile__Group__9 : rule__DataFile__Group__9__Impl ;
+    // InternalChartDsl.g:1550:1: rule__DataFile__Group__9 : rule__DataFile__Group__9__Impl ;
     public final void rule__DataFile__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1986:1: ( rule__DataFile__Group__9__Impl )
-            // InternalChartDsl.g:1987:2: rule__DataFile__Group__9__Impl
+            // InternalChartDsl.g:1554:1: ( rule__DataFile__Group__9__Impl )
+            // InternalChartDsl.g:1555:2: rule__DataFile__Group__9__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__Group__9__Impl();
@@ -6254,20 +5025,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group__9__Impl"
-    // InternalChartDsl.g:1993:1: rule__DataFile__Group__9__Impl : ( ']' ) ;
+    // InternalChartDsl.g:1561:1: rule__DataFile__Group__9__Impl : ( ']' ) ;
     public final void rule__DataFile__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:1997:1: ( ( ']' ) )
-            // InternalChartDsl.g:1998:1: ( ']' )
+            // InternalChartDsl.g:1565:1: ( ( ']' ) )
+            // InternalChartDsl.g:1566:1: ( ']' )
             {
-            // InternalChartDsl.g:1998:1: ( ']' )
-            // InternalChartDsl.g:1999:2: ']'
+            // InternalChartDsl.g:1566:1: ( ']' )
+            // InternalChartDsl.g:1567:2: ']'
             {
              before(grammarAccess.getDataFileAccess().getRightSquareBracketKeyword_9()); 
-            match(input,45,FOLLOW_2); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getRightSquareBracketKeyword_9()); 
 
             }
@@ -6291,16 +5062,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_0__0"
-    // InternalChartDsl.g:2009:1: rule__DataFile__Group_0__0 : rule__DataFile__Group_0__0__Impl rule__DataFile__Group_0__1 ;
+    // InternalChartDsl.g:1577:1: rule__DataFile__Group_0__0 : rule__DataFile__Group_0__0__Impl rule__DataFile__Group_0__1 ;
     public final void rule__DataFile__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2013:1: ( rule__DataFile__Group_0__0__Impl rule__DataFile__Group_0__1 )
-            // InternalChartDsl.g:2014:2: rule__DataFile__Group_0__0__Impl rule__DataFile__Group_0__1
+            // InternalChartDsl.g:1581:1: ( rule__DataFile__Group_0__0__Impl rule__DataFile__Group_0__1 )
+            // InternalChartDsl.g:1582:2: rule__DataFile__Group_0__0__Impl rule__DataFile__Group_0__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_16);
             rule__DataFile__Group_0__0__Impl();
 
             state._fsp--;
@@ -6329,20 +5100,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_0__0__Impl"
-    // InternalChartDsl.g:2021:1: rule__DataFile__Group_0__0__Impl : ( 'Load' ) ;
+    // InternalChartDsl.g:1589:1: rule__DataFile__Group_0__0__Impl : ( 'Load' ) ;
     public final void rule__DataFile__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2025:1: ( ( 'Load' ) )
-            // InternalChartDsl.g:2026:1: ( 'Load' )
+            // InternalChartDsl.g:1593:1: ( ( 'Load' ) )
+            // InternalChartDsl.g:1594:1: ( 'Load' )
             {
-            // InternalChartDsl.g:2026:1: ( 'Load' )
-            // InternalChartDsl.g:2027:2: 'Load'
+            // InternalChartDsl.g:1594:1: ( 'Load' )
+            // InternalChartDsl.g:1595:2: 'Load'
             {
              before(grammarAccess.getDataFileAccess().getLoadKeyword_0_0()); 
-            match(input,49,FOLLOW_2); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getLoadKeyword_0_0()); 
 
             }
@@ -6366,16 +5137,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_0__1"
-    // InternalChartDsl.g:2036:1: rule__DataFile__Group_0__1 : rule__DataFile__Group_0__1__Impl rule__DataFile__Group_0__2 ;
+    // InternalChartDsl.g:1604:1: rule__DataFile__Group_0__1 : rule__DataFile__Group_0__1__Impl rule__DataFile__Group_0__2 ;
     public final void rule__DataFile__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2040:1: ( rule__DataFile__Group_0__1__Impl rule__DataFile__Group_0__2 )
-            // InternalChartDsl.g:2041:2: rule__DataFile__Group_0__1__Impl rule__DataFile__Group_0__2
+            // InternalChartDsl.g:1608:1: ( rule__DataFile__Group_0__1__Impl rule__DataFile__Group_0__2 )
+            // InternalChartDsl.g:1609:2: rule__DataFile__Group_0__1__Impl rule__DataFile__Group_0__2
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_17);
             rule__DataFile__Group_0__1__Impl();
 
             state._fsp--;
@@ -6404,20 +5175,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_0__1__Impl"
-    // InternalChartDsl.g:2048:1: rule__DataFile__Group_0__1__Impl : ( 'data' ) ;
+    // InternalChartDsl.g:1616:1: rule__DataFile__Group_0__1__Impl : ( 'data' ) ;
     public final void rule__DataFile__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2052:1: ( ( 'data' ) )
-            // InternalChartDsl.g:2053:1: ( 'data' )
+            // InternalChartDsl.g:1620:1: ( ( 'data' ) )
+            // InternalChartDsl.g:1621:1: ( 'data' )
             {
-            // InternalChartDsl.g:2053:1: ( 'data' )
-            // InternalChartDsl.g:2054:2: 'data'
+            // InternalChartDsl.g:1621:1: ( 'data' )
+            // InternalChartDsl.g:1622:2: 'data'
             {
              before(grammarAccess.getDataFileAccess().getDataKeyword_0_1()); 
-            match(input,50,FOLLOW_2); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getDataKeyword_0_1()); 
 
             }
@@ -6441,16 +5212,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_0__2"
-    // InternalChartDsl.g:2063:1: rule__DataFile__Group_0__2 : rule__DataFile__Group_0__2__Impl rule__DataFile__Group_0__3 ;
+    // InternalChartDsl.g:1631:1: rule__DataFile__Group_0__2 : rule__DataFile__Group_0__2__Impl rule__DataFile__Group_0__3 ;
     public final void rule__DataFile__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2067:1: ( rule__DataFile__Group_0__2__Impl rule__DataFile__Group_0__3 )
-            // InternalChartDsl.g:2068:2: rule__DataFile__Group_0__2__Impl rule__DataFile__Group_0__3
+            // InternalChartDsl.g:1635:1: ( rule__DataFile__Group_0__2__Impl rule__DataFile__Group_0__3 )
+            // InternalChartDsl.g:1636:2: rule__DataFile__Group_0__2__Impl rule__DataFile__Group_0__3
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_7);
             rule__DataFile__Group_0__2__Impl();
 
             state._fsp--;
@@ -6479,20 +5250,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_0__2__Impl"
-    // InternalChartDsl.g:2075:1: rule__DataFile__Group_0__2__Impl : ( 'from' ) ;
+    // InternalChartDsl.g:1643:1: rule__DataFile__Group_0__2__Impl : ( 'from' ) ;
     public final void rule__DataFile__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2079:1: ( ( 'from' ) )
-            // InternalChartDsl.g:2080:1: ( 'from' )
+            // InternalChartDsl.g:1647:1: ( ( 'from' ) )
+            // InternalChartDsl.g:1648:1: ( 'from' )
             {
-            // InternalChartDsl.g:2080:1: ( 'from' )
-            // InternalChartDsl.g:2081:2: 'from'
+            // InternalChartDsl.g:1648:1: ( 'from' )
+            // InternalChartDsl.g:1649:2: 'from'
             {
              before(grammarAccess.getDataFileAccess().getFromKeyword_0_2()); 
-            match(input,51,FOLLOW_2); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getFromKeyword_0_2()); 
 
             }
@@ -6516,14 +5287,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_0__3"
-    // InternalChartDsl.g:2090:1: rule__DataFile__Group_0__3 : rule__DataFile__Group_0__3__Impl ;
+    // InternalChartDsl.g:1658:1: rule__DataFile__Group_0__3 : rule__DataFile__Group_0__3__Impl ;
     public final void rule__DataFile__Group_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2094:1: ( rule__DataFile__Group_0__3__Impl )
-            // InternalChartDsl.g:2095:2: rule__DataFile__Group_0__3__Impl
+            // InternalChartDsl.g:1662:1: ( rule__DataFile__Group_0__3__Impl )
+            // InternalChartDsl.g:1663:2: rule__DataFile__Group_0__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__Group_0__3__Impl();
@@ -6549,21 +5320,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_0__3__Impl"
-    // InternalChartDsl.g:2101:1: rule__DataFile__Group_0__3__Impl : ( ( rule__DataFile__FilePathAssignment_0_3 ) ) ;
+    // InternalChartDsl.g:1669:1: rule__DataFile__Group_0__3__Impl : ( ( rule__DataFile__FilePathAssignment_0_3 ) ) ;
     public final void rule__DataFile__Group_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2105:1: ( ( ( rule__DataFile__FilePathAssignment_0_3 ) ) )
-            // InternalChartDsl.g:2106:1: ( ( rule__DataFile__FilePathAssignment_0_3 ) )
+            // InternalChartDsl.g:1673:1: ( ( ( rule__DataFile__FilePathAssignment_0_3 ) ) )
+            // InternalChartDsl.g:1674:1: ( ( rule__DataFile__FilePathAssignment_0_3 ) )
             {
-            // InternalChartDsl.g:2106:1: ( ( rule__DataFile__FilePathAssignment_0_3 ) )
-            // InternalChartDsl.g:2107:2: ( rule__DataFile__FilePathAssignment_0_3 )
+            // InternalChartDsl.g:1674:1: ( ( rule__DataFile__FilePathAssignment_0_3 ) )
+            // InternalChartDsl.g:1675:2: ( rule__DataFile__FilePathAssignment_0_3 )
             {
              before(grammarAccess.getDataFileAccess().getFilePathAssignment_0_3()); 
-            // InternalChartDsl.g:2108:2: ( rule__DataFile__FilePathAssignment_0_3 )
-            // InternalChartDsl.g:2108:3: rule__DataFile__FilePathAssignment_0_3
+            // InternalChartDsl.g:1676:2: ( rule__DataFile__FilePathAssignment_0_3 )
+            // InternalChartDsl.g:1676:3: rule__DataFile__FilePathAssignment_0_3
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__FilePathAssignment_0_3();
@@ -6596,16 +5367,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_1__0"
-    // InternalChartDsl.g:2117:1: rule__DataFile__Group_1__0 : rule__DataFile__Group_1__0__Impl rule__DataFile__Group_1__1 ;
+    // InternalChartDsl.g:1685:1: rule__DataFile__Group_1__0 : rule__DataFile__Group_1__0__Impl rule__DataFile__Group_1__1 ;
     public final void rule__DataFile__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2121:1: ( rule__DataFile__Group_1__0__Impl rule__DataFile__Group_1__1 )
-            // InternalChartDsl.g:2122:2: rule__DataFile__Group_1__0__Impl rule__DataFile__Group_1__1
+            // InternalChartDsl.g:1689:1: ( rule__DataFile__Group_1__0__Impl rule__DataFile__Group_1__1 )
+            // InternalChartDsl.g:1690:2: rule__DataFile__Group_1__0__Impl rule__DataFile__Group_1__1
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_18);
             rule__DataFile__Group_1__0__Impl();
 
             state._fsp--;
@@ -6634,20 +5405,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_1__0__Impl"
-    // InternalChartDsl.g:2129:1: rule__DataFile__Group_1__0__Impl : ( 'header' ) ;
+    // InternalChartDsl.g:1697:1: rule__DataFile__Group_1__0__Impl : ( 'header' ) ;
     public final void rule__DataFile__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2133:1: ( ( 'header' ) )
-            // InternalChartDsl.g:2134:1: ( 'header' )
+            // InternalChartDsl.g:1701:1: ( ( 'header' ) )
+            // InternalChartDsl.g:1702:1: ( 'header' )
             {
-            // InternalChartDsl.g:2134:1: ( 'header' )
-            // InternalChartDsl.g:2135:2: 'header'
+            // InternalChartDsl.g:1702:1: ( 'header' )
+            // InternalChartDsl.g:1703:2: 'header'
             {
              before(grammarAccess.getDataFileAccess().getHeaderKeyword_1_0()); 
-            match(input,52,FOLLOW_2); 
+            match(input,45,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getHeaderKeyword_1_0()); 
 
             }
@@ -6671,14 +5442,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_1__1"
-    // InternalChartDsl.g:2144:1: rule__DataFile__Group_1__1 : rule__DataFile__Group_1__1__Impl ;
+    // InternalChartDsl.g:1712:1: rule__DataFile__Group_1__1 : rule__DataFile__Group_1__1__Impl ;
     public final void rule__DataFile__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2148:1: ( rule__DataFile__Group_1__1__Impl )
-            // InternalChartDsl.g:2149:2: rule__DataFile__Group_1__1__Impl
+            // InternalChartDsl.g:1716:1: ( rule__DataFile__Group_1__1__Impl )
+            // InternalChartDsl.g:1717:2: rule__DataFile__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__Group_1__1__Impl();
@@ -6704,21 +5475,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_1__1__Impl"
-    // InternalChartDsl.g:2155:1: rule__DataFile__Group_1__1__Impl : ( ( rule__DataFile__HasHeaderAssignment_1_1 ) ) ;
+    // InternalChartDsl.g:1723:1: rule__DataFile__Group_1__1__Impl : ( ( rule__DataFile__HasHeaderAssignment_1_1 ) ) ;
     public final void rule__DataFile__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2159:1: ( ( ( rule__DataFile__HasHeaderAssignment_1_1 ) ) )
-            // InternalChartDsl.g:2160:1: ( ( rule__DataFile__HasHeaderAssignment_1_1 ) )
+            // InternalChartDsl.g:1727:1: ( ( ( rule__DataFile__HasHeaderAssignment_1_1 ) ) )
+            // InternalChartDsl.g:1728:1: ( ( rule__DataFile__HasHeaderAssignment_1_1 ) )
             {
-            // InternalChartDsl.g:2160:1: ( ( rule__DataFile__HasHeaderAssignment_1_1 ) )
-            // InternalChartDsl.g:2161:2: ( rule__DataFile__HasHeaderAssignment_1_1 )
+            // InternalChartDsl.g:1728:1: ( ( rule__DataFile__HasHeaderAssignment_1_1 ) )
+            // InternalChartDsl.g:1729:2: ( rule__DataFile__HasHeaderAssignment_1_1 )
             {
              before(grammarAccess.getDataFileAccess().getHasHeaderAssignment_1_1()); 
-            // InternalChartDsl.g:2162:2: ( rule__DataFile__HasHeaderAssignment_1_1 )
-            // InternalChartDsl.g:2162:3: rule__DataFile__HasHeaderAssignment_1_1
+            // InternalChartDsl.g:1730:2: ( rule__DataFile__HasHeaderAssignment_1_1 )
+            // InternalChartDsl.g:1730:3: rule__DataFile__HasHeaderAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__HasHeaderAssignment_1_1();
@@ -6751,16 +5522,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_2__0"
-    // InternalChartDsl.g:2171:1: rule__DataFile__Group_2__0 : rule__DataFile__Group_2__0__Impl rule__DataFile__Group_2__1 ;
+    // InternalChartDsl.g:1739:1: rule__DataFile__Group_2__0 : rule__DataFile__Group_2__0__Impl rule__DataFile__Group_2__1 ;
     public final void rule__DataFile__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2175:1: ( rule__DataFile__Group_2__0__Impl rule__DataFile__Group_2__1 )
-            // InternalChartDsl.g:2176:2: rule__DataFile__Group_2__0__Impl rule__DataFile__Group_2__1
+            // InternalChartDsl.g:1743:1: ( rule__DataFile__Group_2__0__Impl rule__DataFile__Group_2__1 )
+            // InternalChartDsl.g:1744:2: rule__DataFile__Group_2__0__Impl rule__DataFile__Group_2__1
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_18);
             rule__DataFile__Group_2__0__Impl();
 
             state._fsp--;
@@ -6789,20 +5560,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_2__0__Impl"
-    // InternalChartDsl.g:2183:1: rule__DataFile__Group_2__0__Impl : ( 'types' ) ;
+    // InternalChartDsl.g:1751:1: rule__DataFile__Group_2__0__Impl : ( 'types' ) ;
     public final void rule__DataFile__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2187:1: ( ( 'types' ) )
-            // InternalChartDsl.g:2188:1: ( 'types' )
+            // InternalChartDsl.g:1755:1: ( ( 'types' ) )
+            // InternalChartDsl.g:1756:1: ( 'types' )
             {
-            // InternalChartDsl.g:2188:1: ( 'types' )
-            // InternalChartDsl.g:2189:2: 'types'
+            // InternalChartDsl.g:1756:1: ( 'types' )
+            // InternalChartDsl.g:1757:2: 'types'
             {
              before(grammarAccess.getDataFileAccess().getTypesKeyword_2_0()); 
-            match(input,53,FOLLOW_2); 
+            match(input,46,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getTypesKeyword_2_0()); 
 
             }
@@ -6826,14 +5597,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_2__1"
-    // InternalChartDsl.g:2198:1: rule__DataFile__Group_2__1 : rule__DataFile__Group_2__1__Impl ;
+    // InternalChartDsl.g:1766:1: rule__DataFile__Group_2__1 : rule__DataFile__Group_2__1__Impl ;
     public final void rule__DataFile__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2202:1: ( rule__DataFile__Group_2__1__Impl )
-            // InternalChartDsl.g:2203:2: rule__DataFile__Group_2__1__Impl
+            // InternalChartDsl.g:1770:1: ( rule__DataFile__Group_2__1__Impl )
+            // InternalChartDsl.g:1771:2: rule__DataFile__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__Group_2__1__Impl();
@@ -6859,21 +5630,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_2__1__Impl"
-    // InternalChartDsl.g:2209:1: rule__DataFile__Group_2__1__Impl : ( ( rule__DataFile__HasTypeAssignment_2_1 ) ) ;
+    // InternalChartDsl.g:1777:1: rule__DataFile__Group_2__1__Impl : ( ( rule__DataFile__HasTypeAssignment_2_1 ) ) ;
     public final void rule__DataFile__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2213:1: ( ( ( rule__DataFile__HasTypeAssignment_2_1 ) ) )
-            // InternalChartDsl.g:2214:1: ( ( rule__DataFile__HasTypeAssignment_2_1 ) )
+            // InternalChartDsl.g:1781:1: ( ( ( rule__DataFile__HasTypeAssignment_2_1 ) ) )
+            // InternalChartDsl.g:1782:1: ( ( rule__DataFile__HasTypeAssignment_2_1 ) )
             {
-            // InternalChartDsl.g:2214:1: ( ( rule__DataFile__HasTypeAssignment_2_1 ) )
-            // InternalChartDsl.g:2215:2: ( rule__DataFile__HasTypeAssignment_2_1 )
+            // InternalChartDsl.g:1782:1: ( ( rule__DataFile__HasTypeAssignment_2_1 ) )
+            // InternalChartDsl.g:1783:2: ( rule__DataFile__HasTypeAssignment_2_1 )
             {
              before(grammarAccess.getDataFileAccess().getHasTypeAssignment_2_1()); 
-            // InternalChartDsl.g:2216:2: ( rule__DataFile__HasTypeAssignment_2_1 )
-            // InternalChartDsl.g:2216:3: rule__DataFile__HasTypeAssignment_2_1
+            // InternalChartDsl.g:1784:2: ( rule__DataFile__HasTypeAssignment_2_1 )
+            // InternalChartDsl.g:1784:3: rule__DataFile__HasTypeAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__HasTypeAssignment_2_1();
@@ -6906,16 +5677,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_3__0"
-    // InternalChartDsl.g:2225:1: rule__DataFile__Group_3__0 : rule__DataFile__Group_3__0__Impl rule__DataFile__Group_3__1 ;
+    // InternalChartDsl.g:1793:1: rule__DataFile__Group_3__0 : rule__DataFile__Group_3__0__Impl rule__DataFile__Group_3__1 ;
     public final void rule__DataFile__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2229:1: ( rule__DataFile__Group_3__0__Impl rule__DataFile__Group_3__1 )
-            // InternalChartDsl.g:2230:2: rule__DataFile__Group_3__0__Impl rule__DataFile__Group_3__1
+            // InternalChartDsl.g:1797:1: ( rule__DataFile__Group_3__0__Impl rule__DataFile__Group_3__1 )
+            // InternalChartDsl.g:1798:2: rule__DataFile__Group_3__0__Impl rule__DataFile__Group_3__1
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_7);
             rule__DataFile__Group_3__0__Impl();
 
             state._fsp--;
@@ -6944,20 +5715,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_3__0__Impl"
-    // InternalChartDsl.g:2237:1: rule__DataFile__Group_3__0__Impl : ( 'delimiter' ) ;
+    // InternalChartDsl.g:1805:1: rule__DataFile__Group_3__0__Impl : ( 'delimiter' ) ;
     public final void rule__DataFile__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2241:1: ( ( 'delimiter' ) )
-            // InternalChartDsl.g:2242:1: ( 'delimiter' )
+            // InternalChartDsl.g:1809:1: ( ( 'delimiter' ) )
+            // InternalChartDsl.g:1810:1: ( 'delimiter' )
             {
-            // InternalChartDsl.g:2242:1: ( 'delimiter' )
-            // InternalChartDsl.g:2243:2: 'delimiter'
+            // InternalChartDsl.g:1810:1: ( 'delimiter' )
+            // InternalChartDsl.g:1811:2: 'delimiter'
             {
              before(grammarAccess.getDataFileAccess().getDelimiterKeyword_3_0()); 
-            match(input,54,FOLLOW_2); 
+            match(input,47,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getDelimiterKeyword_3_0()); 
 
             }
@@ -6981,14 +5752,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_3__1"
-    // InternalChartDsl.g:2252:1: rule__DataFile__Group_3__1 : rule__DataFile__Group_3__1__Impl ;
+    // InternalChartDsl.g:1820:1: rule__DataFile__Group_3__1 : rule__DataFile__Group_3__1__Impl ;
     public final void rule__DataFile__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2256:1: ( rule__DataFile__Group_3__1__Impl )
-            // InternalChartDsl.g:2257:2: rule__DataFile__Group_3__1__Impl
+            // InternalChartDsl.g:1824:1: ( rule__DataFile__Group_3__1__Impl )
+            // InternalChartDsl.g:1825:2: rule__DataFile__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__Group_3__1__Impl();
@@ -7014,21 +5785,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_3__1__Impl"
-    // InternalChartDsl.g:2263:1: rule__DataFile__Group_3__1__Impl : ( ( rule__DataFile__SeparatorAssignment_3_1 ) ) ;
+    // InternalChartDsl.g:1831:1: rule__DataFile__Group_3__1__Impl : ( ( rule__DataFile__SeparatorAssignment_3_1 ) ) ;
     public final void rule__DataFile__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2267:1: ( ( ( rule__DataFile__SeparatorAssignment_3_1 ) ) )
-            // InternalChartDsl.g:2268:1: ( ( rule__DataFile__SeparatorAssignment_3_1 ) )
+            // InternalChartDsl.g:1835:1: ( ( ( rule__DataFile__SeparatorAssignment_3_1 ) ) )
+            // InternalChartDsl.g:1836:1: ( ( rule__DataFile__SeparatorAssignment_3_1 ) )
             {
-            // InternalChartDsl.g:2268:1: ( ( rule__DataFile__SeparatorAssignment_3_1 ) )
-            // InternalChartDsl.g:2269:2: ( rule__DataFile__SeparatorAssignment_3_1 )
+            // InternalChartDsl.g:1836:1: ( ( rule__DataFile__SeparatorAssignment_3_1 ) )
+            // InternalChartDsl.g:1837:2: ( rule__DataFile__SeparatorAssignment_3_1 )
             {
              before(grammarAccess.getDataFileAccess().getSeparatorAssignment_3_1()); 
-            // InternalChartDsl.g:2270:2: ( rule__DataFile__SeparatorAssignment_3_1 )
-            // InternalChartDsl.g:2270:3: rule__DataFile__SeparatorAssignment_3_1
+            // InternalChartDsl.g:1838:2: ( rule__DataFile__SeparatorAssignment_3_1 )
+            // InternalChartDsl.g:1838:3: rule__DataFile__SeparatorAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__SeparatorAssignment_3_1();
@@ -7061,16 +5832,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_8__0"
-    // InternalChartDsl.g:2279:1: rule__DataFile__Group_8__0 : rule__DataFile__Group_8__0__Impl rule__DataFile__Group_8__1 ;
+    // InternalChartDsl.g:1847:1: rule__DataFile__Group_8__0 : rule__DataFile__Group_8__0__Impl rule__DataFile__Group_8__1 ;
     public final void rule__DataFile__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2283:1: ( rule__DataFile__Group_8__0__Impl rule__DataFile__Group_8__1 )
-            // InternalChartDsl.g:2284:2: rule__DataFile__Group_8__0__Impl rule__DataFile__Group_8__1
+            // InternalChartDsl.g:1851:1: ( rule__DataFile__Group_8__0__Impl rule__DataFile__Group_8__1 )
+            // InternalChartDsl.g:1852:2: rule__DataFile__Group_8__0__Impl rule__DataFile__Group_8__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__DataFile__Group_8__0__Impl();
 
             state._fsp--;
@@ -7099,20 +5870,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_8__0__Impl"
-    // InternalChartDsl.g:2291:1: rule__DataFile__Group_8__0__Impl : ( ',' ) ;
+    // InternalChartDsl.g:1859:1: rule__DataFile__Group_8__0__Impl : ( ',' ) ;
     public final void rule__DataFile__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2295:1: ( ( ',' ) )
-            // InternalChartDsl.g:2296:1: ( ',' )
+            // InternalChartDsl.g:1863:1: ( ( ',' ) )
+            // InternalChartDsl.g:1864:1: ( ',' )
             {
-            // InternalChartDsl.g:2296:1: ( ',' )
-            // InternalChartDsl.g:2297:2: ','
+            // InternalChartDsl.g:1864:1: ( ',' )
+            // InternalChartDsl.g:1865:2: ','
             {
              before(grammarAccess.getDataFileAccess().getCommaKeyword_8_0()); 
-            match(input,41,FOLLOW_2); 
+            match(input,48,FOLLOW_2); 
              after(grammarAccess.getDataFileAccess().getCommaKeyword_8_0()); 
 
             }
@@ -7136,14 +5907,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_8__1"
-    // InternalChartDsl.g:2306:1: rule__DataFile__Group_8__1 : rule__DataFile__Group_8__1__Impl ;
+    // InternalChartDsl.g:1874:1: rule__DataFile__Group_8__1 : rule__DataFile__Group_8__1__Impl ;
     public final void rule__DataFile__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2310:1: ( rule__DataFile__Group_8__1__Impl )
-            // InternalChartDsl.g:2311:2: rule__DataFile__Group_8__1__Impl
+            // InternalChartDsl.g:1878:1: ( rule__DataFile__Group_8__1__Impl )
+            // InternalChartDsl.g:1879:2: rule__DataFile__Group_8__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__Group_8__1__Impl();
@@ -7169,21 +5940,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__Group_8__1__Impl"
-    // InternalChartDsl.g:2317:1: rule__DataFile__Group_8__1__Impl : ( ( rule__DataFile__UsedColumnAssignment_8_1 ) ) ;
+    // InternalChartDsl.g:1885:1: rule__DataFile__Group_8__1__Impl : ( ( rule__DataFile__UsedColumnAssignment_8_1 ) ) ;
     public final void rule__DataFile__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2321:1: ( ( ( rule__DataFile__UsedColumnAssignment_8_1 ) ) )
-            // InternalChartDsl.g:2322:1: ( ( rule__DataFile__UsedColumnAssignment_8_1 ) )
+            // InternalChartDsl.g:1889:1: ( ( ( rule__DataFile__UsedColumnAssignment_8_1 ) ) )
+            // InternalChartDsl.g:1890:1: ( ( rule__DataFile__UsedColumnAssignment_8_1 ) )
             {
-            // InternalChartDsl.g:2322:1: ( ( rule__DataFile__UsedColumnAssignment_8_1 ) )
-            // InternalChartDsl.g:2323:2: ( rule__DataFile__UsedColumnAssignment_8_1 )
+            // InternalChartDsl.g:1890:1: ( ( rule__DataFile__UsedColumnAssignment_8_1 ) )
+            // InternalChartDsl.g:1891:2: ( rule__DataFile__UsedColumnAssignment_8_1 )
             {
              before(grammarAccess.getDataFileAccess().getUsedColumnAssignment_8_1()); 
-            // InternalChartDsl.g:2324:2: ( rule__DataFile__UsedColumnAssignment_8_1 )
-            // InternalChartDsl.g:2324:3: rule__DataFile__UsedColumnAssignment_8_1
+            // InternalChartDsl.g:1892:2: ( rule__DataFile__UsedColumnAssignment_8_1 )
+            // InternalChartDsl.g:1892:3: rule__DataFile__UsedColumnAssignment_8_1
             {
             pushFollow(FOLLOW_2);
             rule__DataFile__UsedColumnAssignment_8_1();
@@ -7216,16 +5987,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Condition__Group__0"
-    // InternalChartDsl.g:2333:1: rule__Condition__Group__0 : rule__Condition__Group__0__Impl rule__Condition__Group__1 ;
+    // InternalChartDsl.g:1901:1: rule__Condition__Group__0 : rule__Condition__Group__0__Impl rule__Condition__Group__1 ;
     public final void rule__Condition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2337:1: ( rule__Condition__Group__0__Impl rule__Condition__Group__1 )
-            // InternalChartDsl.g:2338:2: rule__Condition__Group__0__Impl rule__Condition__Group__1
+            // InternalChartDsl.g:1905:1: ( rule__Condition__Group__0__Impl rule__Condition__Group__1 )
+            // InternalChartDsl.g:1906:2: rule__Condition__Group__0__Impl rule__Condition__Group__1
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_19);
             rule__Condition__Group__0__Impl();
 
             state._fsp--;
@@ -7254,21 +6025,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Condition__Group__0__Impl"
-    // InternalChartDsl.g:2345:1: rule__Condition__Group__0__Impl : ( '(' ) ;
+    // InternalChartDsl.g:1913:1: rule__Condition__Group__0__Impl : ( ( rule__Condition__LeftElementAssignment_0 ) ) ;
     public final void rule__Condition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2349:1: ( ( '(' ) )
-            // InternalChartDsl.g:2350:1: ( '(' )
+            // InternalChartDsl.g:1917:1: ( ( ( rule__Condition__LeftElementAssignment_0 ) ) )
+            // InternalChartDsl.g:1918:1: ( ( rule__Condition__LeftElementAssignment_0 ) )
             {
-            // InternalChartDsl.g:2350:1: ( '(' )
-            // InternalChartDsl.g:2351:2: '('
+            // InternalChartDsl.g:1918:1: ( ( rule__Condition__LeftElementAssignment_0 ) )
+            // InternalChartDsl.g:1919:2: ( rule__Condition__LeftElementAssignment_0 )
             {
-             before(grammarAccess.getConditionAccess().getLeftParenthesisKeyword_0()); 
-            match(input,39,FOLLOW_2); 
-             after(grammarAccess.getConditionAccess().getLeftParenthesisKeyword_0()); 
+             before(grammarAccess.getConditionAccess().getLeftElementAssignment_0()); 
+            // InternalChartDsl.g:1920:2: ( rule__Condition__LeftElementAssignment_0 )
+            // InternalChartDsl.g:1920:3: rule__Condition__LeftElementAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Condition__LeftElementAssignment_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getConditionAccess().getLeftElementAssignment_0()); 
 
             }
 
@@ -7291,16 +6072,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Condition__Group__1"
-    // InternalChartDsl.g:2360:1: rule__Condition__Group__1 : rule__Condition__Group__1__Impl rule__Condition__Group__2 ;
+    // InternalChartDsl.g:1928:1: rule__Condition__Group__1 : rule__Condition__Group__1__Impl rule__Condition__Group__2 ;
     public final void rule__Condition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2364:1: ( rule__Condition__Group__1__Impl rule__Condition__Group__2 )
-            // InternalChartDsl.g:2365:2: rule__Condition__Group__1__Impl rule__Condition__Group__2
+            // InternalChartDsl.g:1932:1: ( rule__Condition__Group__1__Impl rule__Condition__Group__2 )
+            // InternalChartDsl.g:1933:2: rule__Condition__Group__1__Impl rule__Condition__Group__2
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_19);
             rule__Condition__Group__1__Impl();
 
             state._fsp--;
@@ -7329,31 +6110,42 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Condition__Group__1__Impl"
-    // InternalChartDsl.g:2372:1: rule__Condition__Group__1__Impl : ( ( rule__Condition__LeftElementAssignment_1 ) ) ;
+    // InternalChartDsl.g:1940:1: rule__Condition__Group__1__Impl : ( ( rule__Condition__OperatorAssignment_1 )? ) ;
     public final void rule__Condition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2376:1: ( ( ( rule__Condition__LeftElementAssignment_1 ) ) )
-            // InternalChartDsl.g:2377:1: ( ( rule__Condition__LeftElementAssignment_1 ) )
+            // InternalChartDsl.g:1944:1: ( ( ( rule__Condition__OperatorAssignment_1 )? ) )
+            // InternalChartDsl.g:1945:1: ( ( rule__Condition__OperatorAssignment_1 )? )
             {
-            // InternalChartDsl.g:2377:1: ( ( rule__Condition__LeftElementAssignment_1 ) )
-            // InternalChartDsl.g:2378:2: ( rule__Condition__LeftElementAssignment_1 )
+            // InternalChartDsl.g:1945:1: ( ( rule__Condition__OperatorAssignment_1 )? )
+            // InternalChartDsl.g:1946:2: ( rule__Condition__OperatorAssignment_1 )?
             {
-             before(grammarAccess.getConditionAccess().getLeftElementAssignment_1()); 
-            // InternalChartDsl.g:2379:2: ( rule__Condition__LeftElementAssignment_1 )
-            // InternalChartDsl.g:2379:3: rule__Condition__LeftElementAssignment_1
-            {
-            pushFollow(FOLLOW_2);
-            rule__Condition__LeftElementAssignment_1();
+             before(grammarAccess.getConditionAccess().getOperatorAssignment_1()); 
+            // InternalChartDsl.g:1947:2: ( rule__Condition__OperatorAssignment_1 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            state._fsp--;
+            if ( ((LA21_0>=24 && LA21_0<=29)) ) {
+                alt21=1;
+            }
+            switch (alt21) {
+                case 1 :
+                    // InternalChartDsl.g:1947:3: rule__Condition__OperatorAssignment_1
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Condition__OperatorAssignment_1();
 
+                    state._fsp--;
+
+
+                    }
+                    break;
 
             }
 
-             after(grammarAccess.getConditionAccess().getLeftElementAssignment_1()); 
+             after(grammarAccess.getConditionAccess().getOperatorAssignment_1()); 
 
             }
 
@@ -7376,22 +6168,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Condition__Group__2"
-    // InternalChartDsl.g:2387:1: rule__Condition__Group__2 : rule__Condition__Group__2__Impl rule__Condition__Group__3 ;
+    // InternalChartDsl.g:1955:1: rule__Condition__Group__2 : rule__Condition__Group__2__Impl ;
     public final void rule__Condition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2391:1: ( rule__Condition__Group__2__Impl rule__Condition__Group__3 )
-            // InternalChartDsl.g:2392:2: rule__Condition__Group__2__Impl rule__Condition__Group__3
+            // InternalChartDsl.g:1959:1: ( rule__Condition__Group__2__Impl )
+            // InternalChartDsl.g:1960:2: rule__Condition__Group__2__Impl
             {
-            pushFollow(FOLLOW_23);
-            rule__Condition__Group__2__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__Condition__Group__3();
+            rule__Condition__Group__2__Impl();
 
             state._fsp--;
 
@@ -7414,42 +6201,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Condition__Group__2__Impl"
-    // InternalChartDsl.g:2399:1: rule__Condition__Group__2__Impl : ( ( rule__Condition__OperatorAssignment_2 )? ) ;
+    // InternalChartDsl.g:1966:1: rule__Condition__Group__2__Impl : ( ( rule__Condition__RightElementAssignment_2 ) ) ;
     public final void rule__Condition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2403:1: ( ( ( rule__Condition__OperatorAssignment_2 )? ) )
-            // InternalChartDsl.g:2404:1: ( ( rule__Condition__OperatorAssignment_2 )? )
+            // InternalChartDsl.g:1970:1: ( ( ( rule__Condition__RightElementAssignment_2 ) ) )
+            // InternalChartDsl.g:1971:1: ( ( rule__Condition__RightElementAssignment_2 ) )
             {
-            // InternalChartDsl.g:2404:1: ( ( rule__Condition__OperatorAssignment_2 )? )
-            // InternalChartDsl.g:2405:2: ( rule__Condition__OperatorAssignment_2 )?
+            // InternalChartDsl.g:1971:1: ( ( rule__Condition__RightElementAssignment_2 ) )
+            // InternalChartDsl.g:1972:2: ( rule__Condition__RightElementAssignment_2 )
             {
-             before(grammarAccess.getConditionAccess().getOperatorAssignment_2()); 
-            // InternalChartDsl.g:2406:2: ( rule__Condition__OperatorAssignment_2 )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+             before(grammarAccess.getConditionAccess().getRightElementAssignment_2()); 
+            // InternalChartDsl.g:1973:2: ( rule__Condition__RightElementAssignment_2 )
+            // InternalChartDsl.g:1973:3: rule__Condition__RightElementAssignment_2
+            {
+            pushFollow(FOLLOW_2);
+            rule__Condition__RightElementAssignment_2();
 
-            if ( ((LA21_0>=24 && LA21_0<=29)) ) {
-                alt21=1;
-            }
-            switch (alt21) {
-                case 1 :
-                    // InternalChartDsl.g:2406:3: rule__Condition__OperatorAssignment_2
-                    {
-                    pushFollow(FOLLOW_2);
-                    rule__Condition__OperatorAssignment_2();
+            state._fsp--;
 
-                    state._fsp--;
-
-
-                    }
-                    break;
 
             }
 
-             after(grammarAccess.getConditionAccess().getOperatorAssignment_2()); 
+             after(grammarAccess.getConditionAccess().getRightElementAssignment_2()); 
 
             }
 
@@ -7471,172 +6247,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Condition__Group__2__Impl"
 
 
-    // $ANTLR start "rule__Condition__Group__3"
-    // InternalChartDsl.g:2414:1: rule__Condition__Group__3 : rule__Condition__Group__3__Impl rule__Condition__Group__4 ;
-    public final void rule__Condition__Group__3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:2418:1: ( rule__Condition__Group__3__Impl rule__Condition__Group__4 )
-            // InternalChartDsl.g:2419:2: rule__Condition__Group__3__Impl rule__Condition__Group__4
-            {
-            pushFollow(FOLLOW_24);
-            rule__Condition__Group__3__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__Condition__Group__4();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Condition__Group__3"
-
-
-    // $ANTLR start "rule__Condition__Group__3__Impl"
-    // InternalChartDsl.g:2426:1: rule__Condition__Group__3__Impl : ( ( rule__Condition__RightElementAssignment_3 ) ) ;
-    public final void rule__Condition__Group__3__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:2430:1: ( ( ( rule__Condition__RightElementAssignment_3 ) ) )
-            // InternalChartDsl.g:2431:1: ( ( rule__Condition__RightElementAssignment_3 ) )
-            {
-            // InternalChartDsl.g:2431:1: ( ( rule__Condition__RightElementAssignment_3 ) )
-            // InternalChartDsl.g:2432:2: ( rule__Condition__RightElementAssignment_3 )
-            {
-             before(grammarAccess.getConditionAccess().getRightElementAssignment_3()); 
-            // InternalChartDsl.g:2433:2: ( rule__Condition__RightElementAssignment_3 )
-            // InternalChartDsl.g:2433:3: rule__Condition__RightElementAssignment_3
-            {
-            pushFollow(FOLLOW_2);
-            rule__Condition__RightElementAssignment_3();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getConditionAccess().getRightElementAssignment_3()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Condition__Group__3__Impl"
-
-
-    // $ANTLR start "rule__Condition__Group__4"
-    // InternalChartDsl.g:2441:1: rule__Condition__Group__4 : rule__Condition__Group__4__Impl ;
-    public final void rule__Condition__Group__4() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:2445:1: ( rule__Condition__Group__4__Impl )
-            // InternalChartDsl.g:2446:2: rule__Condition__Group__4__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__Condition__Group__4__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Condition__Group__4"
-
-
-    // $ANTLR start "rule__Condition__Group__4__Impl"
-    // InternalChartDsl.g:2452:1: rule__Condition__Group__4__Impl : ( ')' ) ;
-    public final void rule__Condition__Group__4__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:2456:1: ( ( ')' ) )
-            // InternalChartDsl.g:2457:1: ( ')' )
-            {
-            // InternalChartDsl.g:2457:1: ( ')' )
-            // InternalChartDsl.g:2458:2: ')'
-            {
-             before(grammarAccess.getConditionAccess().getRightParenthesisKeyword_4()); 
-            match(input,40,FOLLOW_2); 
-             after(grammarAccess.getConditionAccess().getRightParenthesisKeyword_4()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Condition__Group__4__Impl"
-
-
     // $ANTLR start "rule__Column__Group__0"
-    // InternalChartDsl.g:2468:1: rule__Column__Group__0 : rule__Column__Group__0__Impl rule__Column__Group__1 ;
+    // InternalChartDsl.g:1982:1: rule__Column__Group__0 : rule__Column__Group__0__Impl rule__Column__Group__1 ;
     public final void rule__Column__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2472:1: ( rule__Column__Group__0__Impl rule__Column__Group__1 )
-            // InternalChartDsl.g:2473:2: rule__Column__Group__0__Impl rule__Column__Group__1
+            // InternalChartDsl.g:1986:1: ( rule__Column__Group__0__Impl rule__Column__Group__1 )
+            // InternalChartDsl.g:1987:2: rule__Column__Group__0__Impl rule__Column__Group__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__Column__Group__0__Impl();
 
             state._fsp--;
@@ -7665,21 +6286,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__0__Impl"
-    // InternalChartDsl.g:2480:1: rule__Column__Group__0__Impl : ( () ) ;
+    // InternalChartDsl.g:1994:1: rule__Column__Group__0__Impl : ( () ) ;
     public final void rule__Column__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2484:1: ( ( () ) )
-            // InternalChartDsl.g:2485:1: ( () )
+            // InternalChartDsl.g:1998:1: ( ( () ) )
+            // InternalChartDsl.g:1999:1: ( () )
             {
-            // InternalChartDsl.g:2485:1: ( () )
-            // InternalChartDsl.g:2486:2: ()
+            // InternalChartDsl.g:1999:1: ( () )
+            // InternalChartDsl.g:2000:2: ()
             {
              before(grammarAccess.getColumnAccess().getColumnAction_0()); 
-            // InternalChartDsl.g:2487:2: ()
-            // InternalChartDsl.g:2487:3: 
+            // InternalChartDsl.g:2001:2: ()
+            // InternalChartDsl.g:2001:3: 
             {
             }
 
@@ -7702,16 +6323,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__1"
-    // InternalChartDsl.g:2495:1: rule__Column__Group__1 : rule__Column__Group__1__Impl rule__Column__Group__2 ;
+    // InternalChartDsl.g:2009:1: rule__Column__Group__1 : rule__Column__Group__1__Impl rule__Column__Group__2 ;
     public final void rule__Column__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2499:1: ( rule__Column__Group__1__Impl rule__Column__Group__2 )
-            // InternalChartDsl.g:2500:2: rule__Column__Group__1__Impl rule__Column__Group__2
+            // InternalChartDsl.g:2013:1: ( rule__Column__Group__1__Impl rule__Column__Group__2 )
+            // InternalChartDsl.g:2014:2: rule__Column__Group__1__Impl rule__Column__Group__2
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_20);
             rule__Column__Group__1__Impl();
 
             state._fsp--;
@@ -7740,20 +6361,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__1__Impl"
-    // InternalChartDsl.g:2507:1: rule__Column__Group__1__Impl : ( '(' ) ;
+    // InternalChartDsl.g:2021:1: rule__Column__Group__1__Impl : ( '(' ) ;
     public final void rule__Column__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2511:1: ( ( '(' ) )
-            // InternalChartDsl.g:2512:1: ( '(' )
+            // InternalChartDsl.g:2025:1: ( ( '(' ) )
+            // InternalChartDsl.g:2026:1: ( '(' )
             {
-            // InternalChartDsl.g:2512:1: ( '(' )
-            // InternalChartDsl.g:2513:2: '('
+            // InternalChartDsl.g:2026:1: ( '(' )
+            // InternalChartDsl.g:2027:2: '('
             {
              before(grammarAccess.getColumnAccess().getLeftParenthesisKeyword_1()); 
-            match(input,39,FOLLOW_2); 
+            match(input,49,FOLLOW_2); 
              after(grammarAccess.getColumnAccess().getLeftParenthesisKeyword_1()); 
 
             }
@@ -7777,16 +6398,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__2"
-    // InternalChartDsl.g:2522:1: rule__Column__Group__2 : rule__Column__Group__2__Impl rule__Column__Group__3 ;
+    // InternalChartDsl.g:2036:1: rule__Column__Group__2 : rule__Column__Group__2__Impl rule__Column__Group__3 ;
     public final void rule__Column__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2526:1: ( rule__Column__Group__2__Impl rule__Column__Group__3 )
-            // InternalChartDsl.g:2527:2: rule__Column__Group__2__Impl rule__Column__Group__3
+            // InternalChartDsl.g:2040:1: ( rule__Column__Group__2__Impl rule__Column__Group__3 )
+            // InternalChartDsl.g:2041:2: rule__Column__Group__2__Impl rule__Column__Group__3
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_20);
             rule__Column__Group__2__Impl();
 
             state._fsp--;
@@ -7815,29 +6436,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__2__Impl"
-    // InternalChartDsl.g:2534:1: rule__Column__Group__2__Impl : ( ( rule__Column__Group_2__0 )? ) ;
+    // InternalChartDsl.g:2048:1: rule__Column__Group__2__Impl : ( ( rule__Column__Group_2__0 )? ) ;
     public final void rule__Column__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2538:1: ( ( ( rule__Column__Group_2__0 )? ) )
-            // InternalChartDsl.g:2539:1: ( ( rule__Column__Group_2__0 )? )
+            // InternalChartDsl.g:2052:1: ( ( ( rule__Column__Group_2__0 )? ) )
+            // InternalChartDsl.g:2053:1: ( ( rule__Column__Group_2__0 )? )
             {
-            // InternalChartDsl.g:2539:1: ( ( rule__Column__Group_2__0 )? )
-            // InternalChartDsl.g:2540:2: ( rule__Column__Group_2__0 )?
+            // InternalChartDsl.g:2053:1: ( ( rule__Column__Group_2__0 )? )
+            // InternalChartDsl.g:2054:2: ( rule__Column__Group_2__0 )?
             {
              before(grammarAccess.getColumnAccess().getGroup_2()); 
-            // InternalChartDsl.g:2541:2: ( rule__Column__Group_2__0 )?
+            // InternalChartDsl.g:2055:2: ( rule__Column__Group_2__0 )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
-            if ( (LA22_0==56) ) {
+            if ( (LA22_0==52) ) {
                 alt22=1;
             }
             switch (alt22) {
                 case 1 :
-                    // InternalChartDsl.g:2541:3: rule__Column__Group_2__0
+                    // InternalChartDsl.g:2055:3: rule__Column__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Column__Group_2__0();
@@ -7873,16 +6494,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__3"
-    // InternalChartDsl.g:2549:1: rule__Column__Group__3 : rule__Column__Group__3__Impl rule__Column__Group__4 ;
+    // InternalChartDsl.g:2063:1: rule__Column__Group__3 : rule__Column__Group__3__Impl rule__Column__Group__4 ;
     public final void rule__Column__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2553:1: ( rule__Column__Group__3__Impl rule__Column__Group__4 )
-            // InternalChartDsl.g:2554:2: rule__Column__Group__3__Impl rule__Column__Group__4
+            // InternalChartDsl.g:2067:1: ( rule__Column__Group__3__Impl rule__Column__Group__4 )
+            // InternalChartDsl.g:2068:2: rule__Column__Group__3__Impl rule__Column__Group__4
             {
-            pushFollow(FOLLOW_3);
+            pushFollow(FOLLOW_7);
             rule__Column__Group__3__Impl();
 
             state._fsp--;
@@ -7911,20 +6532,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__3__Impl"
-    // InternalChartDsl.g:2561:1: rule__Column__Group__3__Impl : ( 'as' ) ;
+    // InternalChartDsl.g:2075:1: rule__Column__Group__3__Impl : ( 'as' ) ;
     public final void rule__Column__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2565:1: ( ( 'as' ) )
-            // InternalChartDsl.g:2566:1: ( 'as' )
+            // InternalChartDsl.g:2079:1: ( ( 'as' ) )
+            // InternalChartDsl.g:2080:1: ( 'as' )
             {
-            // InternalChartDsl.g:2566:1: ( 'as' )
-            // InternalChartDsl.g:2567:2: 'as'
+            // InternalChartDsl.g:2080:1: ( 'as' )
+            // InternalChartDsl.g:2081:2: 'as'
             {
              before(grammarAccess.getColumnAccess().getAsKeyword_3()); 
-            match(input,55,FOLLOW_2); 
+            match(input,50,FOLLOW_2); 
              after(grammarAccess.getColumnAccess().getAsKeyword_3()); 
 
             }
@@ -7948,16 +6569,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__4"
-    // InternalChartDsl.g:2576:1: rule__Column__Group__4 : rule__Column__Group__4__Impl rule__Column__Group__5 ;
+    // InternalChartDsl.g:2090:1: rule__Column__Group__4 : rule__Column__Group__4__Impl rule__Column__Group__5 ;
     public final void rule__Column__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2580:1: ( rule__Column__Group__4__Impl rule__Column__Group__5 )
-            // InternalChartDsl.g:2581:2: rule__Column__Group__4__Impl rule__Column__Group__5
+            // InternalChartDsl.g:2094:1: ( rule__Column__Group__4__Impl rule__Column__Group__5 )
+            // InternalChartDsl.g:2095:2: rule__Column__Group__4__Impl rule__Column__Group__5
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_21);
             rule__Column__Group__4__Impl();
 
             state._fsp--;
@@ -7986,21 +6607,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__4__Impl"
-    // InternalChartDsl.g:2588:1: rule__Column__Group__4__Impl : ( ( rule__Column__NameAssignment_4 ) ) ;
+    // InternalChartDsl.g:2102:1: rule__Column__Group__4__Impl : ( ( rule__Column__NameAssignment_4 ) ) ;
     public final void rule__Column__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2592:1: ( ( ( rule__Column__NameAssignment_4 ) ) )
-            // InternalChartDsl.g:2593:1: ( ( rule__Column__NameAssignment_4 ) )
+            // InternalChartDsl.g:2106:1: ( ( ( rule__Column__NameAssignment_4 ) ) )
+            // InternalChartDsl.g:2107:1: ( ( rule__Column__NameAssignment_4 ) )
             {
-            // InternalChartDsl.g:2593:1: ( ( rule__Column__NameAssignment_4 ) )
-            // InternalChartDsl.g:2594:2: ( rule__Column__NameAssignment_4 )
+            // InternalChartDsl.g:2107:1: ( ( rule__Column__NameAssignment_4 ) )
+            // InternalChartDsl.g:2108:2: ( rule__Column__NameAssignment_4 )
             {
              before(grammarAccess.getColumnAccess().getNameAssignment_4()); 
-            // InternalChartDsl.g:2595:2: ( rule__Column__NameAssignment_4 )
-            // InternalChartDsl.g:2595:3: rule__Column__NameAssignment_4
+            // InternalChartDsl.g:2109:2: ( rule__Column__NameAssignment_4 )
+            // InternalChartDsl.g:2109:3: rule__Column__NameAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Column__NameAssignment_4();
@@ -8033,14 +6654,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__5"
-    // InternalChartDsl.g:2603:1: rule__Column__Group__5 : rule__Column__Group__5__Impl ;
+    // InternalChartDsl.g:2117:1: rule__Column__Group__5 : rule__Column__Group__5__Impl ;
     public final void rule__Column__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2607:1: ( rule__Column__Group__5__Impl )
-            // InternalChartDsl.g:2608:2: rule__Column__Group__5__Impl
+            // InternalChartDsl.g:2121:1: ( rule__Column__Group__5__Impl )
+            // InternalChartDsl.g:2122:2: rule__Column__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Column__Group__5__Impl();
@@ -8066,20 +6687,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group__5__Impl"
-    // InternalChartDsl.g:2614:1: rule__Column__Group__5__Impl : ( ')' ) ;
+    // InternalChartDsl.g:2128:1: rule__Column__Group__5__Impl : ( ')' ) ;
     public final void rule__Column__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2618:1: ( ( ')' ) )
-            // InternalChartDsl.g:2619:1: ( ')' )
+            // InternalChartDsl.g:2132:1: ( ( ')' ) )
+            // InternalChartDsl.g:2133:1: ( ')' )
             {
-            // InternalChartDsl.g:2619:1: ( ')' )
-            // InternalChartDsl.g:2620:2: ')'
+            // InternalChartDsl.g:2133:1: ( ')' )
+            // InternalChartDsl.g:2134:2: ')'
             {
              before(grammarAccess.getColumnAccess().getRightParenthesisKeyword_5()); 
-            match(input,40,FOLLOW_2); 
+            match(input,51,FOLLOW_2); 
              after(grammarAccess.getColumnAccess().getRightParenthesisKeyword_5()); 
 
             }
@@ -8103,16 +6724,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group_2__0"
-    // InternalChartDsl.g:2630:1: rule__Column__Group_2__0 : rule__Column__Group_2__0__Impl rule__Column__Group_2__1 ;
+    // InternalChartDsl.g:2144:1: rule__Column__Group_2__0 : rule__Column__Group_2__0__Impl rule__Column__Group_2__1 ;
     public final void rule__Column__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2634:1: ( rule__Column__Group_2__0__Impl rule__Column__Group_2__1 )
-            // InternalChartDsl.g:2635:2: rule__Column__Group_2__0__Impl rule__Column__Group_2__1
+            // InternalChartDsl.g:2148:1: ( rule__Column__Group_2__0__Impl rule__Column__Group_2__1 )
+            // InternalChartDsl.g:2149:2: rule__Column__Group_2__0__Impl rule__Column__Group_2__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_22);
             rule__Column__Group_2__0__Impl();
 
             state._fsp--;
@@ -8141,20 +6762,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group_2__0__Impl"
-    // InternalChartDsl.g:2642:1: rule__Column__Group_2__0__Impl : ( 'index:' ) ;
+    // InternalChartDsl.g:2156:1: rule__Column__Group_2__0__Impl : ( 'index' ) ;
     public final void rule__Column__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2646:1: ( ( 'index:' ) )
-            // InternalChartDsl.g:2647:1: ( 'index:' )
+            // InternalChartDsl.g:2160:1: ( ( 'index' ) )
+            // InternalChartDsl.g:2161:1: ( 'index' )
             {
-            // InternalChartDsl.g:2647:1: ( 'index:' )
-            // InternalChartDsl.g:2648:2: 'index:'
+            // InternalChartDsl.g:2161:1: ( 'index' )
+            // InternalChartDsl.g:2162:2: 'index'
             {
              before(grammarAccess.getColumnAccess().getIndexKeyword_2_0()); 
-            match(input,56,FOLLOW_2); 
+            match(input,52,FOLLOW_2); 
              after(grammarAccess.getColumnAccess().getIndexKeyword_2_0()); 
 
             }
@@ -8178,14 +6799,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group_2__1"
-    // InternalChartDsl.g:2657:1: rule__Column__Group_2__1 : rule__Column__Group_2__1__Impl ;
+    // InternalChartDsl.g:2171:1: rule__Column__Group_2__1 : rule__Column__Group_2__1__Impl ;
     public final void rule__Column__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2661:1: ( rule__Column__Group_2__1__Impl )
-            // InternalChartDsl.g:2662:2: rule__Column__Group_2__1__Impl
+            // InternalChartDsl.g:2175:1: ( rule__Column__Group_2__1__Impl )
+            // InternalChartDsl.g:2176:2: rule__Column__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Column__Group_2__1__Impl();
@@ -8211,21 +6832,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__Group_2__1__Impl"
-    // InternalChartDsl.g:2668:1: rule__Column__Group_2__1__Impl : ( ( rule__Column__IndexAssignment_2_1 ) ) ;
+    // InternalChartDsl.g:2182:1: rule__Column__Group_2__1__Impl : ( ( rule__Column__IndexAssignment_2_1 ) ) ;
     public final void rule__Column__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2672:1: ( ( ( rule__Column__IndexAssignment_2_1 ) ) )
-            // InternalChartDsl.g:2673:1: ( ( rule__Column__IndexAssignment_2_1 ) )
+            // InternalChartDsl.g:2186:1: ( ( ( rule__Column__IndexAssignment_2_1 ) ) )
+            // InternalChartDsl.g:2187:1: ( ( rule__Column__IndexAssignment_2_1 ) )
             {
-            // InternalChartDsl.g:2673:1: ( ( rule__Column__IndexAssignment_2_1 ) )
-            // InternalChartDsl.g:2674:2: ( rule__Column__IndexAssignment_2_1 )
+            // InternalChartDsl.g:2187:1: ( ( rule__Column__IndexAssignment_2_1 ) )
+            // InternalChartDsl.g:2188:2: ( rule__Column__IndexAssignment_2_1 )
             {
              before(grammarAccess.getColumnAccess().getIndexAssignment_2_1()); 
-            // InternalChartDsl.g:2675:2: ( rule__Column__IndexAssignment_2_1 )
-            // InternalChartDsl.g:2675:3: rule__Column__IndexAssignment_2_1
+            // InternalChartDsl.g:2189:2: ( rule__Column__IndexAssignment_2_1 )
+            // InternalChartDsl.g:2189:3: rule__Column__IndexAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Column__IndexAssignment_2_1();
@@ -8258,16 +6879,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EInt__Group__0"
-    // InternalChartDsl.g:2684:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
+    // InternalChartDsl.g:2198:1: rule__EInt__Group__0 : rule__EInt__Group__0__Impl rule__EInt__Group__1 ;
     public final void rule__EInt__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2688:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
-            // InternalChartDsl.g:2689:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
+            // InternalChartDsl.g:2202:1: ( rule__EInt__Group__0__Impl rule__EInt__Group__1 )
+            // InternalChartDsl.g:2203:2: rule__EInt__Group__0__Impl rule__EInt__Group__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_22);
             rule__EInt__Group__0__Impl();
 
             state._fsp--;
@@ -8296,31 +6917,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EInt__Group__0__Impl"
-    // InternalChartDsl.g:2696:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalChartDsl.g:2210:1: rule__EInt__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EInt__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2700:1: ( ( ( '-' )? ) )
-            // InternalChartDsl.g:2701:1: ( ( '-' )? )
+            // InternalChartDsl.g:2214:1: ( ( ( '-' )? ) )
+            // InternalChartDsl.g:2215:1: ( ( '-' )? )
             {
-            // InternalChartDsl.g:2701:1: ( ( '-' )? )
-            // InternalChartDsl.g:2702:2: ( '-' )?
+            // InternalChartDsl.g:2215:1: ( ( '-' )? )
+            // InternalChartDsl.g:2216:2: ( '-' )?
             {
              before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); 
-            // InternalChartDsl.g:2703:2: ( '-' )?
+            // InternalChartDsl.g:2217:2: ( '-' )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
-            if ( (LA23_0==57) ) {
+            if ( (LA23_0==53) ) {
                 alt23=1;
             }
             switch (alt23) {
                 case 1 :
-                    // InternalChartDsl.g:2703:3: '-'
+                    // InternalChartDsl.g:2217:3: '-'
                     {
-                    match(input,57,FOLLOW_2); 
+                    match(input,53,FOLLOW_2); 
 
                     }
                     break;
@@ -8350,14 +6971,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EInt__Group__1"
-    // InternalChartDsl.g:2711:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
+    // InternalChartDsl.g:2225:1: rule__EInt__Group__1 : rule__EInt__Group__1__Impl ;
     public final void rule__EInt__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2715:1: ( rule__EInt__Group__1__Impl )
-            // InternalChartDsl.g:2716:2: rule__EInt__Group__1__Impl
+            // InternalChartDsl.g:2229:1: ( rule__EInt__Group__1__Impl )
+            // InternalChartDsl.g:2230:2: rule__EInt__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EInt__Group__1__Impl();
@@ -8383,17 +7004,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EInt__Group__1__Impl"
-    // InternalChartDsl.g:2722:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
+    // InternalChartDsl.g:2236:1: rule__EInt__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__EInt__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2726:1: ( ( RULE_INT ) )
-            // InternalChartDsl.g:2727:1: ( RULE_INT )
+            // InternalChartDsl.g:2240:1: ( ( RULE_INT ) )
+            // InternalChartDsl.g:2241:1: ( RULE_INT )
             {
-            // InternalChartDsl.g:2727:1: ( RULE_INT )
-            // InternalChartDsl.g:2728:2: RULE_INT
+            // InternalChartDsl.g:2241:1: ( RULE_INT )
+            // InternalChartDsl.g:2242:2: RULE_INT
             {
              before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -8420,16 +7041,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__0"
-    // InternalChartDsl.g:2738:1: rule__IntVariable__Group__0 : rule__IntVariable__Group__0__Impl rule__IntVariable__Group__1 ;
+    // InternalChartDsl.g:2252:1: rule__IntVariable__Group__0 : rule__IntVariable__Group__0__Impl rule__IntVariable__Group__1 ;
     public final void rule__IntVariable__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2742:1: ( rule__IntVariable__Group__0__Impl rule__IntVariable__Group__1 )
-            // InternalChartDsl.g:2743:2: rule__IntVariable__Group__0__Impl rule__IntVariable__Group__1
+            // InternalChartDsl.g:2256:1: ( rule__IntVariable__Group__0__Impl rule__IntVariable__Group__1 )
+            // InternalChartDsl.g:2257:2: rule__IntVariable__Group__0__Impl rule__IntVariable__Group__1
             {
-            pushFollow(FOLLOW_27);
+            pushFollow(FOLLOW_23);
             rule__IntVariable__Group__0__Impl();
 
             state._fsp--;
@@ -8458,21 +7079,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__0__Impl"
-    // InternalChartDsl.g:2750:1: rule__IntVariable__Group__0__Impl : ( () ) ;
+    // InternalChartDsl.g:2264:1: rule__IntVariable__Group__0__Impl : ( () ) ;
     public final void rule__IntVariable__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2754:1: ( ( () ) )
-            // InternalChartDsl.g:2755:1: ( () )
+            // InternalChartDsl.g:2268:1: ( ( () ) )
+            // InternalChartDsl.g:2269:1: ( () )
             {
-            // InternalChartDsl.g:2755:1: ( () )
-            // InternalChartDsl.g:2756:2: ()
+            // InternalChartDsl.g:2269:1: ( () )
+            // InternalChartDsl.g:2270:2: ()
             {
              before(grammarAccess.getIntVariableAccess().getIntVariableAction_0()); 
-            // InternalChartDsl.g:2757:2: ()
-            // InternalChartDsl.g:2757:3: 
+            // InternalChartDsl.g:2271:2: ()
+            // InternalChartDsl.g:2271:3: 
             {
             }
 
@@ -8495,16 +7116,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__1"
-    // InternalChartDsl.g:2765:1: rule__IntVariable__Group__1 : rule__IntVariable__Group__1__Impl rule__IntVariable__Group__2 ;
+    // InternalChartDsl.g:2279:1: rule__IntVariable__Group__1 : rule__IntVariable__Group__1__Impl rule__IntVariable__Group__2 ;
     public final void rule__IntVariable__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2769:1: ( rule__IntVariable__Group__1__Impl rule__IntVariable__Group__2 )
-            // InternalChartDsl.g:2770:2: rule__IntVariable__Group__1__Impl rule__IntVariable__Group__2
+            // InternalChartDsl.g:2283:1: ( rule__IntVariable__Group__1__Impl rule__IntVariable__Group__2 )
+            // InternalChartDsl.g:2284:2: rule__IntVariable__Group__1__Impl rule__IntVariable__Group__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__IntVariable__Group__1__Impl();
 
             state._fsp--;
@@ -8533,20 +7154,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__1__Impl"
-    // InternalChartDsl.g:2777:1: rule__IntVariable__Group__1__Impl : ( 'int' ) ;
+    // InternalChartDsl.g:2291:1: rule__IntVariable__Group__1__Impl : ( 'int' ) ;
     public final void rule__IntVariable__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2781:1: ( ( 'int' ) )
-            // InternalChartDsl.g:2782:1: ( 'int' )
+            // InternalChartDsl.g:2295:1: ( ( 'int' ) )
+            // InternalChartDsl.g:2296:1: ( 'int' )
             {
-            // InternalChartDsl.g:2782:1: ( 'int' )
-            // InternalChartDsl.g:2783:2: 'int'
+            // InternalChartDsl.g:2296:1: ( 'int' )
+            // InternalChartDsl.g:2297:2: 'int'
             {
              before(grammarAccess.getIntVariableAccess().getIntKeyword_1()); 
-            match(input,58,FOLLOW_2); 
+            match(input,54,FOLLOW_2); 
              after(grammarAccess.getIntVariableAccess().getIntKeyword_1()); 
 
             }
@@ -8570,16 +7191,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__2"
-    // InternalChartDsl.g:2792:1: rule__IntVariable__Group__2 : rule__IntVariable__Group__2__Impl rule__IntVariable__Group__3 ;
+    // InternalChartDsl.g:2306:1: rule__IntVariable__Group__2 : rule__IntVariable__Group__2__Impl rule__IntVariable__Group__3 ;
     public final void rule__IntVariable__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2796:1: ( rule__IntVariable__Group__2__Impl rule__IntVariable__Group__3 )
-            // InternalChartDsl.g:2797:2: rule__IntVariable__Group__2__Impl rule__IntVariable__Group__3
+            // InternalChartDsl.g:2310:1: ( rule__IntVariable__Group__2__Impl rule__IntVariable__Group__3 )
+            // InternalChartDsl.g:2311:2: rule__IntVariable__Group__2__Impl rule__IntVariable__Group__3
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_24);
             rule__IntVariable__Group__2__Impl();
 
             state._fsp--;
@@ -8608,20 +7229,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__2__Impl"
-    // InternalChartDsl.g:2804:1: rule__IntVariable__Group__2__Impl : ( '(' ) ;
+    // InternalChartDsl.g:2318:1: rule__IntVariable__Group__2__Impl : ( '(' ) ;
     public final void rule__IntVariable__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2808:1: ( ( '(' ) )
-            // InternalChartDsl.g:2809:1: ( '(' )
+            // InternalChartDsl.g:2322:1: ( ( '(' ) )
+            // InternalChartDsl.g:2323:1: ( '(' )
             {
-            // InternalChartDsl.g:2809:1: ( '(' )
-            // InternalChartDsl.g:2810:2: '('
+            // InternalChartDsl.g:2323:1: ( '(' )
+            // InternalChartDsl.g:2324:2: '('
             {
              before(grammarAccess.getIntVariableAccess().getLeftParenthesisKeyword_2()); 
-            match(input,39,FOLLOW_2); 
+            match(input,49,FOLLOW_2); 
              after(grammarAccess.getIntVariableAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -8645,16 +7266,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__3"
-    // InternalChartDsl.g:2819:1: rule__IntVariable__Group__3 : rule__IntVariable__Group__3__Impl rule__IntVariable__Group__4 ;
+    // InternalChartDsl.g:2333:1: rule__IntVariable__Group__3 : rule__IntVariable__Group__3__Impl rule__IntVariable__Group__4 ;
     public final void rule__IntVariable__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2823:1: ( rule__IntVariable__Group__3__Impl rule__IntVariable__Group__4 )
-            // InternalChartDsl.g:2824:2: rule__IntVariable__Group__3__Impl rule__IntVariable__Group__4
+            // InternalChartDsl.g:2337:1: ( rule__IntVariable__Group__3__Impl rule__IntVariable__Group__4 )
+            // InternalChartDsl.g:2338:2: rule__IntVariable__Group__3__Impl rule__IntVariable__Group__4
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_24);
             rule__IntVariable__Group__3__Impl();
 
             state._fsp--;
@@ -8683,29 +7304,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__3__Impl"
-    // InternalChartDsl.g:2831:1: rule__IntVariable__Group__3__Impl : ( ( rule__IntVariable__InitialValueAssignment_3 )? ) ;
+    // InternalChartDsl.g:2345:1: rule__IntVariable__Group__3__Impl : ( ( rule__IntVariable__InitialValueAssignment_3 )? ) ;
     public final void rule__IntVariable__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2835:1: ( ( ( rule__IntVariable__InitialValueAssignment_3 )? ) )
-            // InternalChartDsl.g:2836:1: ( ( rule__IntVariable__InitialValueAssignment_3 )? )
+            // InternalChartDsl.g:2349:1: ( ( ( rule__IntVariable__InitialValueAssignment_3 )? ) )
+            // InternalChartDsl.g:2350:1: ( ( rule__IntVariable__InitialValueAssignment_3 )? )
             {
-            // InternalChartDsl.g:2836:1: ( ( rule__IntVariable__InitialValueAssignment_3 )? )
-            // InternalChartDsl.g:2837:2: ( rule__IntVariable__InitialValueAssignment_3 )?
+            // InternalChartDsl.g:2350:1: ( ( rule__IntVariable__InitialValueAssignment_3 )? )
+            // InternalChartDsl.g:2351:2: ( rule__IntVariable__InitialValueAssignment_3 )?
             {
              before(grammarAccess.getIntVariableAccess().getInitialValueAssignment_3()); 
-            // InternalChartDsl.g:2838:2: ( rule__IntVariable__InitialValueAssignment_3 )?
+            // InternalChartDsl.g:2352:2: ( rule__IntVariable__InitialValueAssignment_3 )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( (LA24_0==RULE_INT||LA24_0==57) ) {
+            if ( (LA24_0==RULE_INT||LA24_0==53) ) {
                 alt24=1;
             }
             switch (alt24) {
                 case 1 :
-                    // InternalChartDsl.g:2838:3: rule__IntVariable__InitialValueAssignment_3
+                    // InternalChartDsl.g:2352:3: rule__IntVariable__InitialValueAssignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__IntVariable__InitialValueAssignment_3();
@@ -8741,14 +7362,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__4"
-    // InternalChartDsl.g:2846:1: rule__IntVariable__Group__4 : rule__IntVariable__Group__4__Impl ;
+    // InternalChartDsl.g:2360:1: rule__IntVariable__Group__4 : rule__IntVariable__Group__4__Impl ;
     public final void rule__IntVariable__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2850:1: ( rule__IntVariable__Group__4__Impl )
-            // InternalChartDsl.g:2851:2: rule__IntVariable__Group__4__Impl
+            // InternalChartDsl.g:2364:1: ( rule__IntVariable__Group__4__Impl )
+            // InternalChartDsl.g:2365:2: rule__IntVariable__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IntVariable__Group__4__Impl();
@@ -8774,20 +7395,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__Group__4__Impl"
-    // InternalChartDsl.g:2857:1: rule__IntVariable__Group__4__Impl : ( ')' ) ;
+    // InternalChartDsl.g:2371:1: rule__IntVariable__Group__4__Impl : ( ')' ) ;
     public final void rule__IntVariable__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2861:1: ( ( ')' ) )
-            // InternalChartDsl.g:2862:1: ( ')' )
+            // InternalChartDsl.g:2375:1: ( ( ')' ) )
+            // InternalChartDsl.g:2376:1: ( ')' )
             {
-            // InternalChartDsl.g:2862:1: ( ')' )
-            // InternalChartDsl.g:2863:2: ')'
+            // InternalChartDsl.g:2376:1: ( ')' )
+            // InternalChartDsl.g:2377:2: ')'
             {
              before(grammarAccess.getIntVariableAccess().getRightParenthesisKeyword_4()); 
-            match(input,40,FOLLOW_2); 
+            match(input,51,FOLLOW_2); 
              after(grammarAccess.getIntVariableAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -8811,16 +7432,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__0"
-    // InternalChartDsl.g:2873:1: rule__StringVariable__Group__0 : rule__StringVariable__Group__0__Impl rule__StringVariable__Group__1 ;
+    // InternalChartDsl.g:2387:1: rule__StringVariable__Group__0 : rule__StringVariable__Group__0__Impl rule__StringVariable__Group__1 ;
     public final void rule__StringVariable__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2877:1: ( rule__StringVariable__Group__0__Impl rule__StringVariable__Group__1 )
-            // InternalChartDsl.g:2878:2: rule__StringVariable__Group__0__Impl rule__StringVariable__Group__1
+            // InternalChartDsl.g:2391:1: ( rule__StringVariable__Group__0__Impl rule__StringVariable__Group__1 )
+            // InternalChartDsl.g:2392:2: rule__StringVariable__Group__0__Impl rule__StringVariable__Group__1
             {
-            pushFollow(FOLLOW_29);
+            pushFollow(FOLLOW_25);
             rule__StringVariable__Group__0__Impl();
 
             state._fsp--;
@@ -8849,21 +7470,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__0__Impl"
-    // InternalChartDsl.g:2885:1: rule__StringVariable__Group__0__Impl : ( () ) ;
+    // InternalChartDsl.g:2399:1: rule__StringVariable__Group__0__Impl : ( () ) ;
     public final void rule__StringVariable__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2889:1: ( ( () ) )
-            // InternalChartDsl.g:2890:1: ( () )
+            // InternalChartDsl.g:2403:1: ( ( () ) )
+            // InternalChartDsl.g:2404:1: ( () )
             {
-            // InternalChartDsl.g:2890:1: ( () )
-            // InternalChartDsl.g:2891:2: ()
+            // InternalChartDsl.g:2404:1: ( () )
+            // InternalChartDsl.g:2405:2: ()
             {
              before(grammarAccess.getStringVariableAccess().getStringVariableAction_0()); 
-            // InternalChartDsl.g:2892:2: ()
-            // InternalChartDsl.g:2892:3: 
+            // InternalChartDsl.g:2406:2: ()
+            // InternalChartDsl.g:2406:3: 
             {
             }
 
@@ -8886,16 +7507,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__1"
-    // InternalChartDsl.g:2900:1: rule__StringVariable__Group__1 : rule__StringVariable__Group__1__Impl rule__StringVariable__Group__2 ;
+    // InternalChartDsl.g:2414:1: rule__StringVariable__Group__1 : rule__StringVariable__Group__1__Impl rule__StringVariable__Group__2 ;
     public final void rule__StringVariable__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2904:1: ( rule__StringVariable__Group__1__Impl rule__StringVariable__Group__2 )
-            // InternalChartDsl.g:2905:2: rule__StringVariable__Group__1__Impl rule__StringVariable__Group__2
+            // InternalChartDsl.g:2418:1: ( rule__StringVariable__Group__1__Impl rule__StringVariable__Group__2 )
+            // InternalChartDsl.g:2419:2: rule__StringVariable__Group__1__Impl rule__StringVariable__Group__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__StringVariable__Group__1__Impl();
 
             state._fsp--;
@@ -8924,20 +7545,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__1__Impl"
-    // InternalChartDsl.g:2912:1: rule__StringVariable__Group__1__Impl : ( 'str' ) ;
+    // InternalChartDsl.g:2426:1: rule__StringVariable__Group__1__Impl : ( 'str' ) ;
     public final void rule__StringVariable__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2916:1: ( ( 'str' ) )
-            // InternalChartDsl.g:2917:1: ( 'str' )
+            // InternalChartDsl.g:2430:1: ( ( 'str' ) )
+            // InternalChartDsl.g:2431:1: ( 'str' )
             {
-            // InternalChartDsl.g:2917:1: ( 'str' )
-            // InternalChartDsl.g:2918:2: 'str'
+            // InternalChartDsl.g:2431:1: ( 'str' )
+            // InternalChartDsl.g:2432:2: 'str'
             {
              before(grammarAccess.getStringVariableAccess().getStrKeyword_1()); 
-            match(input,59,FOLLOW_2); 
+            match(input,55,FOLLOW_2); 
              after(grammarAccess.getStringVariableAccess().getStrKeyword_1()); 
 
             }
@@ -8961,16 +7582,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__2"
-    // InternalChartDsl.g:2927:1: rule__StringVariable__Group__2 : rule__StringVariable__Group__2__Impl rule__StringVariable__Group__3 ;
+    // InternalChartDsl.g:2441:1: rule__StringVariable__Group__2 : rule__StringVariable__Group__2__Impl rule__StringVariable__Group__3 ;
     public final void rule__StringVariable__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2931:1: ( rule__StringVariable__Group__2__Impl rule__StringVariable__Group__3 )
-            // InternalChartDsl.g:2932:2: rule__StringVariable__Group__2__Impl rule__StringVariable__Group__3
+            // InternalChartDsl.g:2445:1: ( rule__StringVariable__Group__2__Impl rule__StringVariable__Group__3 )
+            // InternalChartDsl.g:2446:2: rule__StringVariable__Group__2__Impl rule__StringVariable__Group__3
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_26);
             rule__StringVariable__Group__2__Impl();
 
             state._fsp--;
@@ -8999,20 +7620,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__2__Impl"
-    // InternalChartDsl.g:2939:1: rule__StringVariable__Group__2__Impl : ( '(' ) ;
+    // InternalChartDsl.g:2453:1: rule__StringVariable__Group__2__Impl : ( '(' ) ;
     public final void rule__StringVariable__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2943:1: ( ( '(' ) )
-            // InternalChartDsl.g:2944:1: ( '(' )
+            // InternalChartDsl.g:2457:1: ( ( '(' ) )
+            // InternalChartDsl.g:2458:1: ( '(' )
             {
-            // InternalChartDsl.g:2944:1: ( '(' )
-            // InternalChartDsl.g:2945:2: '('
+            // InternalChartDsl.g:2458:1: ( '(' )
+            // InternalChartDsl.g:2459:2: '('
             {
              before(grammarAccess.getStringVariableAccess().getLeftParenthesisKeyword_2()); 
-            match(input,39,FOLLOW_2); 
+            match(input,49,FOLLOW_2); 
              after(grammarAccess.getStringVariableAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -9036,16 +7657,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__3"
-    // InternalChartDsl.g:2954:1: rule__StringVariable__Group__3 : rule__StringVariable__Group__3__Impl rule__StringVariable__Group__4 ;
+    // InternalChartDsl.g:2468:1: rule__StringVariable__Group__3 : rule__StringVariable__Group__3__Impl rule__StringVariable__Group__4 ;
     public final void rule__StringVariable__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2958:1: ( rule__StringVariable__Group__3__Impl rule__StringVariable__Group__4 )
-            // InternalChartDsl.g:2959:2: rule__StringVariable__Group__3__Impl rule__StringVariable__Group__4
+            // InternalChartDsl.g:2472:1: ( rule__StringVariable__Group__3__Impl rule__StringVariable__Group__4 )
+            // InternalChartDsl.g:2473:2: rule__StringVariable__Group__3__Impl rule__StringVariable__Group__4
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_26);
             rule__StringVariable__Group__3__Impl();
 
             state._fsp--;
@@ -9074,20 +7695,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__3__Impl"
-    // InternalChartDsl.g:2966:1: rule__StringVariable__Group__3__Impl : ( ( rule__StringVariable__InitialValueAssignment_3 )? ) ;
+    // InternalChartDsl.g:2480:1: rule__StringVariable__Group__3__Impl : ( ( rule__StringVariable__InitialValueAssignment_3 )? ) ;
     public final void rule__StringVariable__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2970:1: ( ( ( rule__StringVariable__InitialValueAssignment_3 )? ) )
-            // InternalChartDsl.g:2971:1: ( ( rule__StringVariable__InitialValueAssignment_3 )? )
+            // InternalChartDsl.g:2484:1: ( ( ( rule__StringVariable__InitialValueAssignment_3 )? ) )
+            // InternalChartDsl.g:2485:1: ( ( rule__StringVariable__InitialValueAssignment_3 )? )
             {
-            // InternalChartDsl.g:2971:1: ( ( rule__StringVariable__InitialValueAssignment_3 )? )
-            // InternalChartDsl.g:2972:2: ( rule__StringVariable__InitialValueAssignment_3 )?
+            // InternalChartDsl.g:2485:1: ( ( rule__StringVariable__InitialValueAssignment_3 )? )
+            // InternalChartDsl.g:2486:2: ( rule__StringVariable__InitialValueAssignment_3 )?
             {
              before(grammarAccess.getStringVariableAccess().getInitialValueAssignment_3()); 
-            // InternalChartDsl.g:2973:2: ( rule__StringVariable__InitialValueAssignment_3 )?
+            // InternalChartDsl.g:2487:2: ( rule__StringVariable__InitialValueAssignment_3 )?
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -9096,7 +7717,7 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
             }
             switch (alt25) {
                 case 1 :
-                    // InternalChartDsl.g:2973:3: rule__StringVariable__InitialValueAssignment_3
+                    // InternalChartDsl.g:2487:3: rule__StringVariable__InitialValueAssignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__StringVariable__InitialValueAssignment_3();
@@ -9132,14 +7753,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__4"
-    // InternalChartDsl.g:2981:1: rule__StringVariable__Group__4 : rule__StringVariable__Group__4__Impl ;
+    // InternalChartDsl.g:2495:1: rule__StringVariable__Group__4 : rule__StringVariable__Group__4__Impl ;
     public final void rule__StringVariable__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2985:1: ( rule__StringVariable__Group__4__Impl )
-            // InternalChartDsl.g:2986:2: rule__StringVariable__Group__4__Impl
+            // InternalChartDsl.g:2499:1: ( rule__StringVariable__Group__4__Impl )
+            // InternalChartDsl.g:2500:2: rule__StringVariable__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StringVariable__Group__4__Impl();
@@ -9165,20 +7786,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__Group__4__Impl"
-    // InternalChartDsl.g:2992:1: rule__StringVariable__Group__4__Impl : ( ')' ) ;
+    // InternalChartDsl.g:2506:1: rule__StringVariable__Group__4__Impl : ( ')' ) ;
     public final void rule__StringVariable__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:2996:1: ( ( ')' ) )
-            // InternalChartDsl.g:2997:1: ( ')' )
+            // InternalChartDsl.g:2510:1: ( ( ')' ) )
+            // InternalChartDsl.g:2511:1: ( ')' )
             {
-            // InternalChartDsl.g:2997:1: ( ')' )
-            // InternalChartDsl.g:2998:2: ')'
+            // InternalChartDsl.g:2511:1: ( ')' )
+            // InternalChartDsl.g:2512:2: ')'
             {
              before(grammarAccess.getStringVariableAccess().getRightParenthesisKeyword_4()); 
-            match(input,40,FOLLOW_2); 
+            match(input,51,FOLLOW_2); 
              after(grammarAccess.getStringVariableAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -9202,16 +7823,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__0"
-    // InternalChartDsl.g:3008:1: rule__DoubleVariable__Group__0 : rule__DoubleVariable__Group__0__Impl rule__DoubleVariable__Group__1 ;
+    // InternalChartDsl.g:2522:1: rule__DoubleVariable__Group__0 : rule__DoubleVariable__Group__0__Impl rule__DoubleVariable__Group__1 ;
     public final void rule__DoubleVariable__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3012:1: ( rule__DoubleVariable__Group__0__Impl rule__DoubleVariable__Group__1 )
-            // InternalChartDsl.g:3013:2: rule__DoubleVariable__Group__0__Impl rule__DoubleVariable__Group__1
+            // InternalChartDsl.g:2526:1: ( rule__DoubleVariable__Group__0__Impl rule__DoubleVariable__Group__1 )
+            // InternalChartDsl.g:2527:2: rule__DoubleVariable__Group__0__Impl rule__DoubleVariable__Group__1
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_19);
             rule__DoubleVariable__Group__0__Impl();
 
             state._fsp--;
@@ -9240,21 +7861,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__0__Impl"
-    // InternalChartDsl.g:3020:1: rule__DoubleVariable__Group__0__Impl : ( () ) ;
+    // InternalChartDsl.g:2534:1: rule__DoubleVariable__Group__0__Impl : ( () ) ;
     public final void rule__DoubleVariable__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3024:1: ( ( () ) )
-            // InternalChartDsl.g:3025:1: ( () )
+            // InternalChartDsl.g:2538:1: ( ( () ) )
+            // InternalChartDsl.g:2539:1: ( () )
             {
-            // InternalChartDsl.g:3025:1: ( () )
-            // InternalChartDsl.g:3026:2: ()
+            // InternalChartDsl.g:2539:1: ( () )
+            // InternalChartDsl.g:2540:2: ()
             {
              before(grammarAccess.getDoubleVariableAccess().getDoubleVariableAction_0()); 
-            // InternalChartDsl.g:3027:2: ()
-            // InternalChartDsl.g:3027:3: 
+            // InternalChartDsl.g:2541:2: ()
+            // InternalChartDsl.g:2541:3: 
             {
             }
 
@@ -9277,16 +7898,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__1"
-    // InternalChartDsl.g:3035:1: rule__DoubleVariable__Group__1 : rule__DoubleVariable__Group__1__Impl rule__DoubleVariable__Group__2 ;
+    // InternalChartDsl.g:2549:1: rule__DoubleVariable__Group__1 : rule__DoubleVariable__Group__1__Impl rule__DoubleVariable__Group__2 ;
     public final void rule__DoubleVariable__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3039:1: ( rule__DoubleVariable__Group__1__Impl rule__DoubleVariable__Group__2 )
-            // InternalChartDsl.g:3040:2: rule__DoubleVariable__Group__1__Impl rule__DoubleVariable__Group__2
+            // InternalChartDsl.g:2553:1: ( rule__DoubleVariable__Group__1__Impl rule__DoubleVariable__Group__2 )
+            // InternalChartDsl.g:2554:2: rule__DoubleVariable__Group__1__Impl rule__DoubleVariable__Group__2
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__DoubleVariable__Group__1__Impl();
 
             state._fsp--;
@@ -9315,20 +7936,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__1__Impl"
-    // InternalChartDsl.g:3047:1: rule__DoubleVariable__Group__1__Impl : ( 'double' ) ;
+    // InternalChartDsl.g:2561:1: rule__DoubleVariable__Group__1__Impl : ( 'double' ) ;
     public final void rule__DoubleVariable__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3051:1: ( ( 'double' ) )
-            // InternalChartDsl.g:3052:1: ( 'double' )
+            // InternalChartDsl.g:2565:1: ( ( 'double' ) )
+            // InternalChartDsl.g:2566:1: ( 'double' )
             {
-            // InternalChartDsl.g:3052:1: ( 'double' )
-            // InternalChartDsl.g:3053:2: 'double'
+            // InternalChartDsl.g:2566:1: ( 'double' )
+            // InternalChartDsl.g:2567:2: 'double'
             {
              before(grammarAccess.getDoubleVariableAccess().getDoubleKeyword_1()); 
-            match(input,60,FOLLOW_2); 
+            match(input,56,FOLLOW_2); 
              after(grammarAccess.getDoubleVariableAccess().getDoubleKeyword_1()); 
 
             }
@@ -9352,16 +7973,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__2"
-    // InternalChartDsl.g:3062:1: rule__DoubleVariable__Group__2 : rule__DoubleVariable__Group__2__Impl rule__DoubleVariable__Group__3 ;
+    // InternalChartDsl.g:2576:1: rule__DoubleVariable__Group__2 : rule__DoubleVariable__Group__2__Impl rule__DoubleVariable__Group__3 ;
     public final void rule__DoubleVariable__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3066:1: ( rule__DoubleVariable__Group__2__Impl rule__DoubleVariable__Group__3 )
-            // InternalChartDsl.g:3067:2: rule__DoubleVariable__Group__2__Impl rule__DoubleVariable__Group__3
+            // InternalChartDsl.g:2580:1: ( rule__DoubleVariable__Group__2__Impl rule__DoubleVariable__Group__3 )
+            // InternalChartDsl.g:2581:2: rule__DoubleVariable__Group__2__Impl rule__DoubleVariable__Group__3
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_27);
             rule__DoubleVariable__Group__2__Impl();
 
             state._fsp--;
@@ -9390,20 +8011,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__2__Impl"
-    // InternalChartDsl.g:3074:1: rule__DoubleVariable__Group__2__Impl : ( '(' ) ;
+    // InternalChartDsl.g:2588:1: rule__DoubleVariable__Group__2__Impl : ( '(' ) ;
     public final void rule__DoubleVariable__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3078:1: ( ( '(' ) )
-            // InternalChartDsl.g:3079:1: ( '(' )
+            // InternalChartDsl.g:2592:1: ( ( '(' ) )
+            // InternalChartDsl.g:2593:1: ( '(' )
             {
-            // InternalChartDsl.g:3079:1: ( '(' )
-            // InternalChartDsl.g:3080:2: '('
+            // InternalChartDsl.g:2593:1: ( '(' )
+            // InternalChartDsl.g:2594:2: '('
             {
              before(grammarAccess.getDoubleVariableAccess().getLeftParenthesisKeyword_2()); 
-            match(input,39,FOLLOW_2); 
+            match(input,49,FOLLOW_2); 
              after(grammarAccess.getDoubleVariableAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -9427,16 +8048,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__3"
-    // InternalChartDsl.g:3089:1: rule__DoubleVariable__Group__3 : rule__DoubleVariable__Group__3__Impl rule__DoubleVariable__Group__4 ;
+    // InternalChartDsl.g:2603:1: rule__DoubleVariable__Group__3 : rule__DoubleVariable__Group__3__Impl rule__DoubleVariable__Group__4 ;
     public final void rule__DoubleVariable__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3093:1: ( rule__DoubleVariable__Group__3__Impl rule__DoubleVariable__Group__4 )
-            // InternalChartDsl.g:3094:2: rule__DoubleVariable__Group__3__Impl rule__DoubleVariable__Group__4
+            // InternalChartDsl.g:2607:1: ( rule__DoubleVariable__Group__3__Impl rule__DoubleVariable__Group__4 )
+            // InternalChartDsl.g:2608:2: rule__DoubleVariable__Group__3__Impl rule__DoubleVariable__Group__4
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_27);
             rule__DoubleVariable__Group__3__Impl();
 
             state._fsp--;
@@ -9465,29 +8086,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__3__Impl"
-    // InternalChartDsl.g:3101:1: rule__DoubleVariable__Group__3__Impl : ( ( rule__DoubleVariable__InitialValueAssignment_3 )? ) ;
+    // InternalChartDsl.g:2615:1: rule__DoubleVariable__Group__3__Impl : ( ( rule__DoubleVariable__InitialValueAssignment_3 )? ) ;
     public final void rule__DoubleVariable__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3105:1: ( ( ( rule__DoubleVariable__InitialValueAssignment_3 )? ) )
-            // InternalChartDsl.g:3106:1: ( ( rule__DoubleVariable__InitialValueAssignment_3 )? )
+            // InternalChartDsl.g:2619:1: ( ( ( rule__DoubleVariable__InitialValueAssignment_3 )? ) )
+            // InternalChartDsl.g:2620:1: ( ( rule__DoubleVariable__InitialValueAssignment_3 )? )
             {
-            // InternalChartDsl.g:3106:1: ( ( rule__DoubleVariable__InitialValueAssignment_3 )? )
-            // InternalChartDsl.g:3107:2: ( rule__DoubleVariable__InitialValueAssignment_3 )?
+            // InternalChartDsl.g:2620:1: ( ( rule__DoubleVariable__InitialValueAssignment_3 )? )
+            // InternalChartDsl.g:2621:2: ( rule__DoubleVariable__InitialValueAssignment_3 )?
             {
              before(grammarAccess.getDoubleVariableAccess().getInitialValueAssignment_3()); 
-            // InternalChartDsl.g:3108:2: ( rule__DoubleVariable__InitialValueAssignment_3 )?
+            // InternalChartDsl.g:2622:2: ( rule__DoubleVariable__InitialValueAssignment_3 )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
-            if ( (LA26_0==RULE_INT||LA26_0==57||LA26_0==61) ) {
+            if ( (LA26_0==RULE_INT||LA26_0==53||LA26_0==57) ) {
                 alt26=1;
             }
             switch (alt26) {
                 case 1 :
-                    // InternalChartDsl.g:3108:3: rule__DoubleVariable__InitialValueAssignment_3
+                    // InternalChartDsl.g:2622:3: rule__DoubleVariable__InitialValueAssignment_3
                     {
                     pushFollow(FOLLOW_2);
                     rule__DoubleVariable__InitialValueAssignment_3();
@@ -9523,14 +8144,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__4"
-    // InternalChartDsl.g:3116:1: rule__DoubleVariable__Group__4 : rule__DoubleVariable__Group__4__Impl ;
+    // InternalChartDsl.g:2630:1: rule__DoubleVariable__Group__4 : rule__DoubleVariable__Group__4__Impl ;
     public final void rule__DoubleVariable__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3120:1: ( rule__DoubleVariable__Group__4__Impl )
-            // InternalChartDsl.g:3121:2: rule__DoubleVariable__Group__4__Impl
+            // InternalChartDsl.g:2634:1: ( rule__DoubleVariable__Group__4__Impl )
+            // InternalChartDsl.g:2635:2: rule__DoubleVariable__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DoubleVariable__Group__4__Impl();
@@ -9556,20 +8177,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__Group__4__Impl"
-    // InternalChartDsl.g:3127:1: rule__DoubleVariable__Group__4__Impl : ( ')' ) ;
+    // InternalChartDsl.g:2641:1: rule__DoubleVariable__Group__4__Impl : ( ')' ) ;
     public final void rule__DoubleVariable__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3131:1: ( ( ')' ) )
-            // InternalChartDsl.g:3132:1: ( ')' )
+            // InternalChartDsl.g:2645:1: ( ( ')' ) )
+            // InternalChartDsl.g:2646:1: ( ')' )
             {
-            // InternalChartDsl.g:3132:1: ( ')' )
-            // InternalChartDsl.g:3133:2: ')'
+            // InternalChartDsl.g:2646:1: ( ')' )
+            // InternalChartDsl.g:2647:2: ')'
             {
              before(grammarAccess.getDoubleVariableAccess().getRightParenthesisKeyword_4()); 
-            match(input,40,FOLLOW_2); 
+            match(input,51,FOLLOW_2); 
              after(grammarAccess.getDoubleVariableAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -9593,16 +8214,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__0"
-    // InternalChartDsl.g:3143:1: rule__EDouble__Group__0 : rule__EDouble__Group__0__Impl rule__EDouble__Group__1 ;
+    // InternalChartDsl.g:2657:1: rule__EDouble__Group__0 : rule__EDouble__Group__0__Impl rule__EDouble__Group__1 ;
     public final void rule__EDouble__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3147:1: ( rule__EDouble__Group__0__Impl rule__EDouble__Group__1 )
-            // InternalChartDsl.g:3148:2: rule__EDouble__Group__0__Impl rule__EDouble__Group__1
+            // InternalChartDsl.g:2661:1: ( rule__EDouble__Group__0__Impl rule__EDouble__Group__1 )
+            // InternalChartDsl.g:2662:2: rule__EDouble__Group__0__Impl rule__EDouble__Group__1
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_28);
             rule__EDouble__Group__0__Impl();
 
             state._fsp--;
@@ -9631,31 +8252,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__0__Impl"
-    // InternalChartDsl.g:3155:1: rule__EDouble__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalChartDsl.g:2669:1: rule__EDouble__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EDouble__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3159:1: ( ( ( '-' )? ) )
-            // InternalChartDsl.g:3160:1: ( ( '-' )? )
+            // InternalChartDsl.g:2673:1: ( ( ( '-' )? ) )
+            // InternalChartDsl.g:2674:1: ( ( '-' )? )
             {
-            // InternalChartDsl.g:3160:1: ( ( '-' )? )
-            // InternalChartDsl.g:3161:2: ( '-' )?
+            // InternalChartDsl.g:2674:1: ( ( '-' )? )
+            // InternalChartDsl.g:2675:2: ( '-' )?
             {
              before(grammarAccess.getEDoubleAccess().getHyphenMinusKeyword_0()); 
-            // InternalChartDsl.g:3162:2: ( '-' )?
+            // InternalChartDsl.g:2676:2: ( '-' )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
-            if ( (LA27_0==57) ) {
+            if ( (LA27_0==53) ) {
                 alt27=1;
             }
             switch (alt27) {
                 case 1 :
-                    // InternalChartDsl.g:3162:3: '-'
+                    // InternalChartDsl.g:2676:3: '-'
                     {
-                    match(input,57,FOLLOW_2); 
+                    match(input,53,FOLLOW_2); 
 
                     }
                     break;
@@ -9685,16 +8306,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__1"
-    // InternalChartDsl.g:3170:1: rule__EDouble__Group__1 : rule__EDouble__Group__1__Impl rule__EDouble__Group__2 ;
+    // InternalChartDsl.g:2684:1: rule__EDouble__Group__1 : rule__EDouble__Group__1__Impl rule__EDouble__Group__2 ;
     public final void rule__EDouble__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3174:1: ( rule__EDouble__Group__1__Impl rule__EDouble__Group__2 )
-            // InternalChartDsl.g:3175:2: rule__EDouble__Group__1__Impl rule__EDouble__Group__2
+            // InternalChartDsl.g:2688:1: ( rule__EDouble__Group__1__Impl rule__EDouble__Group__2 )
+            // InternalChartDsl.g:2689:2: rule__EDouble__Group__1__Impl rule__EDouble__Group__2
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_28);
             rule__EDouble__Group__1__Impl();
 
             state._fsp--;
@@ -9723,20 +8344,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__1__Impl"
-    // InternalChartDsl.g:3182:1: rule__EDouble__Group__1__Impl : ( ( RULE_INT )? ) ;
+    // InternalChartDsl.g:2696:1: rule__EDouble__Group__1__Impl : ( ( RULE_INT )? ) ;
     public final void rule__EDouble__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3186:1: ( ( ( RULE_INT )? ) )
-            // InternalChartDsl.g:3187:1: ( ( RULE_INT )? )
+            // InternalChartDsl.g:2700:1: ( ( ( RULE_INT )? ) )
+            // InternalChartDsl.g:2701:1: ( ( RULE_INT )? )
             {
-            // InternalChartDsl.g:3187:1: ( ( RULE_INT )? )
-            // InternalChartDsl.g:3188:2: ( RULE_INT )?
+            // InternalChartDsl.g:2701:1: ( ( RULE_INT )? )
+            // InternalChartDsl.g:2702:2: ( RULE_INT )?
             {
              before(grammarAccess.getEDoubleAccess().getINTTerminalRuleCall_1()); 
-            // InternalChartDsl.g:3189:2: ( RULE_INT )?
+            // InternalChartDsl.g:2703:2: ( RULE_INT )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -9745,7 +8366,7 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
             }
             switch (alt28) {
                 case 1 :
-                    // InternalChartDsl.g:3189:3: RULE_INT
+                    // InternalChartDsl.g:2703:3: RULE_INT
                     {
                     match(input,RULE_INT,FOLLOW_2); 
 
@@ -9777,16 +8398,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__2"
-    // InternalChartDsl.g:3197:1: rule__EDouble__Group__2 : rule__EDouble__Group__2__Impl rule__EDouble__Group__3 ;
+    // InternalChartDsl.g:2711:1: rule__EDouble__Group__2 : rule__EDouble__Group__2__Impl rule__EDouble__Group__3 ;
     public final void rule__EDouble__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3201:1: ( rule__EDouble__Group__2__Impl rule__EDouble__Group__3 )
-            // InternalChartDsl.g:3202:2: rule__EDouble__Group__2__Impl rule__EDouble__Group__3
+            // InternalChartDsl.g:2715:1: ( rule__EDouble__Group__2__Impl rule__EDouble__Group__3 )
+            // InternalChartDsl.g:2716:2: rule__EDouble__Group__2__Impl rule__EDouble__Group__3
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_29);
             rule__EDouble__Group__2__Impl();
 
             state._fsp--;
@@ -9815,20 +8436,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__2__Impl"
-    // InternalChartDsl.g:3209:1: rule__EDouble__Group__2__Impl : ( '.' ) ;
+    // InternalChartDsl.g:2723:1: rule__EDouble__Group__2__Impl : ( '.' ) ;
     public final void rule__EDouble__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3213:1: ( ( '.' ) )
-            // InternalChartDsl.g:3214:1: ( '.' )
+            // InternalChartDsl.g:2727:1: ( ( '.' ) )
+            // InternalChartDsl.g:2728:1: ( '.' )
             {
-            // InternalChartDsl.g:3214:1: ( '.' )
-            // InternalChartDsl.g:3215:2: '.'
+            // InternalChartDsl.g:2728:1: ( '.' )
+            // InternalChartDsl.g:2729:2: '.'
             {
              before(grammarAccess.getEDoubleAccess().getFullStopKeyword_2()); 
-            match(input,61,FOLLOW_2); 
+            match(input,57,FOLLOW_2); 
              after(grammarAccess.getEDoubleAccess().getFullStopKeyword_2()); 
 
             }
@@ -9852,16 +8473,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__3"
-    // InternalChartDsl.g:3224:1: rule__EDouble__Group__3 : rule__EDouble__Group__3__Impl rule__EDouble__Group__4 ;
+    // InternalChartDsl.g:2738:1: rule__EDouble__Group__3 : rule__EDouble__Group__3__Impl rule__EDouble__Group__4 ;
     public final void rule__EDouble__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3228:1: ( rule__EDouble__Group__3__Impl rule__EDouble__Group__4 )
-            // InternalChartDsl.g:3229:2: rule__EDouble__Group__3__Impl rule__EDouble__Group__4
+            // InternalChartDsl.g:2742:1: ( rule__EDouble__Group__3__Impl rule__EDouble__Group__4 )
+            // InternalChartDsl.g:2743:2: rule__EDouble__Group__3__Impl rule__EDouble__Group__4
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_30);
             rule__EDouble__Group__3__Impl();
 
             state._fsp--;
@@ -9890,17 +8511,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__3__Impl"
-    // InternalChartDsl.g:3236:1: rule__EDouble__Group__3__Impl : ( RULE_INT ) ;
+    // InternalChartDsl.g:2750:1: rule__EDouble__Group__3__Impl : ( RULE_INT ) ;
     public final void rule__EDouble__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3240:1: ( ( RULE_INT ) )
-            // InternalChartDsl.g:3241:1: ( RULE_INT )
+            // InternalChartDsl.g:2754:1: ( ( RULE_INT ) )
+            // InternalChartDsl.g:2755:1: ( RULE_INT )
             {
-            // InternalChartDsl.g:3241:1: ( RULE_INT )
-            // InternalChartDsl.g:3242:2: RULE_INT
+            // InternalChartDsl.g:2755:1: ( RULE_INT )
+            // InternalChartDsl.g:2756:2: RULE_INT
             {
              before(grammarAccess.getEDoubleAccess().getINTTerminalRuleCall_3()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -9927,14 +8548,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__4"
-    // InternalChartDsl.g:3251:1: rule__EDouble__Group__4 : rule__EDouble__Group__4__Impl ;
+    // InternalChartDsl.g:2765:1: rule__EDouble__Group__4 : rule__EDouble__Group__4__Impl ;
     public final void rule__EDouble__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3255:1: ( rule__EDouble__Group__4__Impl )
-            // InternalChartDsl.g:3256:2: rule__EDouble__Group__4__Impl
+            // InternalChartDsl.g:2769:1: ( rule__EDouble__Group__4__Impl )
+            // InternalChartDsl.g:2770:2: rule__EDouble__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EDouble__Group__4__Impl();
@@ -9960,20 +8581,20 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group__4__Impl"
-    // InternalChartDsl.g:3262:1: rule__EDouble__Group__4__Impl : ( ( rule__EDouble__Group_4__0 )? ) ;
+    // InternalChartDsl.g:2776:1: rule__EDouble__Group__4__Impl : ( ( rule__EDouble__Group_4__0 )? ) ;
     public final void rule__EDouble__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3266:1: ( ( ( rule__EDouble__Group_4__0 )? ) )
-            // InternalChartDsl.g:3267:1: ( ( rule__EDouble__Group_4__0 )? )
+            // InternalChartDsl.g:2780:1: ( ( ( rule__EDouble__Group_4__0 )? ) )
+            // InternalChartDsl.g:2781:1: ( ( rule__EDouble__Group_4__0 )? )
             {
-            // InternalChartDsl.g:3267:1: ( ( rule__EDouble__Group_4__0 )? )
-            // InternalChartDsl.g:3268:2: ( rule__EDouble__Group_4__0 )?
+            // InternalChartDsl.g:2781:1: ( ( rule__EDouble__Group_4__0 )? )
+            // InternalChartDsl.g:2782:2: ( rule__EDouble__Group_4__0 )?
             {
              before(grammarAccess.getEDoubleAccess().getGroup_4()); 
-            // InternalChartDsl.g:3269:2: ( rule__EDouble__Group_4__0 )?
+            // InternalChartDsl.g:2783:2: ( rule__EDouble__Group_4__0 )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -9982,7 +8603,7 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
             }
             switch (alt29) {
                 case 1 :
-                    // InternalChartDsl.g:3269:3: rule__EDouble__Group_4__0
+                    // InternalChartDsl.g:2783:3: rule__EDouble__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EDouble__Group_4__0();
@@ -10018,16 +8639,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group_4__0"
-    // InternalChartDsl.g:3278:1: rule__EDouble__Group_4__0 : rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1 ;
+    // InternalChartDsl.g:2792:1: rule__EDouble__Group_4__0 : rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1 ;
     public final void rule__EDouble__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3282:1: ( rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1 )
-            // InternalChartDsl.g:3283:2: rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1
+            // InternalChartDsl.g:2796:1: ( rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1 )
+            // InternalChartDsl.g:2797:2: rule__EDouble__Group_4__0__Impl rule__EDouble__Group_4__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_22);
             rule__EDouble__Group_4__0__Impl();
 
             state._fsp--;
@@ -10056,21 +8677,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group_4__0__Impl"
-    // InternalChartDsl.g:3290:1: rule__EDouble__Group_4__0__Impl : ( ( rule__EDouble__Alternatives_4_0 ) ) ;
+    // InternalChartDsl.g:2804:1: rule__EDouble__Group_4__0__Impl : ( ( rule__EDouble__Alternatives_4_0 ) ) ;
     public final void rule__EDouble__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3294:1: ( ( ( rule__EDouble__Alternatives_4_0 ) ) )
-            // InternalChartDsl.g:3295:1: ( ( rule__EDouble__Alternatives_4_0 ) )
+            // InternalChartDsl.g:2808:1: ( ( ( rule__EDouble__Alternatives_4_0 ) ) )
+            // InternalChartDsl.g:2809:1: ( ( rule__EDouble__Alternatives_4_0 ) )
             {
-            // InternalChartDsl.g:3295:1: ( ( rule__EDouble__Alternatives_4_0 ) )
-            // InternalChartDsl.g:3296:2: ( rule__EDouble__Alternatives_4_0 )
+            // InternalChartDsl.g:2809:1: ( ( rule__EDouble__Alternatives_4_0 ) )
+            // InternalChartDsl.g:2810:2: ( rule__EDouble__Alternatives_4_0 )
             {
              before(grammarAccess.getEDoubleAccess().getAlternatives_4_0()); 
-            // InternalChartDsl.g:3297:2: ( rule__EDouble__Alternatives_4_0 )
-            // InternalChartDsl.g:3297:3: rule__EDouble__Alternatives_4_0
+            // InternalChartDsl.g:2811:2: ( rule__EDouble__Alternatives_4_0 )
+            // InternalChartDsl.g:2811:3: rule__EDouble__Alternatives_4_0
             {
             pushFollow(FOLLOW_2);
             rule__EDouble__Alternatives_4_0();
@@ -10103,16 +8724,16 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group_4__1"
-    // InternalChartDsl.g:3305:1: rule__EDouble__Group_4__1 : rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2 ;
+    // InternalChartDsl.g:2819:1: rule__EDouble__Group_4__1 : rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2 ;
     public final void rule__EDouble__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3309:1: ( rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2 )
-            // InternalChartDsl.g:3310:2: rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2
+            // InternalChartDsl.g:2823:1: ( rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2 )
+            // InternalChartDsl.g:2824:2: rule__EDouble__Group_4__1__Impl rule__EDouble__Group_4__2
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_22);
             rule__EDouble__Group_4__1__Impl();
 
             state._fsp--;
@@ -10141,31 +8762,31 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group_4__1__Impl"
-    // InternalChartDsl.g:3317:1: rule__EDouble__Group_4__1__Impl : ( ( '-' )? ) ;
+    // InternalChartDsl.g:2831:1: rule__EDouble__Group_4__1__Impl : ( ( '-' )? ) ;
     public final void rule__EDouble__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3321:1: ( ( ( '-' )? ) )
-            // InternalChartDsl.g:3322:1: ( ( '-' )? )
+            // InternalChartDsl.g:2835:1: ( ( ( '-' )? ) )
+            // InternalChartDsl.g:2836:1: ( ( '-' )? )
             {
-            // InternalChartDsl.g:3322:1: ( ( '-' )? )
-            // InternalChartDsl.g:3323:2: ( '-' )?
+            // InternalChartDsl.g:2836:1: ( ( '-' )? )
+            // InternalChartDsl.g:2837:2: ( '-' )?
             {
              before(grammarAccess.getEDoubleAccess().getHyphenMinusKeyword_4_1()); 
-            // InternalChartDsl.g:3324:2: ( '-' )?
+            // InternalChartDsl.g:2838:2: ( '-' )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( (LA30_0==57) ) {
+            if ( (LA30_0==53) ) {
                 alt30=1;
             }
             switch (alt30) {
                 case 1 :
-                    // InternalChartDsl.g:3324:3: '-'
+                    // InternalChartDsl.g:2838:3: '-'
                     {
-                    match(input,57,FOLLOW_2); 
+                    match(input,53,FOLLOW_2); 
 
                     }
                     break;
@@ -10195,14 +8816,14 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group_4__2"
-    // InternalChartDsl.g:3332:1: rule__EDouble__Group_4__2 : rule__EDouble__Group_4__2__Impl ;
+    // InternalChartDsl.g:2846:1: rule__EDouble__Group_4__2 : rule__EDouble__Group_4__2__Impl ;
     public final void rule__EDouble__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3336:1: ( rule__EDouble__Group_4__2__Impl )
-            // InternalChartDsl.g:3337:2: rule__EDouble__Group_4__2__Impl
+            // InternalChartDsl.g:2850:1: ( rule__EDouble__Group_4__2__Impl )
+            // InternalChartDsl.g:2851:2: rule__EDouble__Group_4__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EDouble__Group_4__2__Impl();
@@ -10228,17 +8849,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EDouble__Group_4__2__Impl"
-    // InternalChartDsl.g:3343:1: rule__EDouble__Group_4__2__Impl : ( RULE_INT ) ;
+    // InternalChartDsl.g:2857:1: rule__EDouble__Group_4__2__Impl : ( RULE_INT ) ;
     public final void rule__EDouble__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3347:1: ( ( RULE_INT ) )
-            // InternalChartDsl.g:3348:1: ( RULE_INT )
+            // InternalChartDsl.g:2861:1: ( ( RULE_INT ) )
+            // InternalChartDsl.g:2862:1: ( RULE_INT )
             {
-            // InternalChartDsl.g:3348:1: ( RULE_INT )
-            // InternalChartDsl.g:3349:2: RULE_INT
+            // InternalChartDsl.g:2862:1: ( RULE_INT )
+            // InternalChartDsl.g:2863:2: RULE_INT
             {
              before(grammarAccess.getEDoubleAccess().getINTTerminalRuleCall_4_2()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -10264,67 +8885,26 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__EDouble__Group_4__2__Impl"
 
 
-    // $ANTLR start "rule__Program__NameAssignment_1"
-    // InternalChartDsl.g:3359:1: rule__Program__NameAssignment_1 : ( ruleEString ) ;
-    public final void rule__Program__NameAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Program__CsvFileAssignment_0"
+    // InternalChartDsl.g:2873:1: rule__Program__CsvFileAssignment_0 : ( ruleDataFile ) ;
+    public final void rule__Program__CsvFileAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3363:1: ( ( ruleEString ) )
-            // InternalChartDsl.g:3364:2: ( ruleEString )
+            // InternalChartDsl.g:2877:1: ( ( ruleDataFile ) )
+            // InternalChartDsl.g:2878:2: ( ruleDataFile )
             {
-            // InternalChartDsl.g:3364:2: ( ruleEString )
-            // InternalChartDsl.g:3365:3: ruleEString
+            // InternalChartDsl.g:2878:2: ( ruleDataFile )
+            // InternalChartDsl.g:2879:3: ruleDataFile
             {
-             before(grammarAccess.getProgramAccess().getNameEStringParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleEString();
-
-            state._fsp--;
-
-             after(grammarAccess.getProgramAccess().getNameEStringParserRuleCall_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Program__NameAssignment_1"
-
-
-    // $ANTLR start "rule__Program__CsvFileAssignment_3"
-    // InternalChartDsl.g:3374:1: rule__Program__CsvFileAssignment_3 : ( ruleDataFile ) ;
-    public final void rule__Program__CsvFileAssignment_3() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:3378:1: ( ( ruleDataFile ) )
-            // InternalChartDsl.g:3379:2: ( ruleDataFile )
-            {
-            // InternalChartDsl.g:3379:2: ( ruleDataFile )
-            // InternalChartDsl.g:3380:3: ruleDataFile
-            {
-             before(grammarAccess.getProgramAccess().getCsvFileDataFileParserRuleCall_3_0()); 
+             before(grammarAccess.getProgramAccess().getCsvFileDataFileParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
             ruleDataFile();
 
             state._fsp--;
 
-             after(grammarAccess.getProgramAccess().getCsvFileDataFileParserRuleCall_3_0()); 
+             after(grammarAccess.getProgramAccess().getCsvFileDataFileParserRuleCall_0_0()); 
 
             }
 
@@ -10343,29 +8923,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Program__CsvFileAssignment_3"
+    // $ANTLR end "rule__Program__CsvFileAssignment_0"
 
 
-    // $ANTLR start "rule__Program__ChartAssignment_4"
-    // InternalChartDsl.g:3389:1: rule__Program__ChartAssignment_4 : ( ruleChart ) ;
-    public final void rule__Program__ChartAssignment_4() throws RecognitionException {
+    // $ANTLR start "rule__Program__ChartAssignment_1"
+    // InternalChartDsl.g:2888:1: rule__Program__ChartAssignment_1 : ( ruleChart ) ;
+    public final void rule__Program__ChartAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3393:1: ( ( ruleChart ) )
-            // InternalChartDsl.g:3394:2: ( ruleChart )
+            // InternalChartDsl.g:2892:1: ( ( ruleChart ) )
+            // InternalChartDsl.g:2893:2: ( ruleChart )
             {
-            // InternalChartDsl.g:3394:2: ( ruleChart )
-            // InternalChartDsl.g:3395:3: ruleChart
+            // InternalChartDsl.g:2893:2: ( ruleChart )
+            // InternalChartDsl.g:2894:3: ruleChart
             {
-             before(grammarAccess.getProgramAccess().getChartChartParserRuleCall_4_0()); 
+             before(grammarAccess.getProgramAccess().getChartChartParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
             ruleChart();
 
             state._fsp--;
 
-             after(grammarAccess.getProgramAccess().getChartChartParserRuleCall_4_0()); 
+             after(grammarAccess.getProgramAccess().getChartChartParserRuleCall_1_0()); 
 
             }
 
@@ -10384,29 +8964,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Program__ChartAssignment_4"
+    // $ANTLR end "rule__Program__ChartAssignment_1"
 
 
-    // $ANTLR start "rule__Program__ChartAssignment_5"
-    // InternalChartDsl.g:3404:1: rule__Program__ChartAssignment_5 : ( ruleChart ) ;
-    public final void rule__Program__ChartAssignment_5() throws RecognitionException {
+    // $ANTLR start "rule__Program__ChartAssignment_2"
+    // InternalChartDsl.g:2903:1: rule__Program__ChartAssignment_2 : ( ruleChart ) ;
+    public final void rule__Program__ChartAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3408:1: ( ( ruleChart ) )
-            // InternalChartDsl.g:3409:2: ( ruleChart )
+            // InternalChartDsl.g:2907:1: ( ( ruleChart ) )
+            // InternalChartDsl.g:2908:2: ( ruleChart )
             {
-            // InternalChartDsl.g:3409:2: ( ruleChart )
-            // InternalChartDsl.g:3410:3: ruleChart
+            // InternalChartDsl.g:2908:2: ( ruleChart )
+            // InternalChartDsl.g:2909:3: ruleChart
             {
-             before(grammarAccess.getProgramAccess().getChartChartParserRuleCall_5_0()); 
+             before(grammarAccess.getProgramAccess().getChartChartParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
             ruleChart();
 
             state._fsp--;
 
-             after(grammarAccess.getProgramAccess().getChartChartParserRuleCall_5_0()); 
+             after(grammarAccess.getProgramAccess().getChartChartParserRuleCall_2_0()); 
 
             }
 
@@ -10425,21 +9005,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Program__ChartAssignment_5"
+    // $ANTLR end "rule__Program__ChartAssignment_2"
 
 
     // $ANTLR start "rule__Chart__TitleAssignment_3_1"
-    // InternalChartDsl.g:3419:1: rule__Chart__TitleAssignment_3_1 : ( ruleEString ) ;
+    // InternalChartDsl.g:2918:1: rule__Chart__TitleAssignment_3_1 : ( ruleEString ) ;
     public final void rule__Chart__TitleAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3423:1: ( ( ruleEString ) )
-            // InternalChartDsl.g:3424:2: ( ruleEString )
+            // InternalChartDsl.g:2922:1: ( ( ruleEString ) )
+            // InternalChartDsl.g:2923:2: ( ruleEString )
             {
-            // InternalChartDsl.g:3424:2: ( ruleEString )
-            // InternalChartDsl.g:3425:3: ruleEString
+            // InternalChartDsl.g:2923:2: ( ruleEString )
+            // InternalChartDsl.g:2924:3: ruleEString
             {
              before(grammarAccess.getChartAccess().getTitleEStringParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10470,17 +9050,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Chart__TypeAssignment_4_1"
-    // InternalChartDsl.g:3434:1: rule__Chart__TypeAssignment_4_1 : ( ruleChartType ) ;
+    // InternalChartDsl.g:2933:1: rule__Chart__TypeAssignment_4_1 : ( ruleChartType ) ;
     public final void rule__Chart__TypeAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3438:1: ( ( ruleChartType ) )
-            // InternalChartDsl.g:3439:2: ( ruleChartType )
+            // InternalChartDsl.g:2937:1: ( ( ruleChartType ) )
+            // InternalChartDsl.g:2938:2: ( ruleChartType )
             {
-            // InternalChartDsl.g:3439:2: ( ruleChartType )
-            // InternalChartDsl.g:3440:3: ruleChartType
+            // InternalChartDsl.g:2938:2: ( ruleChartType )
+            // InternalChartDsl.g:2939:3: ruleChartType
             {
              before(grammarAccess.getChartAccess().getTypeChartTypeEnumRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10510,18 +9090,59 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Chart__TypeAssignment_4_1"
 
 
+    // $ANTLR start "rule__Chart__XVariableAssignment_5_1"
+    // InternalChartDsl.g:2948:1: rule__Chart__XVariableAssignment_5_1 : ( ruleColumnRef ) ;
+    public final void rule__Chart__XVariableAssignment_5_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalChartDsl.g:2952:1: ( ( ruleColumnRef ) )
+            // InternalChartDsl.g:2953:2: ( ruleColumnRef )
+            {
+            // InternalChartDsl.g:2953:2: ( ruleColumnRef )
+            // InternalChartDsl.g:2954:3: ruleColumnRef
+            {
+             before(grammarAccess.getChartAccess().getXVariableColumnRefParserRuleCall_5_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleColumnRef();
+
+            state._fsp--;
+
+             after(grammarAccess.getChartAccess().getXVariableColumnRefParserRuleCall_5_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Chart__XVariableAssignment_5_1"
+
+
     // $ANTLR start "rule__Chart__XVariableAssignment_5_2"
-    // InternalChartDsl.g:3449:1: rule__Chart__XVariableAssignment_5_2 : ( ruleColumnRef ) ;
+    // InternalChartDsl.g:2963:1: rule__Chart__XVariableAssignment_5_2 : ( ruleColumnRef ) ;
     public final void rule__Chart__XVariableAssignment_5_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3453:1: ( ( ruleColumnRef ) )
-            // InternalChartDsl.g:3454:2: ( ruleColumnRef )
+            // InternalChartDsl.g:2967:1: ( ( ruleColumnRef ) )
+            // InternalChartDsl.g:2968:2: ( ruleColumnRef )
             {
-            // InternalChartDsl.g:3454:2: ( ruleColumnRef )
-            // InternalChartDsl.g:3455:3: ruleColumnRef
+            // InternalChartDsl.g:2968:2: ( ruleColumnRef )
+            // InternalChartDsl.g:2969:3: ruleColumnRef
             {
              before(grammarAccess.getChartAccess().getXVariableColumnRefParserRuleCall_5_2_0()); 
             pushFollow(FOLLOW_2);
@@ -10551,26 +9172,26 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Chart__XVariableAssignment_5_2"
 
 
-    // $ANTLR start "rule__Chart__XVariableAssignment_5_3_1"
-    // InternalChartDsl.g:3464:1: rule__Chart__XVariableAssignment_5_3_1 : ( ruleColumnRef ) ;
-    public final void rule__Chart__XVariableAssignment_5_3_1() throws RecognitionException {
+    // $ANTLR start "rule__Chart__YVariableAssignment_6_1"
+    // InternalChartDsl.g:2978:1: rule__Chart__YVariableAssignment_6_1 : ( ruleColumnRef ) ;
+    public final void rule__Chart__YVariableAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3468:1: ( ( ruleColumnRef ) )
-            // InternalChartDsl.g:3469:2: ( ruleColumnRef )
+            // InternalChartDsl.g:2982:1: ( ( ruleColumnRef ) )
+            // InternalChartDsl.g:2983:2: ( ruleColumnRef )
             {
-            // InternalChartDsl.g:3469:2: ( ruleColumnRef )
-            // InternalChartDsl.g:3470:3: ruleColumnRef
+            // InternalChartDsl.g:2983:2: ( ruleColumnRef )
+            // InternalChartDsl.g:2984:3: ruleColumnRef
             {
-             before(grammarAccess.getChartAccess().getXVariableColumnRefParserRuleCall_5_3_1_0()); 
+             before(grammarAccess.getChartAccess().getYVariableColumnRefParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
             ruleColumnRef();
 
             state._fsp--;
 
-             after(grammarAccess.getChartAccess().getXVariableColumnRefParserRuleCall_5_3_1_0()); 
+             after(grammarAccess.getChartAccess().getYVariableColumnRefParserRuleCall_6_1_0()); 
 
             }
 
@@ -10589,21 +9210,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Chart__XVariableAssignment_5_3_1"
+    // $ANTLR end "rule__Chart__YVariableAssignment_6_1"
 
 
     // $ANTLR start "rule__Chart__YVariableAssignment_6_2"
-    // InternalChartDsl.g:3479:1: rule__Chart__YVariableAssignment_6_2 : ( ruleColumnRef ) ;
+    // InternalChartDsl.g:2993:1: rule__Chart__YVariableAssignment_6_2 : ( ruleColumnRef ) ;
     public final void rule__Chart__YVariableAssignment_6_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3483:1: ( ( ruleColumnRef ) )
-            // InternalChartDsl.g:3484:2: ( ruleColumnRef )
+            // InternalChartDsl.g:2997:1: ( ( ruleColumnRef ) )
+            // InternalChartDsl.g:2998:2: ( ruleColumnRef )
             {
-            // InternalChartDsl.g:3484:2: ( ruleColumnRef )
-            // InternalChartDsl.g:3485:3: ruleColumnRef
+            // InternalChartDsl.g:2998:2: ( ruleColumnRef )
+            // InternalChartDsl.g:2999:3: ruleColumnRef
             {
              before(grammarAccess.getChartAccess().getYVariableColumnRefParserRuleCall_6_2_0()); 
             pushFollow(FOLLOW_2);
@@ -10633,26 +9254,26 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Chart__YVariableAssignment_6_2"
 
 
-    // $ANTLR start "rule__Chart__YVariableAssignment_6_3_1"
-    // InternalChartDsl.g:3494:1: rule__Chart__YVariableAssignment_6_3_1 : ( ruleColumnRef ) ;
-    public final void rule__Chart__YVariableAssignment_6_3_1() throws RecognitionException {
+    // $ANTLR start "rule__Chart__FilterAssignment_7_1"
+    // InternalChartDsl.g:3008:1: rule__Chart__FilterAssignment_7_1 : ( ruleCondition ) ;
+    public final void rule__Chart__FilterAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3498:1: ( ( ruleColumnRef ) )
-            // InternalChartDsl.g:3499:2: ( ruleColumnRef )
+            // InternalChartDsl.g:3012:1: ( ( ruleCondition ) )
+            // InternalChartDsl.g:3013:2: ( ruleCondition )
             {
-            // InternalChartDsl.g:3499:2: ( ruleColumnRef )
-            // InternalChartDsl.g:3500:3: ruleColumnRef
+            // InternalChartDsl.g:3013:2: ( ruleCondition )
+            // InternalChartDsl.g:3014:3: ruleCondition
             {
-             before(grammarAccess.getChartAccess().getYVariableColumnRefParserRuleCall_6_3_1_0()); 
+             before(grammarAccess.getChartAccess().getFilterConditionParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_2);
-            ruleColumnRef();
+            ruleCondition();
 
             state._fsp--;
 
-             after(grammarAccess.getChartAccess().getYVariableColumnRefParserRuleCall_6_3_1_0()); 
+             after(grammarAccess.getChartAccess().getFilterConditionParserRuleCall_7_1_0()); 
 
             }
 
@@ -10671,21 +9292,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Chart__YVariableAssignment_6_3_1"
+    // $ANTLR end "rule__Chart__FilterAssignment_7_1"
 
 
     // $ANTLR start "rule__Chart__FilterAssignment_7_2"
-    // InternalChartDsl.g:3509:1: rule__Chart__FilterAssignment_7_2 : ( ruleCondition ) ;
+    // InternalChartDsl.g:3023:1: rule__Chart__FilterAssignment_7_2 : ( ruleCondition ) ;
     public final void rule__Chart__FilterAssignment_7_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3513:1: ( ( ruleCondition ) )
-            // InternalChartDsl.g:3514:2: ( ruleCondition )
+            // InternalChartDsl.g:3027:1: ( ( ruleCondition ) )
+            // InternalChartDsl.g:3028:2: ( ruleCondition )
             {
-            // InternalChartDsl.g:3514:2: ( ruleCondition )
-            // InternalChartDsl.g:3515:3: ruleCondition
+            // InternalChartDsl.g:3028:2: ( ruleCondition )
+            // InternalChartDsl.g:3029:3: ruleCondition
             {
              before(grammarAccess.getChartAccess().getFilterConditionParserRuleCall_7_2_0()); 
             pushFollow(FOLLOW_2);
@@ -10715,59 +9336,18 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Chart__FilterAssignment_7_2"
 
 
-    // $ANTLR start "rule__Chart__FilterAssignment_7_3_1"
-    // InternalChartDsl.g:3524:1: rule__Chart__FilterAssignment_7_3_1 : ( ruleCondition ) ;
-    public final void rule__Chart__FilterAssignment_7_3_1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalChartDsl.g:3528:1: ( ( ruleCondition ) )
-            // InternalChartDsl.g:3529:2: ( ruleCondition )
-            {
-            // InternalChartDsl.g:3529:2: ( ruleCondition )
-            // InternalChartDsl.g:3530:3: ruleCondition
-            {
-             before(grammarAccess.getChartAccess().getFilterConditionParserRuleCall_7_3_1_0()); 
-            pushFollow(FOLLOW_2);
-            ruleCondition();
-
-            state._fsp--;
-
-             after(grammarAccess.getChartAccess().getFilterConditionParserRuleCall_7_3_1_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Chart__FilterAssignment_7_3_1"
-
-
     // $ANTLR start "rule__DataFile__FilePathAssignment_0_3"
-    // InternalChartDsl.g:3539:1: rule__DataFile__FilePathAssignment_0_3 : ( ruleEString ) ;
+    // InternalChartDsl.g:3038:1: rule__DataFile__FilePathAssignment_0_3 : ( ruleEString ) ;
     public final void rule__DataFile__FilePathAssignment_0_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3543:1: ( ( ruleEString ) )
-            // InternalChartDsl.g:3544:2: ( ruleEString )
+            // InternalChartDsl.g:3042:1: ( ( ruleEString ) )
+            // InternalChartDsl.g:3043:2: ( ruleEString )
             {
-            // InternalChartDsl.g:3544:2: ( ruleEString )
-            // InternalChartDsl.g:3545:3: ruleEString
+            // InternalChartDsl.g:3043:2: ( ruleEString )
+            // InternalChartDsl.g:3044:3: ruleEString
             {
              before(grammarAccess.getDataFileAccess().getFilePathEStringParserRuleCall_0_3_0()); 
             pushFollow(FOLLOW_2);
@@ -10798,17 +9378,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__HasHeaderAssignment_1_1"
-    // InternalChartDsl.g:3554:1: rule__DataFile__HasHeaderAssignment_1_1 : ( ruleEBoolean ) ;
+    // InternalChartDsl.g:3053:1: rule__DataFile__HasHeaderAssignment_1_1 : ( ruleEBoolean ) ;
     public final void rule__DataFile__HasHeaderAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3558:1: ( ( ruleEBoolean ) )
-            // InternalChartDsl.g:3559:2: ( ruleEBoolean )
+            // InternalChartDsl.g:3057:1: ( ( ruleEBoolean ) )
+            // InternalChartDsl.g:3058:2: ( ruleEBoolean )
             {
-            // InternalChartDsl.g:3559:2: ( ruleEBoolean )
-            // InternalChartDsl.g:3560:3: ruleEBoolean
+            // InternalChartDsl.g:3058:2: ( ruleEBoolean )
+            // InternalChartDsl.g:3059:3: ruleEBoolean
             {
              before(grammarAccess.getDataFileAccess().getHasHeaderEBooleanParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10839,17 +9419,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__HasTypeAssignment_2_1"
-    // InternalChartDsl.g:3569:1: rule__DataFile__HasTypeAssignment_2_1 : ( ruleEBoolean ) ;
+    // InternalChartDsl.g:3068:1: rule__DataFile__HasTypeAssignment_2_1 : ( ruleEBoolean ) ;
     public final void rule__DataFile__HasTypeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3573:1: ( ( ruleEBoolean ) )
-            // InternalChartDsl.g:3574:2: ( ruleEBoolean )
+            // InternalChartDsl.g:3072:1: ( ( ruleEBoolean ) )
+            // InternalChartDsl.g:3073:2: ( ruleEBoolean )
             {
-            // InternalChartDsl.g:3574:2: ( ruleEBoolean )
-            // InternalChartDsl.g:3575:3: ruleEBoolean
+            // InternalChartDsl.g:3073:2: ( ruleEBoolean )
+            // InternalChartDsl.g:3074:3: ruleEBoolean
             {
              before(grammarAccess.getDataFileAccess().getHasTypeEBooleanParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10880,17 +9460,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__SeparatorAssignment_3_1"
-    // InternalChartDsl.g:3584:1: rule__DataFile__SeparatorAssignment_3_1 : ( ruleEString ) ;
+    // InternalChartDsl.g:3083:1: rule__DataFile__SeparatorAssignment_3_1 : ( ruleEString ) ;
     public final void rule__DataFile__SeparatorAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3588:1: ( ( ruleEString ) )
-            // InternalChartDsl.g:3589:2: ( ruleEString )
+            // InternalChartDsl.g:3087:1: ( ( ruleEString ) )
+            // InternalChartDsl.g:3088:2: ( ruleEString )
             {
-            // InternalChartDsl.g:3589:2: ( ruleEString )
-            // InternalChartDsl.g:3590:3: ruleEString
+            // InternalChartDsl.g:3088:2: ( ruleEString )
+            // InternalChartDsl.g:3089:3: ruleEString
             {
              before(grammarAccess.getDataFileAccess().getSeparatorEStringParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -10921,17 +9501,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__UsedColumnAssignment_7"
-    // InternalChartDsl.g:3599:1: rule__DataFile__UsedColumnAssignment_7 : ( ruleColumn ) ;
+    // InternalChartDsl.g:3098:1: rule__DataFile__UsedColumnAssignment_7 : ( ruleColumn ) ;
     public final void rule__DataFile__UsedColumnAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3603:1: ( ( ruleColumn ) )
-            // InternalChartDsl.g:3604:2: ( ruleColumn )
+            // InternalChartDsl.g:3102:1: ( ( ruleColumn ) )
+            // InternalChartDsl.g:3103:2: ( ruleColumn )
             {
-            // InternalChartDsl.g:3604:2: ( ruleColumn )
-            // InternalChartDsl.g:3605:3: ruleColumn
+            // InternalChartDsl.g:3103:2: ( ruleColumn )
+            // InternalChartDsl.g:3104:3: ruleColumn
             {
              before(grammarAccess.getDataFileAccess().getUsedColumnColumnParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -10962,17 +9542,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DataFile__UsedColumnAssignment_8_1"
-    // InternalChartDsl.g:3614:1: rule__DataFile__UsedColumnAssignment_8_1 : ( ruleColumn ) ;
+    // InternalChartDsl.g:3113:1: rule__DataFile__UsedColumnAssignment_8_1 : ( ruleColumn ) ;
     public final void rule__DataFile__UsedColumnAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3618:1: ( ( ruleColumn ) )
-            // InternalChartDsl.g:3619:2: ( ruleColumn )
+            // InternalChartDsl.g:3117:1: ( ( ruleColumn ) )
+            // InternalChartDsl.g:3118:2: ( ruleColumn )
             {
-            // InternalChartDsl.g:3619:2: ( ruleColumn )
-            // InternalChartDsl.g:3620:3: ruleColumn
+            // InternalChartDsl.g:3118:2: ( ruleColumn )
+            // InternalChartDsl.g:3119:3: ruleColumn
             {
              before(grammarAccess.getDataFileAccess().getUsedColumnColumnParserRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11003,21 +9583,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ColumnRef__MakeRefToAssignment"
-    // InternalChartDsl.g:3629:1: rule__ColumnRef__MakeRefToAssignment : ( ( ruleEString ) ) ;
+    // InternalChartDsl.g:3128:1: rule__ColumnRef__MakeRefToAssignment : ( ( ruleEString ) ) ;
     public final void rule__ColumnRef__MakeRefToAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3633:1: ( ( ( ruleEString ) ) )
-            // InternalChartDsl.g:3634:2: ( ( ruleEString ) )
+            // InternalChartDsl.g:3132:1: ( ( ( ruleEString ) ) )
+            // InternalChartDsl.g:3133:2: ( ( ruleEString ) )
             {
-            // InternalChartDsl.g:3634:2: ( ( ruleEString ) )
-            // InternalChartDsl.g:3635:3: ( ruleEString )
+            // InternalChartDsl.g:3133:2: ( ( ruleEString ) )
+            // InternalChartDsl.g:3134:3: ( ruleEString )
             {
              before(grammarAccess.getColumnRefAccess().getMakeRefToColumnCrossReference_0()); 
-            // InternalChartDsl.g:3636:3: ( ruleEString )
-            // InternalChartDsl.g:3637:4: ruleEString
+            // InternalChartDsl.g:3135:3: ( ruleEString )
+            // InternalChartDsl.g:3136:4: ruleEString
             {
              before(grammarAccess.getColumnRefAccess().getMakeRefToColumnEStringParserRuleCall_0_1()); 
             pushFollow(FOLLOW_2);
@@ -11051,26 +9631,26 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__ColumnRef__MakeRefToAssignment"
 
 
-    // $ANTLR start "rule__Condition__LeftElementAssignment_1"
-    // InternalChartDsl.g:3648:1: rule__Condition__LeftElementAssignment_1 : ( ruleColumnRef ) ;
-    public final void rule__Condition__LeftElementAssignment_1() throws RecognitionException {
+    // $ANTLR start "rule__Condition__LeftElementAssignment_0"
+    // InternalChartDsl.g:3147:1: rule__Condition__LeftElementAssignment_0 : ( ruleColumnRef ) ;
+    public final void rule__Condition__LeftElementAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3652:1: ( ( ruleColumnRef ) )
-            // InternalChartDsl.g:3653:2: ( ruleColumnRef )
+            // InternalChartDsl.g:3151:1: ( ( ruleColumnRef ) )
+            // InternalChartDsl.g:3152:2: ( ruleColumnRef )
             {
-            // InternalChartDsl.g:3653:2: ( ruleColumnRef )
-            // InternalChartDsl.g:3654:3: ruleColumnRef
+            // InternalChartDsl.g:3152:2: ( ruleColumnRef )
+            // InternalChartDsl.g:3153:3: ruleColumnRef
             {
-             before(grammarAccess.getConditionAccess().getLeftElementColumnRefParserRuleCall_1_0()); 
+             before(grammarAccess.getConditionAccess().getLeftElementColumnRefParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
             ruleColumnRef();
 
             state._fsp--;
 
-             after(grammarAccess.getConditionAccess().getLeftElementColumnRefParserRuleCall_1_0()); 
+             after(grammarAccess.getConditionAccess().getLeftElementColumnRefParserRuleCall_0_0()); 
 
             }
 
@@ -11089,29 +9669,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Condition__LeftElementAssignment_1"
+    // $ANTLR end "rule__Condition__LeftElementAssignment_0"
 
 
-    // $ANTLR start "rule__Condition__OperatorAssignment_2"
-    // InternalChartDsl.g:3663:1: rule__Condition__OperatorAssignment_2 : ( ruleCompOperator ) ;
-    public final void rule__Condition__OperatorAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__Condition__OperatorAssignment_1"
+    // InternalChartDsl.g:3162:1: rule__Condition__OperatorAssignment_1 : ( ruleCompOperator ) ;
+    public final void rule__Condition__OperatorAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3667:1: ( ( ruleCompOperator ) )
-            // InternalChartDsl.g:3668:2: ( ruleCompOperator )
+            // InternalChartDsl.g:3166:1: ( ( ruleCompOperator ) )
+            // InternalChartDsl.g:3167:2: ( ruleCompOperator )
             {
-            // InternalChartDsl.g:3668:2: ( ruleCompOperator )
-            // InternalChartDsl.g:3669:3: ruleCompOperator
+            // InternalChartDsl.g:3167:2: ( ruleCompOperator )
+            // InternalChartDsl.g:3168:3: ruleCompOperator
             {
-             before(grammarAccess.getConditionAccess().getOperatorCompOperatorEnumRuleCall_2_0()); 
+             before(grammarAccess.getConditionAccess().getOperatorCompOperatorEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
             ruleCompOperator();
 
             state._fsp--;
 
-             after(grammarAccess.getConditionAccess().getOperatorCompOperatorEnumRuleCall_2_0()); 
+             after(grammarAccess.getConditionAccess().getOperatorCompOperatorEnumRuleCall_1_0()); 
 
             }
 
@@ -11130,29 +9710,29 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Condition__OperatorAssignment_2"
+    // $ANTLR end "rule__Condition__OperatorAssignment_1"
 
 
-    // $ANTLR start "rule__Condition__RightElementAssignment_3"
-    // InternalChartDsl.g:3678:1: rule__Condition__RightElementAssignment_3 : ( ruleConstant ) ;
-    public final void rule__Condition__RightElementAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__Condition__RightElementAssignment_2"
+    // InternalChartDsl.g:3177:1: rule__Condition__RightElementAssignment_2 : ( ruleConstant ) ;
+    public final void rule__Condition__RightElementAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3682:1: ( ( ruleConstant ) )
-            // InternalChartDsl.g:3683:2: ( ruleConstant )
+            // InternalChartDsl.g:3181:1: ( ( ruleConstant ) )
+            // InternalChartDsl.g:3182:2: ( ruleConstant )
             {
-            // InternalChartDsl.g:3683:2: ( ruleConstant )
-            // InternalChartDsl.g:3684:3: ruleConstant
+            // InternalChartDsl.g:3182:2: ( ruleConstant )
+            // InternalChartDsl.g:3183:3: ruleConstant
             {
-             before(grammarAccess.getConditionAccess().getRightElementConstantParserRuleCall_3_0()); 
+             before(grammarAccess.getConditionAccess().getRightElementConstantParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
             ruleConstant();
 
             state._fsp--;
 
-             after(grammarAccess.getConditionAccess().getRightElementConstantParserRuleCall_3_0()); 
+             after(grammarAccess.getConditionAccess().getRightElementConstantParserRuleCall_2_0()); 
 
             }
 
@@ -11171,21 +9751,21 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Condition__RightElementAssignment_3"
+    // $ANTLR end "rule__Condition__RightElementAssignment_2"
 
 
     // $ANTLR start "rule__Column__IndexAssignment_2_1"
-    // InternalChartDsl.g:3693:1: rule__Column__IndexAssignment_2_1 : ( ruleEInt ) ;
+    // InternalChartDsl.g:3192:1: rule__Column__IndexAssignment_2_1 : ( ruleEInt ) ;
     public final void rule__Column__IndexAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3697:1: ( ( ruleEInt ) )
-            // InternalChartDsl.g:3698:2: ( ruleEInt )
+            // InternalChartDsl.g:3196:1: ( ( ruleEInt ) )
+            // InternalChartDsl.g:3197:2: ( ruleEInt )
             {
-            // InternalChartDsl.g:3698:2: ( ruleEInt )
-            // InternalChartDsl.g:3699:3: ruleEInt
+            // InternalChartDsl.g:3197:2: ( ruleEInt )
+            // InternalChartDsl.g:3198:3: ruleEInt
             {
              before(grammarAccess.getColumnAccess().getIndexEIntParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11216,17 +9796,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Column__NameAssignment_4"
-    // InternalChartDsl.g:3708:1: rule__Column__NameAssignment_4 : ( ruleEString ) ;
+    // InternalChartDsl.g:3207:1: rule__Column__NameAssignment_4 : ( ruleEString ) ;
     public final void rule__Column__NameAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3712:1: ( ( ruleEString ) )
-            // InternalChartDsl.g:3713:2: ( ruleEString )
+            // InternalChartDsl.g:3211:1: ( ( ruleEString ) )
+            // InternalChartDsl.g:3212:2: ( ruleEString )
             {
-            // InternalChartDsl.g:3713:2: ( ruleEString )
-            // InternalChartDsl.g:3714:3: ruleEString
+            // InternalChartDsl.g:3212:2: ( ruleEString )
+            // InternalChartDsl.g:3213:3: ruleEString
             {
              before(grammarAccess.getColumnAccess().getNameEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -11257,17 +9837,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__IntVariable__InitialValueAssignment_3"
-    // InternalChartDsl.g:3723:1: rule__IntVariable__InitialValueAssignment_3 : ( ruleEInt ) ;
+    // InternalChartDsl.g:3222:1: rule__IntVariable__InitialValueAssignment_3 : ( ruleEInt ) ;
     public final void rule__IntVariable__InitialValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3727:1: ( ( ruleEInt ) )
-            // InternalChartDsl.g:3728:2: ( ruleEInt )
+            // InternalChartDsl.g:3226:1: ( ( ruleEInt ) )
+            // InternalChartDsl.g:3227:2: ( ruleEInt )
             {
-            // InternalChartDsl.g:3728:2: ( ruleEInt )
-            // InternalChartDsl.g:3729:3: ruleEInt
+            // InternalChartDsl.g:3227:2: ( ruleEInt )
+            // InternalChartDsl.g:3228:3: ruleEInt
             {
              before(grammarAccess.getIntVariableAccess().getInitialValueEIntParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -11298,17 +9878,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringVariable__InitialValueAssignment_3"
-    // InternalChartDsl.g:3738:1: rule__StringVariable__InitialValueAssignment_3 : ( ruleEString ) ;
+    // InternalChartDsl.g:3237:1: rule__StringVariable__InitialValueAssignment_3 : ( ruleEString ) ;
     public final void rule__StringVariable__InitialValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3742:1: ( ( ruleEString ) )
-            // InternalChartDsl.g:3743:2: ( ruleEString )
+            // InternalChartDsl.g:3241:1: ( ( ruleEString ) )
+            // InternalChartDsl.g:3242:2: ( ruleEString )
             {
-            // InternalChartDsl.g:3743:2: ( ruleEString )
-            // InternalChartDsl.g:3744:3: ruleEString
+            // InternalChartDsl.g:3242:2: ( ruleEString )
+            // InternalChartDsl.g:3243:3: ruleEString
             {
              before(grammarAccess.getStringVariableAccess().getInitialValueEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -11339,17 +9919,17 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__DoubleVariable__InitialValueAssignment_3"
-    // InternalChartDsl.g:3753:1: rule__DoubleVariable__InitialValueAssignment_3 : ( ruleEDouble ) ;
+    // InternalChartDsl.g:3252:1: rule__DoubleVariable__InitialValueAssignment_3 : ( ruleEDouble ) ;
     public final void rule__DoubleVariable__InitialValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalChartDsl.g:3757:1: ( ( ruleEDouble ) )
-            // InternalChartDsl.g:3758:2: ( ruleEDouble )
+            // InternalChartDsl.g:3256:1: ( ( ruleEDouble ) )
+            // InternalChartDsl.g:3257:2: ( ruleEDouble )
             {
-            // InternalChartDsl.g:3758:2: ( ruleEDouble )
-            // InternalChartDsl.g:3759:3: ruleEDouble
+            // InternalChartDsl.g:3257:2: ( ruleEDouble )
+            // InternalChartDsl.g:3258:3: ruleEDouble
             {
              before(grammarAccess.getDoubleVariableAccess().getInitialValueEDoubleParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -11385,37 +9965,33 @@ public class InternalChartDslParser extends AbstractInternalContentAssistParser 
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000080000000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0072800000000000L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000300000000L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000200000002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000C7800000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000FF8000L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000008000000000L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000030000000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000600000000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000400000000002L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000220000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000003F00000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000FF8000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000032L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000E04000000000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0001020000000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0001000000000002L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000006000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x01C000003F000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0014000000000000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000000006000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x1C0000003F000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000010000000000L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0180000000000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0200000000000040L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0200010000000040L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000010000000030L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x2200010000000040L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x2200000000000040L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000000000001800L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0020000000000040L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0028000000000040L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0008000000000030L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0228000000000040L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0220000000000040L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000000001800L});
 
 }

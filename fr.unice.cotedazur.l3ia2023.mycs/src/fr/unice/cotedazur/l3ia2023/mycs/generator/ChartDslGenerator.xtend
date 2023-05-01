@@ -55,25 +55,15 @@ class ChartDslGenerator extends AbstractGenerator {
 		val EList<Chart> charts = root.chart
 	
 		
-		var ArrayList<ArrayList<String>> list = readCSV(filePath, csvDelimiter, commonDefaultMissingValue);
-		       
-		var StringBuilder content = new StringBuilder("");
-		for (var int i = 0; i < list.size(); i++) {
-		    var StringBuilder sb = new StringBuilder();
-		    for (var int j = 0; j < list.get(i).size(); j++) {
-		        if (!sb.toString().isEmpty()) { sb.append(", "); }
-		        sb.append(list.get(i).get(j));
-		    }
-		    sb.append("\n")
-		    content.append(sb)
-		}
+		var ArrayList<ArrayList<String>> fileData = readCSV(filePath, csvDelimiter, commonDefaultMissingValue);
+		var ArrayList<String> headers = fileData.get(0)
 			
-		val String jsonData = createJsonData( list, columns, csvDelimiter, commonDefaultMissingValue )
-		val String jsScript = generateGraphJsScript(charts.get(0))
+		val String jsonData = createJsonData( fileData, columns, csvDelimiter, commonDefaultMissingValue )
+		
 			
 			
 		
-		var html  = '''
+		var pageContent  = '''
 		<!DOCTYPE html>
 		<head>
 		  <title>«root.name»</title>
@@ -89,15 +79,7 @@ class ChartDslGenerator extends AbstractGenerator {
 		        line-height: 100px;
 		        margin: 0;
 		    }
-		section {
-			height: 100%;
-			padding: 0;
-			margin: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		} 
-		
+		«IF charts.size() > 1»
 		  #chartCard {
 		  	width:auto;
 		  	background: rgba(255, 255, 255, 1);
@@ -108,11 +90,18 @@ class ChartDslGenerator extends AbstractGenerator {
 		  }
 		  
 		  .myChartBox{
-		  	width: 700px;
-		  	padding:20px;
+		  	width: 800px;
+		  	padding:5px 15px;
 		  	border: solid 3px rgba(232, 244, 248, 1);
 		  	background: white;
 		  }
+		  «ELSE»
+		  	#chartCard {
+		  		margin: 0px 100px;
+		  		background: rgba(255, 255, 255, 1);
+		  		
+		  	}
+		 «ENDIF»
 		   </style> 
 		</head>
 		<body>
@@ -135,45 +124,42 @@ class ChartDslGenerator extends AbstractGenerator {
 			«jsonData»
 			
 			// filter data			
-			«FOR chart : charts»
-				«IF chart.filter.size() > 0 »
-				    «filteredData(chart)»
+			«FOR i: 0..charts.size() - 1»
+				«IF charts.get(i).filter.size() > 0 »
+				    «filteredData(charts.get(i), i)»
 				«ENDIF»
 			«ENDFOR»
 			
 			
 			
-			«FOR chart : charts»
-				«generateGraphJsScript(chart)»
+			«FOR i: 0..< charts.size()»
+				«generateGraphJsScript(charts.get(i), headers, i)»
 			«ENDFOR»
 		
 		</script>
 		
 		</body>
 		</html>
-		'''
+		'''	
 			 
 			
-			
-			 
-			
-		fsa.generateFile(program+'.html', html)
+		fsa.generateFile('chart.html', pageContent)
 	}
 	
 	
 	def List<String> generateChartIdName(EList<Chart> charts){
 			var List<String> idsName = new ArrayList()
 			
-			for (Chart chart: charts){
-				var String type = chart.type.getName().toLowerCase()
-				var String id = type.substring(0, 1).toUpperCase() + type.substring(1)
+			for (i:0..charts.size() - 1){
+				var String type = charts.get(i).type.getName().toLowerCase()
+				var String id = type.substring(0, 1).toUpperCase() + type.substring(1) + i
 				idsName.add(id)
 			}
 			
 		return idsName
 	}
 	
-	def String filteredData(Chart chart){
+	def String filteredData(Chart chart, int index){
 		
 		val Map<String, String> compOperators = new HashMap()
 		compOperators.put("GREATER", '>')
@@ -206,7 +192,7 @@ class ChartDslGenerator extends AbstractGenerator {
 		
 		val String camelType = type.substring(0, 1).toUpperCase() + type.substring(1)
 		var filteredDataScript = '''
-			const filteredData«camelType» = data.filter(row => {
+			const filteredData«camelType»«index» = data.filter(row => {
 				if («conditions.join(" && ")»){
 					return row
 				}
@@ -216,21 +202,21 @@ class ChartDslGenerator extends AbstractGenerator {
 	}
 	
 	
-	def String generateGraphJsScript(Chart chart){
-		var String xAxis = chart.XVariable.get(0).makeRefTo.name
+	def String generateGraphJsScript(Chart chart, ArrayList<String> headers, int index){
+		var ColumnRef xAxis = chart.XVariable.get(0)
 		var EList<ColumnRef> yAxises = chart.YVariable
 		var String type = chart.type.getName().toLowerCase()
 		val boolean hasFilter = chart.filter.size() > 0
 		
 		val String camelType = type.substring(0, 1).toUpperCase() + type.substring(1)
-		val String dataVariableName = hasFilter ? '''filteredData«camelType»''': 'data'
+		val String dataVariableName = hasFilter ? '''filteredData«camelType»«index»''': 'data'
 		var String script = '''
 		new Chart(
-		    document.getElementById('myChart«camelType»'),
+		    document.getElementById('myChart«camelType»«index»'),
 		    {
 		      type: '«type»',
 		      data: {
-		        labels: «dataVariableName».map(row => row.«xAxis»),
+		        labels: «dataVariableName».map(row => row.«xAxis.makeRefTo.name»),
 		        datasets: [
 		        «FOR yColRef : yAxises»
 		          {
@@ -239,6 +225,32 @@ class ChartDslGenerator extends AbstractGenerator {
 		          }, 
 		        «ENDFOR»
 		        ]
+		      },
+		      options: {
+		          scales: {
+		          		x: {
+		          			beginAtZero: true,
+		          			title: {
+		          				 display: true,
+		          				 text: "«headers.get(xAxis.makeRefTo.index)»"
+		          				 }
+		          			},
+		          «IF yAxises.size() == 1» 
+		               y: {
+			              	beginAtZero: true,
+			                 title: {
+			                  display: true,
+			                  text: "«headers.get(yAxises.get(0).makeRefTo.index)»"
+			                }
+		             	}
+		           «ENDIF»
+		          },
+		          plugins: {
+		                  title: {
+		                  display: true,
+		                  text: "«chart.title»"
+		               }
+		           }
 		      }
 		    }
 		  );
@@ -250,7 +262,7 @@ class ChartDslGenerator extends AbstractGenerator {
 	
 	def String createJsonData(ArrayList<ArrayList<String>> data, EList<Column> columns, String delimiter, String commonDefaultMissingValue){
 		var StringBuilder jsonData = new StringBuilder("const data = [\n");
-		val ArrayList<String> columnTypes = data.get(0)
+		val ArrayList<String> columnTypes = data.get(1)
 		
 		val List<String> stringColumnTypesNames = new ArrayList()
 		stringColumnTypesNames.add("STRING")
@@ -261,7 +273,7 @@ class ChartDslGenerator extends AbstractGenerator {
 		
 		
 		
-		for (var int i = 1; i < data.size(); i++) {
+		for (var int i = 2; i < data.size(); i++) {
 		    var StringBuilder row = new StringBuilder("{");
 		   
 		     var int countUnkownValues = 0
@@ -310,13 +322,14 @@ class ChartDslGenerator extends AbstractGenerator {
 			
 			try(var Scanner reader = new Scanner(csvFile)) {
 				
-				var String[] columnData = reader.nextLine().split("\\s*\\" + csvDelimiter+ "\\s*");
-				val int csvValuesPerLineCount = columnData.length;
+				var String firstLine = reader.nextLine()
+				var String[] columnData = firstLine.split("\\s*\\" + csvDelimiter+ "\\s*");
+				val int csvValuesPerLineCount = columnData.size();
 				
 				var ArrayList<String> rowData;
+				var String aLine = firstLine.trim()
 				while(reader.hasNextLine()){ 
 					rowData = new ArrayList()
-					var String aLine = reader.nextLine().trim()
 					// ignore blank line
 					if (!aLine.isEmpty()){
 						var String[] aLineParts = aLine.split("\\s*\\" + csvDelimiter + "\\s*", csvValuesPerLineCount)
@@ -328,6 +341,7 @@ class ChartDslGenerator extends AbstractGenerator {
 						}
 					}
 					fileData.add(rowData)
+					aLine = reader.nextLine().trim()
 				}
 			}catch (FileNotFoundException ex){
 				System.err.println("The csv file to read can not be found")

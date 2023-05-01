@@ -182,7 +182,7 @@ public class ChartDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     (name=EString CsvFile=DataFile chart+=Chart chart+=Chart*)
+	 *     (CsvFile=DataFile chart+=Chart chart+=Chart*)
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

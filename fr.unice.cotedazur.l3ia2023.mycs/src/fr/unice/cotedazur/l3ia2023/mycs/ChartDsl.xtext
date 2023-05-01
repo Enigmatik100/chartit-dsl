@@ -5,12 +5,9 @@ import "http://www.example.org/chartitproject"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Program returns Program:
-	'Program'
-	name=EString
-	'Begin'
+	
 		CsvFile=DataFile
 		chart+=Chart ( chart+=Chart)* 
-	'End'
 	;
 
 
@@ -24,11 +21,11 @@ Chart returns Chart:
 	{Chart}
 	'Chart'
 	'{'
-		('title' title=EString)?
-		('type' type=ChartType)?
-		('xAxis' '(' xVariable+=ColumnRef ( "," xVariable+=ColumnRef)* ')' )?
-		('yAxis' '(' yVariable+=ColumnRef ( "," yVariable+=ColumnRef)* ')' )?
-		('Filter' '[' Filter+=Condition ( "and" Filter+=Condition)* ']' )?
+		('title:' title=EString)?
+		('type:' type=ChartType)?
+		('xAxis:'  xVariable+=ColumnRef (  xVariable+=ColumnRef)*  )?
+		('yAxis:'  yVariable+=ColumnRef (  yVariable+=ColumnRef)*)?
+		('Filter:' Filter+=Condition (  Filter+=Condition)*  )?
 	'}';
  
 DataFile returns DataFile:
@@ -47,16 +44,15 @@ ColumnRef returns ColumnRef:
 	;
 
 Condition returns Condition:
-	'('
 		leftElement=ColumnRef
 		(operator=CompOperator)?
 		rightElement=Constant
-	')';
+	;
 
 Column returns Column:
 	{Column}
 	'('
-		('index:' index=EInt)? 'as' name=EString
+		('index' index=EInt)? 'as' name=EString
 	')';
 
 EInt returns ecore::EInt:
