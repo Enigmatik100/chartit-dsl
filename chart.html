@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<head>
+  <title></title>
+  <style>
+  /* Resets */
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   h1 {
+        text-align: center;
+        line-height: 100px;
+        margin: 0;
+    }
+#chartCard {
+	width:auto;
+	background: rgba(255, 255, 255, 1);
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.myChartBox{
+	width: 800px;
+	padding:5px 15px;
+	border: solid 3px rgba(232, 244, 248, 1);
+	background: white;
+}
+   </style> 
+</head>
+<body>
+<h1> ChartIT Project </h1>
+<section>
+	<div  id="chartCard">
+		<div class="myChartBox">
+			<canvas id="myChartPie0"></canvas>
+		</div>
+		<div class="myChartBox">
+			<canvas id="myChartBar1"></canvas>
+		</div>
+	</div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script src="https://raw.githubusercontent.com/chartjs/Chart.js/master/docs/scripts/utils.js"></script> -->
+
+<script>
+
+	// Default json data based on selected column
+	const data = [
+	{cereal: "100% Bran",calory: 70,carbo: 130,mfr: "N"},
+	{cereal: "100% Natural Bran",calory: 120,carbo: 15,mfr: "Q"},
+	{cereal: "All-Bran",calory: 70,carbo: 260,mfr: "K"},
+	{cereal: "All-Bran with Extra Fiber",calory: 50,carbo: 140,mfr: "K"},
+	{cereal: "Almond Delight",calory: 110,carbo: 200,mfr: "R"},
+	{cereal: "Apple Cinnamon Cheerios",calory: 110,carbo: 180,mfr: "G"},
+	{cereal: "Apple Jacks",calory: 110,carbo: 125,mfr: "K"},
+	{cereal: "Basic 4",calory: 130,carbo: 210,mfr: "G"},
+	{cereal: "Bran Chex",calory: 90,carbo: 200,mfr: "R"},
+	{cereal: "Bran Flakes",calory: 90,carbo: 210,mfr: "P"},
+	{cereal: "Cap'n'Crunch",calory: 120,carbo: 220,mfr: "Q"},
+	{cereal: "Cheerios",calory: 110,carbo: 290,mfr: "G"},
+	{cereal: "Cinnamon Toast Crunch",calory: 120,carbo: 210,mfr: "G"},
+	{cereal: "Clusters",calory: 110,carbo: 140,mfr: "G"},
+	{cereal: "Cocoa Puffs",calory: 110,carbo: 180,mfr: "G"},
+	{cereal: "Corn Chex",calory: 110,carbo: 280,mfr: "R"},
+	{cereal: "Corn Flakes",calory: 100,carbo: 290,mfr: "K"},
+	{cereal: "Corn Pops",calory: 110,carbo: 90,mfr: "K"},
+	{cereal: "Count Chocula",calory: 110,carbo: 180,mfr: "G"},
+	{cereal: "Cracklin' Oat Bran",calory: 110,carbo: 140,mfr: "K"},
+	{cereal: "Cream of Wheat (Quick)",calory: 100,carbo: 80,mfr: "N"},
+	{cereal: "Crispix",calory: 110,carbo: 220,mfr: "K"},
+	{cereal: "Crispy Wheat & Raisins",calory: 100,carbo: 140,mfr: "G"},
+	{cereal: "Double Chex",calory: 100,carbo: 190,mfr: "R"},
+	{cereal: "Froot Loops",calory: 110,carbo: 125,mfr: "K"},
+	{cereal: "Frosted Flakes",calory: 110,carbo: 200,mfr: "K"},
+	{cereal: "Frosted Mini-Wheats",calory: 100,carbo: 0,mfr: "K"},
+	{cereal: "Fruit & Fibre Dates, Walnuts, and Oats",calory: 120,carbo: 160,mfr: "P"},
+	{cereal: "Fruitful Bran",calory: 120,carbo: 240,mfr: "K"},
+	{cereal: "Fruity Pebbles",calory: 110,carbo: 135,mfr: "P"},
+	{cereal: "Golden Crisp",calory: 100,carbo: 45,mfr: "P"},
+	{cereal: "Golden Grahams",calory: 110,carbo: 280,mfr: "G"},
+	{cereal: "Grape Nuts Flakes",calory: 100,carbo: 140,mfr: "P"},
+	{cereal: "Grape-Nuts",calory: 110,carbo: 170,mfr: "P"},
+	{cereal: "Great Grains Pecan",calory: 120,carbo: 75,mfr: "P"},
+	{cereal: "Honey Graham Ohs",calory: 120,carbo: 220,mfr: "Q"},
+	{cereal: "Honey Nut Cheerios",calory: 110,carbo: 250,mfr: "G"},
+	{cereal: "Honey-comb",calory: 110,carbo: 180,mfr: "P"},
+	{cereal: "Just Right Crunchy  Nuggets",calory: 110,carbo: 170,mfr: "K"},
+	{cereal: "Just Right Fruit & Nut",calory: 140,carbo: 170,mfr: "K"},
+	{cereal: "Kix",calory: 110,carbo: 260,mfr: "G"},
+	{cereal: "Life",calory: 100,carbo: 150,mfr: "Q"},
+	{cereal: "Lucky Charms",calory: 110,carbo: 180,mfr: "G"},
+	{cereal: "Maypo",calory: 100,carbo: 0,mfr: "A"},
+	{cereal: "Muesli Raisins, Dates, & Almonds",calory: 150,carbo: 95,mfr: "R"},
+	{cereal: "Muesli Raisins, Peaches, & Pecans",calory: 150,carbo: 150,mfr: "R"},
+	{cereal: "Mueslix Crispy Blend",calory: 160,carbo: 150,mfr: "K"},
+	{cereal: "Multi-Grain Cheerios",calory: 100,carbo: 220,mfr: "G"},
+	{cereal: "Nut&Honey Crunch",calory: 120,carbo: 190,mfr: "K"},
+	{cereal: "Nutri-Grain Almond-Raisin",calory: 140,carbo: 220,mfr: "K"},
+	{cereal: "Nutri-grain Wheat",calory: 90,carbo: 170,mfr: "K"},
+	{cereal: "Oatmeal Raisin Crisp",calory: 130,carbo: 170,mfr: "G"},
+	{cereal: "Post Nat. Raisin Bran",calory: 120,carbo: 200,mfr: "P"},
+	{cereal: "Product 19",calory: 100,carbo: 320,mfr: "K"},
+	{cereal: "Puffed Rice",calory: 50,carbo: 0,mfr: "Q"},
+	{cereal: "Puffed Wheat",calory: 50,carbo: 0,mfr: "Q"},
+	{cereal: "Quaker Oat Squares",calory: 100,carbo: 135,mfr: "Q"},
+	{cereal: "Quaker Oatmeal",calory: 100,carbo: 0,mfr: "Q"},
+	{cereal: "Raisin Bran",calory: 120,carbo: 210,mfr: "K"},
+	{cereal: "Raisin Nut Bran",calory: 100,carbo: 140,mfr: "G"},
+	{cereal: "Raisin Squares",calory: 90,carbo: 0,mfr: "K"},
+	{cereal: "Rice Chex",calory: 110,carbo: 240,mfr: "R"},
+	{cereal: "Rice Krispies",calory: 110,carbo: 290,mfr: "K"},
+	{cereal: "Shredded Wheat",calory: 80,carbo: 0,mfr: "N"},
+	{cereal: "Shredded Wheat 'n'Bran",calory: 90,carbo: 0,mfr: "N"},
+	{cereal: "Shredded Wheat spoon size",calory: 90,carbo: 0,mfr: "N"},
+	{cereal: "Smacks",calory: 110,carbo: 70,mfr: "K"},
+	{cereal: "Special K",calory: 110,carbo: 230,mfr: "K"},
+	{cereal: "Strawberry Fruit Wheats",calory: 90,carbo: 15,mfr: "N"},
+	{cereal: "Total Corn Flakes",calory: 110,carbo: 200,mfr: "G"},
+	{cereal: "Total Raisin Bran",calory: 140,carbo: 190,mfr: "G"},
+	{cereal: "Total Whole Grain",calory: 100,carbo: 200,mfr: "G"},
+	{cereal: "Triples",calory: 110,carbo: 250,mfr: "G"},
+	{cereal: "Trix",calory: 110,carbo: 140,mfr: "G"},
+	{cereal: "Wheat Chex",calory: 100,carbo: 230,mfr: "R"},
+	{cereal: "Wheaties",calory: 100,carbo: 200,mfr: "G"}
+	]
+	
+	// filter data			
+	const filteredDataPie0 = data.filter(row => {
+		if (row.carbo > 200 && row.carbo < 250 && row.mfr !== "G" && row.mfr !== "K"){
+			return row
+		}
+	})
+	const filteredDataBar1 = data.filter(row => {
+		if (row.calory > 110){
+			return row
+		}
+	})
+	
+	
+	
+	new Chart(
+	    document.getElementById('myChartPie0'),
+	    {
+	      type: 'pie',
+	      data: {
+	        labels: filteredDataPie0.map(row => row.cereal),
+	        datasets: [
+	        {
+	           label: "carbo",
+	           data: filteredDataPie0.map(row => row.carbo),
+	        }, 
+	        ]
+	      },
+	      options: {
+	          scales: {
+	          		x: {
+	          			beginAtZero: true,
+	          			title: {
+	          				 display: true,
+	          				 text: "name"
+	          				 }
+	          			},
+	          y: {
+				              	beginAtZero: true,
+				                 title: {
+				                  display: true,
+				                  text: "sodium"
+				                }
+			             	}
+	          },
+	          plugins: {
+	                  title: {
+	                  display: true,
+	                  text: "Quantité de carbone comprise entre 200 et 250 par céréales avec mfr différent de G et K"
+	               }
+	           }
+	      }
+	    }
+	  );
+	new Chart(
+	    document.getElementById('myChartBar1'),
+	    {
+	      type: 'bar',
+	      data: {
+	        labels: filteredDataBar1.map(row => row.cereal),
+	        datasets: [
+	        {
+	           label: "calory",
+	           data: filteredDataBar1.map(row => row.calory),
+	        }, 
+	        ]
+	      },
+	      options: {
+	          scales: {
+	          		x: {
+	          			beginAtZero: true,
+	          			title: {
+	          				 display: true,
+	          				 text: "name"
+	          				 }
+	          			},
+	          y: {
+				              	beginAtZero: true,
+				                 title: {
+				                  display: true,
+				                  text: "calories"
+				                }
+			             	}
+	          },
+	          plugins: {
+	                  title: {
+	                  display: true,
+	                  text: "La quantité de calories par céréale"
+	               }
+	           }
+	      }
+	    }
+	  );
+
+</script>
+
+</body>
+</html>
