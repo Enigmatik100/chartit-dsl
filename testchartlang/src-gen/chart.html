@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<head>
+  <title></title>
+  <style>
+  /* Resets */
+   * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+   }
+   h1 {
+        text-align: center;
+        line-height: 100px;
+        margin: 0;
+    }
+#chartCard {
+	width:auto;
+	background: rgba(255, 255, 255, 1);
+	display: flex;
+	align-items: center; 
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.myChartBox{
+	width: 800px;
+	padding:5px 15px;
+	border: solid 3px rgba(232, 244, 248, 1);
+	background: white;
+}
+   </style> 
+</head>
+<body>
+<h1> ChartIT Project </h1>
+<section>
+	<div  id="chartCard">
+		<div class="myChartBox">
+			<canvas id="myChartBar0"></canvas>
+		</div>
+		<div class="myChartBox">
+			<canvas id="myChartBar1"></canvas>
+		</div>
+		<div class="myChartBox">
+			<canvas id="myChartScatter2"></canvas>
+		</div>
+		<div class="myChartBox">
+			<canvas id="myChartScatter3"></canvas>
+		</div>
+	</div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- <script src="https://raw.githubusercontent.com/chartjs/Chart.js/master/docs/scripts/utils.js"></script> -->
+
+<script>
+
+	// Default json data based on selected column
+	const data = [
+	{country: "Afghanistan",prodElectricity: 540000000,electricityConsumption: 652200000},
+	{country: "Albania",prodElectricity: 5680000000,electricityConsumption: 6760000000},
+	{country: "Algeria",prodElectricity: 25760000000,electricityConsumption: 23610000000},
+	{country: "American Samoa",prodElectricity: 130000000,electricityConsumption: 120900000},
+	{country: "Angola",prodElectricity: 1707000000,electricityConsumption: 1587000000},
+	{country: "Antigua and Barbuda",prodElectricity: 110800000,electricityConsumption: 103000000},
+	{country: "Argentina",prodElectricity: 81390000000,electricityConsumption: 81650000000},
+	{country: "Armenia",prodElectricity: 6492000000,electricityConsumption: 5797000000},
+	{country: "Aruba",prodElectricity: 807700000,electricityConsumption: 751200000},
+	{country: "Australia",prodElectricity: 210300000000,electricityConsumption: 195600000000},
+	{country: "Austria",prodElectricity: 58490000000,electricityConsumption: 55090000000},
+	{country: "Azerbaijan",prodElectricity: 17550000000,electricityConsumption: 17370000000},
+	{country: "Bahamas The",prodElectricity: 1716000000,electricityConsumption: 1596000000},
+	{country: "Bahrain",prodElectricity: 6860000000,electricityConsumption: 6379000000},
+	{country: "Bangladesh",prodElectricity: 16450000000,electricityConsumption: 15300000000},
+	{country: "Barbados",prodElectricity: 800000000,electricityConsumption: 744000000},
+	{country: "Belarus",prodElectricity: 30000000000,electricityConsumption: 34300000000},
+	{country: "Belgium",prodElectricity: 76580000000,electricityConsumption: 78820000000},
+	{country: "Belize",prodElectricity: 117000000,electricityConsumption: 108800000},
+	{country: "Benin",prodElectricity: 285200000,electricityConsumption: 565200000},
+	{country: "Bermuda",prodElectricity: 643000000,electricityConsumption: 598000000},
+	{country: "Bhutan",prodElectricity: 2001000000,electricityConsumption: 312900000},
+	{country: "Bolivia",prodElectricity: 4132000000,electricityConsumption: 3848000000},
+	{country: "Bosnia and Herzegovina",prodElectricity: 10040000000,electricityConsumption: 8318000000},
+	{country: "Botswana",prodElectricity: 930000000,electricityConsumption: 1890000000},
+	{country: "Brazil",prodElectricity: 339000000000,electricityConsumption: 351900000000},
+	{country: "British Virgin Islands",prodElectricity: 36280000,electricityConsumption: 33740000},
+	{country: "Brunei",prodElectricity: 2458000000,electricityConsumption: 2286000000},
+	{country: "Bulgaria",prodElectricity: 43070000000,electricityConsumption: 32710000000},
+	{country: "Burkina Faso",prodElectricity: 361000000,electricityConsumption: 335700000},
+	{country: "Burma",prodElectricity: 5068000000,electricityConsumption: 3484000000},
+	{country: "Burundi",prodElectricity: 132000000,electricityConsumption: 137800000},
+	{country: "Cambodia",prodElectricity: 122000000,electricityConsumption: 100600000},
+	{country: "Cameroon",prodElectricity: 3571000000,electricityConsumption: 3321000000},
+	{country: "Canada",prodElectricity: 548900000000,electricityConsumption: 487300000000},
+	{country: "Cape Verde",prodElectricity: 43080000,electricityConsumption: 40060000},
+	{country: "Cayman Islands",prodElectricity: 410800000,electricityConsumption: 382100000},
+	{country: "Central African Republic",prodElectricity: 106000000,electricityConsumption: 98580000},
+	{country: "Chad",prodElectricity: 96130000,electricityConsumption: 89400000},
+	{country: "Chile",prodElectricity: 48600000000,electricityConsumption: 41800000000},
+	{country: "China",prodElectricity: 1910000000000,electricityConsumption: 1630000000000},
+	{country: "Colombia",prodElectricity: 44870000000,electricityConsumption: 41140000000},
+	{country: "Comoros",prodElectricity: 23840000,electricityConsumption: 22170000},
+	{country: "Congo Democratic Republic of the",prodElectricity: 6086000000,electricityConsumption: 4168000000},
+	{country: "Congo Republic of the",prodElectricity: 348000000,electricityConsumption: 573600000},
+	{country: "Cook Islands",prodElectricity: 27000000,electricityConsumption: 25110000},
+	{country: "Costa Rica",prodElectricity: 6614000000,electricityConsumption: 5733000000},
+	{country: "Cote d'Ivoire",prodElectricity: 4759000000,electricityConsumption: 2976000000},
+	{country: "Croatia",prodElectricity: 12510000000,electricityConsumption: 15200000000},
+	{country: "Cuba",prodElectricity: 14410000000,electricityConsumption: 13400000000},
+	{country: "Cyprus",prodElectricity: 4000000000,electricityConsumption: 602000000},
+	{country: "Czech Republic",prodElectricity: 71750000000,electricityConsumption: 55330000000},
+	{country: "Denmark",prodElectricity: 36380000000,electricityConsumption: 31630000000},
+	{country: "Djibouti",prodElectricity: 180000000,electricityConsumption: 167400000},
+	{country: "Dominica",prodElectricity: 68410000,electricityConsumption: 63620000},
+	{country: "Dominican Republic",prodElectricity: 9583000000,electricityConsumption: 8912000000},
+	{country: "Ecuador",prodElectricity: 81270000000,electricityConsumption: 75580000000},
+	{country: "Egypt",prodElectricity: 81270000000,electricityConsumption: 75580000000},
+	{country: "El Salvador",prodElectricity: 4158000000,electricityConsumption: 4450000000},
+	{country: "Equatorial Guinea",prodElectricity: 26690000,electricityConsumption: 24820000},
+	{country: "Eritrea",prodElectricity: 246600000,electricityConsumption: 229400000},
+	{country: "Estonia",prodElectricity: 8301000000,electricityConsumption: 6358000000},
+	{country: "Ethiopia",prodElectricity: 2149000000,electricityConsumption: 1998000000},
+	{country: "#European Union",prodElectricity: 2888000000000,electricityConsumption: 2661000000000},
+	{country: "Falkland Islands (Islas Malvinas)",prodElectricity: 19060000,electricityConsumption: 17720000},
+	{country: "Faroe Islands",prodElectricity: 220000000,electricityConsumption: 204600000},
+	{country: "Fiji",prodElectricity: 750000000,electricityConsumption: 697500000},
+	{country: "Finland",prodElectricity: 71590000000,electricityConsumption: 78580000000},
+	{country: "France",prodElectricity: 528600000000,electricityConsumption: 414700000000},
+	{country: "French Guiana",prodElectricity: 460100000,electricityConsumption: 427900000},
+	{country: "French Polynesia",prodElectricity: 380000000,electricityConsumption: 353400000},
+	{country: "Gabon",prodElectricity: 1161000000,electricityConsumption: 1080000000},
+	{country: "Gambia The",prodElectricity: 90310000,electricityConsumption: 83990000},
+	{country: "Georgia",prodElectricity: 6732000000,electricityConsumption: 6811000000},
+	{country: "Germany",prodElectricity: 560000000000,electricityConsumption: 519500000000},
+	{country: "Ghana",prodElectricity: 6922000000,electricityConsumption: 6137000000},
+	{country: "Gibraltar",prodElectricity: 104000000,electricityConsumption: 96760000},
+	{country: "Greece",prodElectricity: 47220000000,electricityConsumption: 47420000000},
+	{country: "Greenland",prodElectricity: 245000000,electricityConsumption: 227900000},
+	{country: "Grenada",prodElectricity: 149000000,electricityConsumption: 138600000},
+	{country: "Guadeloupe",prodElectricity: 1160000000,electricityConsumption: 1079000000},
+	{country: "Guam",prodElectricity: 835000000,electricityConsumption: 776600000},
+	{country: "Guatemala",prodElectricity: 6608000000,electricityConsumption: 5760000000},
+	{country: "Guinea",prodElectricity: 855000000,electricityConsumption: 795200000},
+	{country: "Guinea-Bissau",prodElectricity: 55000000,electricityConsumption: 51150000},
+	{country: "Guyana",prodElectricity: 808000000,electricityConsumption: 751400000},
+	{country: "Haiti",prodElectricity: 618000000,electricityConsumption: 574700000},
+	{country: "Honduras",prodElectricity: 3626000000,electricityConsumption: 3771000000},
+	{country: "Hong Kong",prodElectricity: 35510000000,electricityConsumption: 38450000000},
+	{country: "Hungary",prodElectricity: 34070000000,electricityConsumption: 35990000000},
+	{country: "Iceland",prodElectricity: 8271000000,electricityConsumption: 7692000000},
+	{country: "India",prodElectricity: 547200000000,electricityConsumption: 510100000000},
+	{country: "Indonesia",prodElectricity: 110200000000,electricityConsumption: 92350000000},
+	{country: "Iran",prodElectricity: 129000000000,electricityConsumption: 119900000000},
+	{country: "Iraq",prodElectricity: 32600000000,electricityConsumption: 33700000000},
+	{country: "Ireland",prodElectricity: 22880000000,electricityConsumption: 21780000000},
+	{country: "Israel",prodElectricity: 42670000000,electricityConsumption: 38300000000},
+	{country: "Italy",prodElectricity: 261600000000,electricityConsumption: 293900000000},
+	{country: "Jamaica",prodElectricity: 6289000000,electricityConsumption: 5849000000},
+	{country: "Japan",prodElectricity: 1044000000000,electricityConsumption: 971000000000},
+	{country: "Jordan",prodElectricity: 7307000000,electricityConsumption: 7094000000},
+	{country: "Kazakhstan",prodElectricity: 66820000000,electricityConsumption: 62210000000},
+	{country: "Kenya",prodElectricity: 4475000000,electricityConsumption: 4337000000},
+	{country: "Kiribati",prodElectricity: 7000000,electricityConsumption: 6510000},
+	{country: "Korea North",prodElectricity: 33620000000,electricityConsumption: 31260000000},
+	{country: "Korea South",prodElectricity: 322500000000,electricityConsumption: 293600000000},
+	{country: "Kuwait",prodElectricity: 32430000000,electricityConsumption: 30160000000},
+	{country: "Kyrgyzstan",prodElectricity: 11720000000,electricityConsumption: 10210000000},
+	{country: "Laos",prodElectricity: 3560000000,electricityConsumption: 3036000000},
+	{country: "Latvia",prodElectricity: 4547000000,electricityConsumption: 5829000000},
+	{country: "Lebanon",prodElectricity: 8066000000,electricityConsumption: 8591000000},
+	{country: "Lesotho",prodElectricity: 314000000,electricityConsumption: 308000000},
+	{country: "Liberia",prodElectricity: 488800000,electricityConsumption: 454600000},
+	{country: "Libya",prodElectricity: 20890000000,electricityConsumption: 19430000000},
+	{country: "Lithuania",prodElectricity: 17930000000,electricityConsumption: 10170000000},
+	{country: "Luxembourg",prodElectricity: 2511000000,electricityConsumption: 5735000000},
+	{country: "Macau",prodElectricity: 1719000000,electricityConsumption: 1772000000},
+	{country: "Macedonia",prodElectricity: 6273000000,electricityConsumption: 7216000000},
+	{country: "Madagascar",prodElectricity: 840200000,electricityConsumption: 781400000},
+	{country: "Malawi",prodElectricity: 1088000000,electricityConsumption: 1012000000},
+	{country: "Malaysia",prodElectricity: 75330000000,electricityConsumption: 68400000000},
+	{country: "Maldives",prodElectricity: 124400000,electricityConsumption: 115700000},
+	{country: "Mali",prodElectricity: 700000000,electricityConsumption: 651000000},
+	{country: "Malta",prodElectricity: 2150000000,electricityConsumption: 2000000000},
+	{country: "Martinique",prodElectricity: 1178000000,electricityConsumption: 1095000000},
+	{country: "Mauritania",prodElectricity: 190200000,electricityConsumption: 176900000},
+	{country: "Mauritius",prodElectricity: 1836000000,electricityConsumption: 1707000000},
+	{country: "Mexico",prodElectricity: 203600000000,electricityConsumption: 189700000000},
+	{country: "Micronesia Federated States of",prodElectricity: 192000000,electricityConsumption: 178600000},
+	{country: "Moldova",prodElectricity: 3876000000,electricityConsumption: 4605000000},
+	{country: "Mongolia",prodElectricity: 2692000000,electricityConsumption: 2209000000},
+	{country: "Montserrat",prodElectricity: 1800000,electricityConsumption: 1674000},
+	{country: "Morocco",prodElectricity: 13910000000,electricityConsumption: 14240000000},
+	{country: "Mozambique",prodElectricity: 8859000000,electricityConsumption: 5046000000},
+	{country: "Namibia",prodElectricity: 1167000000,electricityConsumption: 1920000000},
+	{country: "Nauru",prodElectricity: 30000000,electricityConsumption: 27900000},
+	{country: "Nepal",prodElectricity: 2054000000,electricityConsumption: 2005000000},
+	{country: "Netherlands",prodElectricity: 90610000000,electricityConsumption: 100700000000},
+	{country: "Netherlands Antilles",prodElectricity: 1005000000,electricityConsumption: 934300000},
+	{country: "New Caledonia",prodElectricity: 1581000000,electricityConsumption: 1471000000},
+	{country: "New Zealand",prodElectricity: 38390000000,electricityConsumption: 35710000000},
+	{country: "Nicaragua",prodElectricity: 2553000000,electricityConsumption: 2318000000},
+	{country: "Niger",prodElectricity: 266200000,electricityConsumption: 327600000},
+	{country: "Nigeria",prodElectricity: 19850000000,electricityConsumption: 18430000000},
+	{country: "Niue",prodElectricity: 3000000,electricityConsumption: 2790000},
+	{country: "Norway",prodElectricity: 125900000000,electricityConsumption: 107400000000},
+	{country: "Oman",prodElectricity: 9896000000,electricityConsumption: 9792000000},
+	{country: "Pakistan",prodElectricity: 75270000000,electricityConsumption: 52660000000},
+	{country: "Panama",prodElectricity: 4873000000,electricityConsumption: 4473000000},
+	{country: "Papua New Guinea",prodElectricity: 1679000000,electricityConsumption: 1561000000},
+	{country: "Paraguay",prodElectricity: 48360000000,electricityConsumption: 2469000000},
+	{country: "Peru",prodElectricity: 22880000000,electricityConsumption: 20220000000},
+	{country: "Philippines",prodElectricity: 52860000000,electricityConsumption: 46050000000},
+	{country: "Poland",prodElectricity: 133800000000,electricityConsumption: 117400000000},
+	{country: "Portugal",prodElectricity: 43280000000,electricityConsumption: 42150000000},
+	{country: "Puerto Rico",prodElectricity: 22090000000,electricityConsumption: 20540000000},
+	{country: "Qatar",prodElectricity: 9727000000,electricityConsumption: 9046000000},
+	{country: "Reunion",prodElectricity: 1166000000,electricityConsumption: 1084000000},
+	{country: "Romania",prodElectricity: 56530000000,electricityConsumption: 57500000000},
+	{country: "Russia",prodElectricity: 915000000000,electricityConsumption: 894300000000},
+	{country: "Rwanda",prodElectricity: 166700000,electricityConsumption: 195000000},
+	{country: "Saint Helena",prodElectricity: 5000000,electricityConsumption: 4650000},
+	{country: "Saint Kitts and Nevis",prodElectricity: 105800000,electricityConsumption: 98440000},
+	{country: "Saint Lucia",prodElectricity: 270300000,electricityConsumption: 251300000},
+	{country: "Saint Pierre and Miquelon",prodElectricity: 43080000,electricityConsumption: 40060000},
+	{country: "Saint Vincent and the Grenadines",prodElectricity: 91200000,electricityConsumption: 84820000},
+	{country: "Samoa",prodElectricity: 122000000,electricityConsumption: 113500000},
+	{country: "Sao Tome and Principe",prodElectricity: 17000000,electricityConsumption: 15810000},
+	{country: "Saudi Arabia",prodElectricity: 138200000000,electricityConsumption: 128500000000},
+	{country: "Senegal",prodElectricity: 1737000000,electricityConsumption: 1615000000},
+	{country: "Serbia and Montenegro",prodElectricity: 31640000000,electricityConsumption: 32330000000},
+	{country: "Seychelles",prodElectricity: 218000000,electricityConsumption: 202800000},
+	{country: "Sierra Leone",prodElectricity: 255300000,electricityConsumption: 237400000},
+	{country: "Singapore",prodElectricity: 35330000000,electricityConsumption: 32000000000},
+	{country: "Slovakia",prodElectricity: 31150000000,electricityConsumption: 28890000000},
+	{country: "Slovenia",prodElectricity: 12490000000,electricityConsumption: 11800000000},
+	{country: "Solomon Islands",prodElectricity: 32000000,electricityConsumption: 29760000},
+	{country: "Somalia",prodElectricity: 240300000,electricityConsumption: 223500000},
+	{country: "South Africa",prodElectricity: 202600000000,electricityConsumption: 189400000000},
+	{country: "Spain",prodElectricity: 229000000000,electricityConsumption: 218400000000},
+	{country: "Sri Lanka",prodElectricity: 6697000000,electricityConsumption: 6228000000},
+	{country: "Sudan",prodElectricity: 2581000000,electricityConsumption: 2400000000},
+	{country: "Suriname",prodElectricity: 1984000000,electricityConsumption: 1845000000},
+	{country: "Swaziland",prodElectricity: 402000000,electricityConsumption: 1173000000},
+	{country: "Sweden",prodElectricity: 142800000000,electricityConsumption: 138100000000},
+	{country: "Switzerland",prodElectricity: 63470000000,electricityConsumption: 54530000000},
+	{country: "Syria",prodElectricity: 26150000000,electricityConsumption: 24320000000},
+	{country: "Taiwan",prodElectricity: 158500000000,electricityConsumption: 147400000000},
+	{country: "Tajikistan",prodElectricity: 15080000000,electricityConsumption: 14410000000},
+	{country: "Tanzania",prodElectricity: 2727000000,electricityConsumption: 2566000000},
+	{country: "Thailand",prodElectricity: 118900000000,electricityConsumption: 106100000000},
+	{country: "Togo",prodElectricity: 108800000,electricityConsumption: 451200000},
+	{country: "Tonga",prodElectricity: 24790000,electricityConsumption: 23060000},
+	{country: "Trinidad and Tobago",prodElectricity: 5743000000,electricityConsumption: 5341000000},
+	{country: "Tunisia",prodElectricity: 10720000000,electricityConsumption: 10050000000},
+	{country: "Turkey",prodElectricity: 139700000000,electricityConsumption: 117900000000},
+	{country: "Turkmenistan",prodElectricity: 11410000000,electricityConsumption: 8908000000},
+	{country: "Turks and Caicos Islands",prodElectricity: 5000000,electricityConsumption: 4650000},
+	{country: "Uganda",prodElectricity: 1775000000,electricityConsumption: 1401000000},
+	{country: "Ukraine",prodElectricity: 180000000000,electricityConsumption: 132000000000},
+	{country: "United Arab Emirates",prodElectricity: 45120000000,electricityConsumption: 36510000000},
+	{country: "United Kingdom",prodElectricity: 395900000000,electricityConsumption: 337400000000},
+	{country: "United States",prodElectricity: 3839000000000,electricityConsumption: 3660000000000},
+	{country: "Uruguay",prodElectricity: 8536000000,electricityConsumption: 5878000000},
+	{country: "Uzbekistan",prodElectricity: 47700000000,electricityConsumption: 46660000000},
+	{country: "Vanuatu",prodElectricity: 48420000,electricityConsumption: 45030000},
+	{country: "Venezuela",prodElectricity: 89700000000,electricityConsumption: 89300000000},
+	{country: "Vietnam",prodElectricity: 34480000000,electricityConsumption: 32060000000},
+	{country: "Virgin Islands",prodElectricity: 1035000000,electricityConsumption: 962600000},
+	{country: "Western Sahara",prodElectricity: 90000000,electricityConsumption: 83700000},
+	{country: "Yemen",prodElectricity: 3040000000,electricityConsumption: 2827000000},
+	{country: "Zambia",prodElectricity: 8167000000,electricityConsumption: 5345000000}
+	]
+	
+	// filter data			
+	const filteredDataBar1 = data.filter(row => {
+		if (row.prodElectricity < 200000000){
+			return row
+		}
+	})
+	const filteredDataScatter3 = data.filter(row => {
+		if (row.prodElectricity < 200000000 && row.electricityConsumption > 10000000){
+			return row
+		}
+	})
+	
+	
+	
+	new Chart(
+	    document.getElementById('myChartBar0'),
+	    {
+	      type: 'bar',
+	      data: {
+	        labels: data.map(row => row.country),
+	        datasets: [
+	        {
+	           label: "prodElectricity",
+	           data: data.map(row => row.prodElectricity),
+	        }, 
+	        ]
+	      },
+	      options: {
+	          scales: {
+	          		x: {
+	          			beginAtZero: true,
+	          			title: {
+	          				 display: true,
+	          				 text: "Country"
+	          				 }
+	          			},
+	          y: {
+				              	beginAtZero: true,
+				                 title: {
+				                  display: true,
+				                  text: "Electricity - production(kWh)"
+				                }
+			             	}
+	          },
+	          plugins: {
+	                  title: {
+	                  display: true,
+	                  text: "La production d'électricité par pays"
+	               }
+	           }
+	      }
+	    }
+	  );
+	new Chart(
+	    document.getElementById('myChartBar1'),
+	    {
+	      type: 'bar',
+	      data: {
+	        labels: filteredDataBar1.map(row => row.country),
+	        datasets: [
+	        {
+	           label: "prodElectricity",
+	           data: filteredDataBar1.map(row => row.prodElectricity),
+	        }, 
+	        ]
+	      },
+	      options: {
+	          scales: {
+	          		x: {
+	          			beginAtZero: true,
+	          			title: {
+	          				 display: true,
+	          				 text: "Country"
+	          				 }
+	          			},
+	          y: {
+				              	beginAtZero: true,
+				                 title: {
+				                  display: true,
+				                  text: "Electricity - production(kWh)"
+				                }
+			             	}
+	          },
+	          plugins: {
+	                  title: {
+	                  display: true,
+	                  text: "Les pays dont la production d'électricité est inférieure 200.000.000 kwh"
+	               }
+	           }
+	      }
+	    }
+	  );
+	new Chart(
+	    document.getElementById('myChartScatter2'),
+	    {
+	      type: 'scatter',
+	      data: {
+	        labels: data.map(row => row.prodElectricity),
+	        datasets: [
+	        {
+	           label: "electricityConsumption",
+	           data: data.map(row => row.electricityConsumption),
+	        }, 
+	        ]
+	      },
+	      options: {
+	          scales: {
+	          		x: {
+	          			beginAtZero: true,
+	          			title: {
+	          				 display: true,
+	          				 text: "Electricity - production(kWh)"
+	          				 }
+	          			},
+	          y: {
+				              	beginAtZero: true,
+				                 title: {
+				                  display: true,
+				                  text: "Electricity - consumption(kWh)"
+				                }
+			             	}
+	          },
+	          plugins: {
+	                  title: {
+	                  display: true,
+	                  text: "La production d'électricité en fonction de la consommation d'électricité"
+	               }
+	           }
+	      }
+	    }
+	  );
+	new Chart(
+	    document.getElementById('myChartScatter3'),
+	    {
+	      type: 'scatter',
+	      data: {
+	        labels: filteredDataScatter3.map(row => row.prodElectricity),
+	        datasets: [
+	        {
+	           label: "electricityConsumption",
+	           data: filteredDataScatter3.map(row => row.electricityConsumption),
+	        }, 
+	        ]
+	      },
+	      options: {
+	          scales: {
+	          		x: {
+	          			beginAtZero: true,
+	          			title: {
+	          				 display: true,
+	          				 text: "Electricity - production(kWh)"
+	          				 }
+	          			},
+	          y: {
+				              	beginAtZero: true,
+				                 title: {
+				                  display: true,
+				                  text: "Electricity - consumption(kWh)"
+				                }
+			             	}
+	          },
+	          plugins: {
+	                  title: {
+	                  display: true,
+	                  text: "Nombre de telephone en fonction de la population"
+	               }
+	           }
+	      }
+	    }
+	  );
+
+</script>
+
+</body>
+</html>

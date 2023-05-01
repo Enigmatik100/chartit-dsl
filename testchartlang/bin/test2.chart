@@ -1,0 +1,37 @@
+ 
+ 	Load data from "/home/enigmatik/eclipse-workspaces/runtime-EclipseApplication/testchartlang/data/factbook.csv"
+	header true
+	types true 
+	delimiter ","
+	Select Columns [ (index 0 as country),  (index 7 as prodElectricity), (index 6 as electricityConsumption)] 
+ 
+ 	Chart {   
+		title: "La production d'électricité par pays"  
+		type: BAR 
+		xAxis: country
+		yAxis: prodElectricity
+	} 
+ 
+	Chart {   
+		title: "Les pays dont la production d'électricité est inférieure 200.000.000 kwh"  
+		type: BAR 
+		xAxis: country
+		yAxis: prodElectricity
+		Filter: prodElectricity < int(200000000)
+	} 
+	
+		Chart {   
+		title: "La production d'électricité en fonction de la consommation d'électricité"
+		type: SCATTER 
+		xAxis: prodElectricity
+		yAxis: electricityConsumption
+	} 
+	
+	
+	Chart {   
+		title: 'Nombre de telephone en fonction de la population'  
+		type: SCATTER 
+		xAxis: prodElectricity
+		yAxis: electricityConsumption
+		Filter: prodElectricity < int(200000000) electricityConsumption > int(10000000)
+	}             	               
