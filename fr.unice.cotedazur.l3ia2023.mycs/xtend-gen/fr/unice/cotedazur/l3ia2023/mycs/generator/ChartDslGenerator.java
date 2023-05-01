@@ -529,6 +529,7 @@ public class ChartDslGenerator extends AbstractGenerator {
     stringColumnTypesNames.add("string");
     stringColumnTypesNames.add("CAT");
     stringColumnTypesNames.add("Category");
+    stringColumnTypesNames.add("Categorical");
     for (int i = 2; (i < data.size()); i++) {
       {
         StringBuilder row = new StringBuilder("{");

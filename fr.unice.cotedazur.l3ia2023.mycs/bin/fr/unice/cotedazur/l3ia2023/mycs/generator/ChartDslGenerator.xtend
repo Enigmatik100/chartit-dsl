@@ -270,6 +270,9 @@ class ChartDslGenerator extends AbstractGenerator {
 		stringColumnTypesNames.add("string")
 		stringColumnTypesNames.add("CAT")
 		stringColumnTypesNames.add("Category")
+		stringColumnTypesNames.add("Categorical")
+		
+		
 		
 		
 		
